@@ -1,18 +1,33 @@
-
-  <ul id="slide-out" class="side-nav">
+<ul id="slide-out" class="side-nav" style="width: 225px">
     <li><div class="userView">
-      <div class="background">
-        <img src="images/office.jpg">
-      </div>
-      <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
-      <a href="#!name"><span class="white-text name">John Doe</span></a>
-      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-    </div></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a href="#!">Second Link</a></li>
+            <div class="background" >
+                <img src="../imgs/fundo.jpg">
+            </div>
+            <a href="#!user"><img class="circle" src="../imgs/avatar.png"></a>
+            <a href="#!name"><span class="white-text name">John Doe</span></a>
+            <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+        </div></li>
+    <!--<li><a href="#!"><i class="material-icons">cloud</i>Avaliações</a></li>-->
+    <li><a href="home.php">Inicio</a></li>
     <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-  </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-     
+
+    <li><a href="#!">Avaliações</a></li>
+    <li><a href="#!">Relatório</a></li>  
+    <li><div class="divider"></div></li>
+    <li class="menu-opcao">Funcionário</li>
+    <li><a href="new_funcio.php" class="menu-opcao">Novo</a></li>
+    <li><a href="#!" class="menu-opcao">Editar</a></li>
+    <li><div class="divider"></div></li>
+    <li class="menu-opcao">Critério</li>
+    <li><a href="#!" class="menu-opcao">Novo</a></li>
+    <li><a href="#!" class="menu-opcao">Editar</a></li>
+    <li><div class="divider"></div></li>
+    <li class="menu-opcao">Filial</li>
+    <li><a href="#!" class="menu-opcao">Nova</a></li>
+    <li><a href="#!" class="menu-opcao">Editar</a></li>
+    <li><div class="divider"></div></li>
+    <li><a href="conta.php"><i class="material-icons"> settings</i>Configurações</a></li>
+
+</ul>
+<a href="#" data-activates="slide-out" class="button-collapse"><i class="medium material-icons">menu</i></a>
+
