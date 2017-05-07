@@ -25,10 +25,10 @@
                 <div class="account-wall" >
                     <?php include 'menu.php'; ?>
 
-                    <center><strong><h5>Novo Funcionário</h5></strong></center>
+                    <center><strong><h5>Editar Funcionário</h5></strong></center>
                     <br>
                     <!-- TABLE -->
-                    <form class="cadastro-funcio-form" method="post">
+                    <form class="edit-funcio-form" method="post">
 
                         <div class='row'>
                             <div class='input-field col s12'>
@@ -99,12 +99,22 @@
                                 <label for="funcao">Função</label>
                             </div>
                         </div>
-                        <input type="hidden" name="op" value="cadastro_funcio"/>
+                        <input type="hidden" name="op" value="edit_funcio"/>
                         <div class="row">
-                            <div class=" col s12 m12 l12 ">
+
+                            <div class=" col s6 m6 l6 ">
+
+                                <div>
+                                    <button class="btn waves-effect waves-light red" type="submit" name="action">Excluir
+                                        <i class="material-icons right">delete</i>
+                                    </button>
+                                </div>
+
+                            </div>
+                            <div class=" col s6 m6 l6 ">
 
                                 <div class="right">
-                                    <button class="btn waves-effect waves-rigth" type="submit" name="action" style="background-color: #1398d8;">Cadastrar
+                                    <button class="btn waves-effect waves-rigth" type="submit" name="action">Salvar
                                         <i class="material-icons right">done</i>
                                     </button>
                                 </div>

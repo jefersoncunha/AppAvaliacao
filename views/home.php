@@ -12,6 +12,8 @@
 
     <body>
         <div  class="container">
+            <div class="row">
+            <div class="account-wall" >
             <?php include './menu.php'; ?>
 
             <center><strong><h5>Suas avaliações</h5></strong></center>
@@ -52,7 +54,8 @@
                 </tbody>
             </table>
             <!-- END TABLE -->
-
+            </div>
+            </div>
             <?php include './footer.php'; ?>
 
         </div>

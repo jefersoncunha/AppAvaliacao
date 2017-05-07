@@ -1,22 +1,23 @@
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8; width=device-width">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
         <title>MyTeam</title>
         <link rel="stylesheet" href="css/login.css">
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/meu_css.css"  media="screen,projection"/>
         <!--Let browser know website is optimized for mobile-->
-
-
     </head>
-    <body>
 
-        <div class="section"></div>
-        <main>
-            <center>
+    <body>
+            <div class="row">
+
+               <center>
                 <!--<img class="responsive-img" style="width: 250px;" src="http://i.imgur.com/ax0NCsK.gif" /> -->
                 <div class="section"></div>
 
@@ -63,56 +64,12 @@
                 <a href="views/singup.php">Criar um conta</a>
             </center>
 
-            <div class="section"></div>
-            <div class="section"></div>
-        </main>
-
-        <!--<div class="col s12">
-
-            <div class="account-wall ">
-                <img class="profile-img" src="imgs/avatar.png"
-                     alt="">
-                <form class="login-form" method="post">
-                   <!-- <input type="text" class="form-control" placeholder="Nome" id="nome" name="nome" required autofocus style="margin-top: 10px;">
-                    <input type="password" class=" form-control" placeholder="Senha" id="senha" name="senha"required style="margin-top: 10px;">
-                    <input type="hidden" name="op" value="login"/>
-                    
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="nome" type="text" class="form-control " required autofocus>
-                            <label for="nome">Nome</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="form-control" required autofocus>
-                            <label for="senha">Senha</label>
-                        </div>
-                    </div>
-                    <input type="hidden" name="op" value="login"/>
-
-                    <div class="row">
-                        <button class="col s12 m12 l2 btn btn-large btn-secondary btn-block" 
-                                type="submit" style="margin-top:20px ;">
-                            Entrar
-                        </button>
-                    </div>
-                    <div class="row">
-
-                        <div class="right" style=" margin-right: 15px">
-                            <a href="./views/singup.php" class="text-center new-account ">
-                                Cadastre-se
-                            </a>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>-->
+                </div>
+        <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script> 
-        <script type="text/javascript" src="js/meu_estilo.js"></script> 
-        <script type="text/javascript" src="js/usuario.js"></script> 
+        <script type="text/javascript" src="js/meu_estilo.js"></script>       
+        <script type="text/javascript" src="js/usuario.js"></script>       
+
     </body>
 </html>
