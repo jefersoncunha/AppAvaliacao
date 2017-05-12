@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="account-wall" >
 
-                    <center><strong><h5>Novo Funcionário</h5></strong></center>
+                    <strong><h5>Novo Funcionário</h5></strong>
                     <br>
                     <!-- TABLE -->
                     <form class="cadastro-funcio-form" method="post">

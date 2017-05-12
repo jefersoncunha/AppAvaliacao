@@ -41,14 +41,13 @@
     </a>
     <ul class="left">
       <li>
-          <a class="">
-              <i class="material-icons button-collapse" data-activates="slide-out">
+              <i class="waves-effect waves-circle material-icons button-collapse" data-activates="slide-out">
                   menu
               </i>
-          </a>
       </li>
     </ul>
   </div>
 </nav>
 
 <section class="divider"></section>
+                    <br>

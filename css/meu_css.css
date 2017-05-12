@@ -1,17 +1,15 @@
+
+
+/*menu*/
+.menu-opcao{
+    margin-left: 30px;
+}
+
 /*footer das paginas*/
 .page-footer
 {     
 background-color: #e0e0e0;  
 text-align: center;
-margin: auto;
-width: 100%;
-bottom: 0;
-position: fixed;
-}
-
-/*menu*/
-.menu-opcao{
-    margin-left: 30px;
 }
 
 /* Tabela do home */

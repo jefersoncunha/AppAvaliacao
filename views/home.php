@@ -19,7 +19,7 @@
                 <div class="account-wall" >
 
 
-                    <center><strong><h5>Suas avaliações</h5></strong></center>
+                    <strong><h5>Suas avaliações</h5></strong>
                     <br>
                     <!-- TABLE -->
                     <table class="table table-action highlight centered">
@@ -52,6 +52,42 @@
                                 <td>27/09/2017</td>
                                 <td class="t-status t-active"><a>Avaliar</a></td>
                             </tr>
+                            <tr>
+                                <td>Nome filial</td>
+                                <td>5 / 5 </td>
+                                <td>27/09/2017</td>
+                                <td class="t-status t-active"><a>Avaliar</a></td>
+                            </tr>
+                            <tr>
+                                <td>Nome filial</td>
+                                <td>5 / 5 </td>
+                                <td>27/09/2017</td>
+                                <td class="t-status t-active"><a>Avaliar</a></td>
+                            </tr>
+                            <tr>
+                                <td>Nome filial</td>
+                                <td>5 / 5 </td>
+                                <td>27/09/2017</td>
+                                <td class="t-status t-active"><a>Avaliar</a></td>
+                            </tr>
+                            <tr>
+                                <td>Nome filial</td>
+                                <td>5 / 5 </td>
+                                <td>27/09/2017</td>
+                                <td class="t-status t-active"><a>Avaliar</a></td>
+                            </tr>
+                            <tr>
+                                <td>Nome filial</td>
+                                <td>5 / 5 </td>
+                                <td>27/09/2017</td>
+                                <td class="t-status t-active"><a>Avaliar</a></td>
+                            </tr>
+                            <tr>
+                                <td>Nome filial</td>
+                                <td>5 / 5 </td>
+                                <td>27/09/2017</td>
+                                <td class="t-status t-active"><a>Avaliar</a></td>
+                            </tr>
 
 
                         </tbody>
@@ -61,7 +97,9 @@
             </div>
 
         </div>
- <?php include './footer.php'; ?>
+     
+            <?php include './footer.php'; ?>
+       
 
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
