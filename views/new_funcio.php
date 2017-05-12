@@ -20,10 +20,11 @@
     </head>
 
     <body>
+        <?php include 'menu.php'; ?>
+
         <div  class="container">
             <div class="row">
                 <div class="account-wall" >
-                    <?php include 'menu.php'; ?>
 
                     <center><strong><h5>Novo Funcionário</h5></strong></center>
                     <br>
@@ -117,9 +118,10 @@
 
                 </div>
             </div>
-            <?php include 'footer.php'; ?>
 
         </div>
+      <?php include 'footer.php'; ?>
+
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="../js/meu_estilo.js"></script>       
 

@@ -11,10 +11,11 @@
     </head>
 
     <body>
+        <?php include './menu.php'; ?>
+
         <div  class="container">
             <div class="row">
                 <div class="account-wall" >
-                    <?php include './menu.php'; ?>
 
                     <center><strong><h5>Configurações da Conta</h5></strong></center>
                     <br>

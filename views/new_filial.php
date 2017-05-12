@@ -12,10 +12,11 @@
     </head>
 
     <body>
+        <?php include 'menu.php'; ?>
+
         <div  class="container">
             <div class="row">
                 <div class="account-wall" >
-                    <?php include 'menu.php'; ?>
 
                     <center><strong><h5>Nova Filial</h5></strong></center>
                     <br>
@@ -39,10 +40,10 @@
                                 <textarea id="obs" class="materialize-textarea"></textarea>
                                 <label for="obs">Observação</label>
                             </div>
-                        <div class="right" style=" margin-right: 10px;">
-                            <label><i>*Campos obrigatórios</i></label>
-                        </div>
-                        
+                            <div class="right" style=" margin-right: 10px;">
+                                <label><i>*Campos obrigatórios</i></label>
+                            </div>
+
                         </div>
                         <input type="hidden" name="op" value="cadastro_filial"/>
                         <div class="row">

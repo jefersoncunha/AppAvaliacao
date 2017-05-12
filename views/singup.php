@@ -37,6 +37,11 @@
                                             <i class="material-icons right">send</i>
                                         </button>
                                     </div>
+                                     <div class="left">
+
+                                    <a href="../index.php" class="text-center new-account ">Voltar</a>
+
+                                </div>
                                     
                                 </div>
 
