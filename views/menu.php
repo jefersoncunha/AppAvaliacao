@@ -11,23 +11,26 @@
     <li><a href="home.php">Inicio</a></li>
     <li><div class="divider"></div></li>
 
-    <li><a href="#!">Avaliações</a></li>
-    <li><a href="#!">Relatório</a></li>  
+    <li><a href="list_aval_filial.php"><i class="material-icons"> toc</i>Avaliações</a></li>
+    <li><a href="#!"><i class="material-icons"> assessment</i>Relatório</a></li>  
     <li><div class="divider"></div></li>
     <li class="menu-opcao">Funcionário</li>
-    <li><a href="new_funcio.php" class="menu-opcao">Novo</a></li>
-    <li><a href="list_funcio.php" class="menu-opcao">Editar</a></li>
+    <li><a href="new_funcio.php" class="menu-opcao"><i class="material-icons"> add</i>Novo</a></li>
+    <li><a href="list_funcio.php" class="menu-opcao"><i class="material-icons"> mode_edit</i>Editar</a></li>
     <li><div class="divider"></div></li>
     <li class="menu-opcao">Critério</li>
-    <li><a href="new_criterio.php" class="menu-opcao">Novo</a></li>
-    <li><a href="edit_criterio.php" class="menu-opcao">Editar</a></li>
+    <li><a href="new_criterio.php" class="menu-opcao"><i class="material-icons"> add</i>Novo</a></li>
+    <li><a href="list_criterio.php" class="menu-opcao"><i class="material-icons"> mode_edit</i>Editar</a></li>
     <li><div class="divider"></div></li>
     <li class="menu-opcao">Filial</li>
-    <li><a href="new_filial.php" class="menu-opcao">Nova</a></li>
-    <li><a href="edit_filial.php" class="menu-opcao">Editar</a></li>
+    <li><a href="new_filial.php" class="menu-opcao"><i class="material-icons"> add</i>Nova</a></li>
+    <li><a href="list_filial.php" class="menu-opcao"><i class="material-icons"> mode_edit</i>Editar</a></li>
     <li><div class="divider"></div></li>
+    <li></li>
+    
     <li><a href="conta.php"><i class="material-icons"> settings</i>Configurações</a></li>
-    <li><a href="../index.php"><i class="material-icons"> exit</i>Logout</a></li>
+    <div class="section"></div>
+    <li><a href="../index.php"><i class="material-icons">reply</i>Logout</a></li>
 
 </ul>
 <!--

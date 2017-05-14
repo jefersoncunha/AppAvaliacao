@@ -18,20 +18,20 @@
             <div class="row">
                 <div class="account-wall" >
 
-                    <center><strong><h5>Nova Filial</h5></strong></center>
+                    <strong><h5>Nova Filial</h5></strong>
                     <br>
                     <!-- TABLE -->
                     <form class="cadastro-filial-form" method="post">
 
                         <div class='row'>
                             <div class='input-field col s12'>
-                                <input class='validate' type="text" name="nome" id="nome" />
+                                <input class='validate' type="text" name="nome" id="nome" required autofocus />
                                 <label for="nome">*Nome</label>
                             </div>
                         </div>
                         <div class='row'>
                             <div class='input-field col s12'>
-                                <input class='validate' type="text" name="fone" id="fone" />
+                                <input class='validate' type="text" name="fone" id="fone" required autofocus/>
                                 <label for="fone">*Telefone</label>
                             </div>
                         </div>

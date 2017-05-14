@@ -18,14 +18,14 @@
             <div class="row">
                 <div class="account-wall" >
 
-                    <center><strong><h5>Editar Critério</h5></strong></center>
+                    <strong><h5>Editar Critério</h5></strong>
                     <br>
                     <!-- TABLE -->
                     <form class="edit-criterio-form" method="post">
 
                         <div class='row'>
                             <div class='input-field col s12'>
-                                <input class='validate' type="text" name="criterio" id="criterio" />
+                                <input class='validate' type="text" name="criterio" id="criterio" required autofocus />
                                 <label for="criterio">Critério/Questão</label>
                             </div>
                             <div class="right" style=" margin-right: 10px;">
@@ -36,7 +36,7 @@
 
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="descricao" class="materialize-textarea"></textarea>
+                                <textarea id="descricao" class="materialize-textarea" required autofocus></textarea>
                                 <label for="descricao">Descrição</label>
                             </div>
                         </div>

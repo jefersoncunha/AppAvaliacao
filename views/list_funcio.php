@@ -8,7 +8,15 @@
         <link type="text/css" rel="stylesheet" href="../css/meu_css.css"  media="screen,projection"/>
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+        
+        <!--iniciando js para carregar o select das lojasa-->
+        <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+        <script type="text/javascript" src="../js/materialize.min.js"></script> 
+        <script>
+            $(document).ready(function () {
+                $('select').material_select();
+            });
+        </script>
     </head>
 
     <body>
@@ -18,7 +26,7 @@
             <div class="row">
                 <div class="account-wall" >
 
-                    <center><strong><h5>Listar Funcionário</h5></strong></center>
+                    <strong><h5>Listar Funcionário</h5></strong>
                     <br>
 
 
@@ -55,12 +63,15 @@
                     <!-- AQUI COLOCAR FOR PARA LISTAR FUNCIONARIOS DA FILIAL SELECIOANDA NO DROP--> 
 
                     <div class="row">
-                        <div class="col s12 m4 l3">
-                            <div class="card  deep-orange lighten-3">
-                                <div class="card-content white-text">
-                                    <span class="card-title ">Funcionario 1</span>
+                        <div class="col s12 m6 l6">
+                            <div class="card   blue lighten-4 lighten-3 z-depth-2">
+                                <div class="card-content black-text">
+                                    <span class="card-title  "><strong>Funcionario 1</strong></span>
                                     <p>
-
+                                        Sobrenome: sobrenome
+                                    </p>
+                                    <p>
+                                        Função: função
                                     </p>
                                 </div>
                                 <div class="card-action ">
@@ -68,12 +79,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col s12 m4 l3">
-                            <div class="card deep-orange lighten-3">
-                                <div class="card-content white-text">
-                                    <span class="card-title">Funcionario 2</span>
+                        <div class="col s12 m6 l6">
+                            <div class="card  blue lighten-4 lighten-3 z-depth-2">
+                                <div class="card-content black-text">
+                                    <span class="card-title"><strong>Funcionario 2</strong></span>
                                     <p>
-
+                                        Sobrenome: sobrenome
+                                    </p>
+                                    <p>
+                                        Função: função
                                     </p>
                                 </div>
                                 <div class="card-action">
@@ -94,8 +108,6 @@
         </div>
         <!--Import jQuery before materialize.js-->
         
-        <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
-        <script type="text/javascript" src="../js/materialize.min.js"></script> 
         <script type="text/javascript" src="../js/meu_estilo.js"></script>       
 
     </body>

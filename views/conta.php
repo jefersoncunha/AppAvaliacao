@@ -17,14 +17,37 @@
             <div class="row">
                 <div class="account-wall" >
 
-                    <center><strong><h5>Configurações da Conta</h5></strong></center>
+                    <strong><h5>Configurações da Conta</h5></strong>
                     <br>
                     <!-- TABLE -->
                     <form class="cadastro-login-form" method="post">
-                        <input type="text" class="form-control" placeholder="Nome" id="nome" name="nome" required autofocus style="margin-top: 10px;">
-                        <input type="password" class="form-control" placeholder="Senha" id="senha" name="senha"required style="margin-top: 10px;">
-                        <input type="email" class="form-control" placeholder="E-mail" id="email" name="email"required style="margin-top: 10px;">
-                        <input type="text" class="form-control" placeholder="Nome da Empresa" id="empresa" name="empresa"required style="margin-top: 10px;">
+                        <div class='row'>
+                            <div class='input-field col s12'>
+                                <input class='validate' type="text" name="nome" id="nome" required autofocus />
+                                <label for="nome">Nome</label>
+                            </div>
+                        </div>
+
+                        <div class='row'>
+                            <div class='input-field col s12'>
+                                <input class='validate' type="text" name="senha" id="senha"  required autofocus/>
+                                <label for="senha">Senha</label>
+                            </div>
+                        </div>
+
+                        <div class='row'>
+                            <div class='input-field col s12'>
+                                <input class='validate' type="text" name="email" id="email" required autofocus/>
+                                <label for="email">E-mail</label>
+                            </div>
+                        </div>
+
+                        <div class='row'>
+                            <div class='input-field col s12'>
+                                <input class='validate' type="text" name="empresa" id="empresa" required autofocus/>
+                                <label for="empresa">Empresa</label>
+                            </div>
+                        </div>
                         <input type="hidden" name="op" value="editar_login"/>
                         <div class="row">
                             <div class=" col s12 m12 l12 ">
@@ -34,11 +57,7 @@
                                         <i class="material-icons right">done</i>
                                     </button>
                                 </div>
-                                <div class="left">
-
-                                    <a href="home.php" class="text-center new-account ">Voltar</a>
-
-                                </div>
+                                
                             </div>
 
                         </div>
