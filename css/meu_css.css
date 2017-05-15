@@ -1,4 +1,13 @@
+/* mouse passar na avalicao*/
+#mostrar{
+  display: none;
+}
 
+#passar_mouse:hover #mostrar{
+  display:block;
+  }
+  
+  
 
 /*menu*/
 .menu-opcao{

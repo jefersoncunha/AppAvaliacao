@@ -40,7 +40,7 @@
 <nav style="background-color: #2196f3;">
   <div class="nav-wrapper z-depth-4">
       <a href="home.php" class="brand-logo center">
-      MyTeam
+          <strong><i>MyTeam</i></strong>
     </a>
     <ul class="left">
       <li>
