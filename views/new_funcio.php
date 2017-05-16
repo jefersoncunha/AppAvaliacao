@@ -73,19 +73,14 @@
                             </div>
                         </div>
 
-
+                            <div class="section"></div>
 
                         <div class="row">
-                            <div class='input-field col s12 m6 l6'>
-
-                                <label>Pertence à loja</label>
-                            </div>
-                            <div class="section"></div>
 
                             <div class='input-field col s12 m6 l6'>
 
                                 <select>
-                                    <option value="" disabled selected>Selecione Loja Filial</option>
+                                    <option value="" disabled selected>Selecione loja filial pertencente</option>
                                     <option value="1">Loja 1</option>
                                     <option value="2">Loja 2</option>
                                     <option value="3">Loja 3</option>

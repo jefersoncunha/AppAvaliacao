@@ -27,15 +27,8 @@
                         <div class="col s12 m12 l12 "> 
                             <strong><span class="new badge grey" data-badge-caption="10/10/2017" >Data:</span></strong>
                         </div>
-
-
                     </div>
-
-
-                    <div class="section"></div>
-                    
-                    <nav style="background-color: #eeeeee">
-              
+                    <nav class="teal lighten-5">    
                     <div class="nav-wrapper">
                         <form>
                           <div class="input-field">
@@ -45,30 +38,34 @@
                         </form>
                     </div>
                    </nav>
+                   <div class=" col s12 divider"></div>
+                    <div class="section"></div>
+
                     <!-- LISTAR FUNCIONARIOS NÃO AVALIADOS--> 
                     <h5><i>Não avaliados</i></h5>
                     <div class="divider"></div>
 
-                    <ul class="collapsible " data-collapsible="accordion">
+                    <ul class="collapsible light-blue lighten-5" data-collapsible="accordion">
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">person</i>Funcionario 1</div>
+                            <div class="collapsible-header  blue lighten-2">
+                                <i class="material-icons">person</i>Funcionario 1</div>
                             <div class="collapsible-body">
                                 <p>Sobrenome: sobrenome <br>
                                     Fone: 9999-9999<br>
                                     Função: funcao
 
-                                    <a href="avaliacao.php"><span class="new badge grey" data-badge-caption="" >Avaliar</span></a>
+                                    <a href="avaliacao.php"><span class="new badge red" data-badge-caption="" >Avaliar</span></a>
                                 </p>
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">person</i>Funcionario 2</div>
+                            <div class="collapsible-header  blue lighten-2"><i class="material-icons">person</i>Funcionario 2</div>
                             <div class="collapsible-body">
                                 <p>Sobrenome: sobrenome <br>
                                     Fone: 9999-9999<br>
                                     Função: funcao
 
-                                    <a href="avaliacao.php"><span class="new badge grey" data-badge-caption="" >Avaliar</span></a>
+                                    <a href="avaliacao.php"><span class="new badge red" data-badge-caption="" >Avaliar</span></a>
                                 </p>
                             </div>
                         </li>
@@ -78,9 +75,10 @@
                     <h5><i>Já avaliados</i></h5>
                     <div class="divider"></div>
                     <!-- LISTAR FUNCIONARIOS JÁ AVALIADOS--> 
-                    <ul class="collapsible" data-collapsible="accordion">
+                    <ul class="collapsible green lighten-5" data-collapsible="accordion">
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">person</i>Funcionario 1</div>
+                            <div class="collapsible-header teal accent-3">
+                                <i class="material-icons">person</i>Funcionario 1</div>
                             <div class="collapsible-body">
                                 <p>Sobrenome: sobrenome <br>
                                     Fone: 9999-9999<br>
@@ -90,7 +88,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">person</i>Funcionario 2</div>
+                            <div class="collapsible-header teal accent-3"><i class="material-icons">person</i>Funcionario 2</div>
                             <div class="collapsible-body">
                                 <p>Sobrenome: sobrenome <br>
                                     Fone: 9999-9999<br>

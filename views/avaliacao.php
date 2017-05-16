@@ -16,10 +16,10 @@
         <?php include 'menu.php'; ?>
         <div  class="container">
             <div class="row">
-                <div class="account-wall" >
-                    <br>
-
-                    <div class="col s12 m12 l12 ">
+                <div class="account-wall" >                    
+                    <div class="col s12 m1 l1"></div>
+                    
+                    <div class="col s12 m10 l10">
                         <!--<h5 class="header">Funcionario 1</h5>-->
                         <div class="card horizontal blue lighten-3  z-depth-3">
                             <div class="card-content">
@@ -28,8 +28,8 @@
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
-                                    <i>
-                                        <p >Nome: nome<br>
+                                    <i style="font-size: 11px">
+                                            Nome: nome<br>
                                             Sobrenome: sobrenome<br>
                                             Função: função<br>
                                             Pertencente: pertencente</p>
@@ -42,6 +42,7 @@
                         </div>
                     </div>
                     <br>
+                    <div class="col s12 m1 l1"></div>
                     <div class=" col s12 divider"></div>
 
                     <!--INICIO DO FOR-->
@@ -90,8 +91,6 @@
                                 <label for="obs">Observação</label>
                             </div>
                         </div>
-
-
                         <div class="row">
                             <div class="col s12">
                                 <p>
@@ -104,7 +103,6 @@
                                 </p>
                             </div>
                         </div>
-
                         <div class='row center-align' >
 
                             <div class='input-field col s12 m2 l2 '>
@@ -155,7 +153,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            
             <?php include 'footer.php'; ?>
 
         </div>

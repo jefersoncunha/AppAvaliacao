@@ -8,11 +8,11 @@
             <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
         </div></li>
     <!--<li><a href="#!"><i class="material-icons">cloud</i>Avaliações</a></li>-->
-    <li><a href="home.php">Inicio</a></li>
+    <li><a href="home.php"><i class="material-icons"> home</i>Inicio</a></li>
     <li><div class="divider"></div></li>
 
     <li><a href="list_aval_filial.php"><i class="material-icons"> toc</i>Avaliações</a></li>
-    <li><a href="#!"><i class="material-icons"> assessment</i>Relatório</a></li>  
+    <li><a href="relatorios.php"><i class="material-icons"> assessment</i>Relatório</a></li>  
     <li><div class="divider"></div></li>
     <li class="menu-opcao">Funcionário</li>
     <li><a href="new_funcio.php" class="menu-opcao"><i class="material-icons"> add</i>Novo</a></li>
