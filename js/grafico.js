@@ -8,11 +8,11 @@ var options = {
     //data responsavel pelo valores dos itens e visual do grafico
 var data = {
     //cabeçalhos
-    labels: ["Nota 1", "Nota 2", "Nota 3", "Nota 4", "Nota 5"],
+    labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
     datasets: [
         
         {
-            label: "Dados primarios",
+            label: "Semana 1",
             fillColor: "rgba(187, 222, 251, 1)",
             strokeColor: "rgba(0, 0, 0, 1)",
             pointColor: "rgba(33, 150, 243, 1)",
@@ -22,6 +22,7 @@ var data = {
             //informar dados
             data: [2, 4, 5,3,3]
         }
+      
     ]
 };
 

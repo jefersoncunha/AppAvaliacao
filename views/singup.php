@@ -24,9 +24,7 @@
 
                     <center><strong><h5>Cadastre-se</h5></strong></center>
                     <br>
-                    <form class="cadastro-login-form" method="post">
-
-
+                    <form class="cadastro-login-form" method="post" action="../controllers/avaliador_controll.php">
 
                         <div class='row'>
                             <div class='input-field col s12'>

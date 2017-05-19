@@ -27,7 +27,7 @@
                 <div class="container" >
                     <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
                         <img class="profile-img" src="imgs/avatar.png" alt="" style= "width: 145px; height: 135px; background-color: #c7cdcf">
-                        <form class="col s12 login-form" method="post">
+                        <form class="col s12 login-form" method="post" action="controllers/avaliador_dao.php">
                             <div class='row'>
                                 <div class='col s12'>
                                 </div>
@@ -51,6 +51,8 @@
                                     <a class='pink-text' href='#!'><b>Recuperar senha</b></a>
                                 </label>-->
                             </div>
+                            
+                                 <input type="hidden" name="operacao" value="logar">
 
                             <br />
                             <center>
