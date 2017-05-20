@@ -9,15 +9,34 @@
         <link type="text/css" rel="stylesheet" href="../css/meu_css.css"  media="screen,projection"/>
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <script>
-            function goBack() {
-                window.history.back();
-            }
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+        <script type="text/javascript" src="../js/materialize.min.js"></script> 
+        <script type="text/javascript" src="../js/meu_estilo.js"></script>   
+
+        <script type="text/javascript">
+
+            //abrir modal
+            $(document).ready(function () {
+                $('.modal').modal();
+                //now you can open modal from code
+                $('#modal').modal('open');
+            });
         </script>
 
     </head>
 
     <body>
+        <?php
+        session_start();
+        if(isset($_GET["numero"]))
+        {
+        //recebe numero do modelo a apresentar
+        $numero = $_GET["numero"];
+        
+        }
+        ?>
+
         <div  class="container">
             <div class="row">
                 <div class="account-wall" >
@@ -25,6 +44,8 @@
                     <center><strong><h5>Cadastre-se</h5></strong></center>
                     <br>
                     <form class="cadastro-login-form" method="post" action="../controllers/avaliador_controll.php">
+                        <!--<form class="cadastro-login-form" id="login-cadastro" >-->
+
 
                         <div class='row'>
                             <div class='input-field col s12'>
@@ -53,7 +74,7 @@
                                 <label for="empresa">Empresa</label>
                             </div>
                         </div>
-                        <input type="hidden" name="op" value="cadastro_login"/>
+
                         <div class="row">
 
                             <div class="right" style=" margin-right: 10px;">
@@ -67,12 +88,11 @@
                                         <i class="material-icons right">send</i>
                                     </button>
                                 </div>
-
+                                <input type="hidden" name="op" value="cadastro_login"/>
                                 <div class="left">
 
-                                    <button class="btn waves-effect waves-rigth" onclick="goBack()" style="background-color: #bdc7bb;">Voltar
-                                        <i class="material-icons left">reply</i>
-                                    </button>
+                                    <a class="waves-effect waves-light btn" href="../index.php">Voltar</a>
+
                                     <!--
                                     <a href="../index.php" class="text-center new-account ">
                                         <i class="material-icons">reply</i>Voltar</a>
@@ -82,17 +102,16 @@
                             </div>
 
                         </div>
+
                     </form>
 
                 </div>
             </div>
-            <?php include './footer.php'; ?>
+
+            <?php include '../views/modal.php'; ?>
 
         </div>
-        <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
-        <script type="text/javascript" src="../js/materialize.min.js"></script> 
-        <script type="text/javascript" src="../js/meu_estilo.js"></script>       
+
 
     </body>
 </html>

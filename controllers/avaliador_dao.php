@@ -13,24 +13,25 @@ class avaliador_dao {
         //chama classe do bD
         $bd = new conexao_bd();
 
-        $sql = "INSERT INTO login (nome, senha,email,organizacao) VALUES "
-                . "('$this->nome',"
-                . " '$this->senha',"
-                . " '$this->email',"
-                . " '$this->organizacao')";
-        //conecta
-        $bd->conectar();
-        //executa a query
-        $bd->query($sql);
-        //fecha conexao
-        $bd->fechar();
-    }
+            $sql = "INSERT INTO login (nome, senha,email,organizacao) VALUES "
+                    . "('$this->nome',"
+                    . " '$this->senha',"
+                    . " '$this->email',"
+                    . " '$this->organizacao')";
+            //conecta
+            $bd->conectar();
+            //executa a query
+            $bd->query($sql);
+            //fecha conexao
+            $bd->fechar();
+            
+        }
 
-    function buscaUser($nomeAdm, $senhaAdm) {
+    function busca_login($no,$se) {
 
-        $bd = new ConexaoBD();
+        $bd = new conexao_bd();
         $bd->conectar();
-        $sql = "SELECT * FROM login WHERE nome='{$nomeAdm}' AND senha='{$senhaAdm}';";
+        $sql = "SELECT * FROM login WHERE nome='{$no}' AND senha='{$se}';";
         return $bd->query($sql);
         $bd->fechar();
     }

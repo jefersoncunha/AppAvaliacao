@@ -11,6 +11,25 @@
     </head>
 
     <body>
+        <?php
+        session_start();
+
+        //Caso o usuário não esteja autenticado, limpa os dados e redireciona
+        if (!isset($_SESSION['nome_db']) and ! isset($_SESSION['senha_db'])) {
+            //Destrói
+            session_destroy();
+
+            //Limpa
+            unset($_SESSION['nome_db']);
+            unset($_SESSION['senha_db']);
+
+            //Redireciona para a página de autenticação
+            header('location:../index.php');
+        }
+        $nome_logado = $_SESSION['nome_bd'];
+        $email_logado = $_SESSION['email_bd'];
+        ?>
+
         <?php include './menu.php'; ?>
 
         <div  class="container">
@@ -97,9 +116,10 @@
             </div>
 
         </div>
-     
-            <?php include './footer.php'; ?>
-       
+
+
+        <?php include './footer.php'; ?>
+
 
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>

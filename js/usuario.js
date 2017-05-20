@@ -1,12 +1,22 @@
-$(".login-form").submit(function(event) {
+/*$(".login-form").submit(function(event) {
   event.preventDefault();
   var status = $('#status');
  setTimeout(function(){
             window.location.href = 'views/home.php';
           },1000);
- /* função para buscar no controle e validar login
-  * 
-  $.post("inc/controllers/controller-usuarios.php",$(this).serialize(),
+});
+
+
+ //função para buscar no controle e validar login
+
+$(".login-cadastro").submit(function(event) {
+  event.preventDefault();
+  var status = $('#status');
+ setTimeout(function(){
+            window.location.href = '../index.php';
+          },1000);
+  
+  $.post("../controllers/avaliador_controll.php",$(this).serialize(),
     function(resposta){
       if(resposta){
         status.slideDown();
@@ -30,5 +40,5 @@ $(".login-form").submit(function(event) {
           status.html(resposta);
         }
       }
-    });*/
-});
+    });
+});*/
