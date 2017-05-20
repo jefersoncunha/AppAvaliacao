@@ -1,11 +1,12 @@
+
 <ul id="slide-out" class="side-nav" style="width: 225px">
     <li><div class="userView">
             <div class="background" >
                 <img src="../imgs/fundo.jpg">
             </div>
             <a href="#!user"><img class="circle" src="../imgs/avatar.png"></a>
-            <a href="#!name"><span class="white-text name">John Doe</span></a>
-            <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+            <a href="#!name"><span class="white-text name"><?php echo $_SESSION['nome_bd'];?></span></a>
+            <a href="#!email"><span class="white-text email"><?php echo $_SESSION['email_bd'];?></span></a>
         </div></li>
     <!--<li><a href="#!"><i class="material-icons">cloud</i>Avaliações</a></li>-->
     <li><a href="home.php"><i class="material-icons"> home</i>Inicio</a></li>

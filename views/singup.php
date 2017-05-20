@@ -29,6 +29,7 @@
     <body>
         <?php
         session_start();
+        //verifica se existe numero url
         if(isset($_GET["numero"]))
         {
         //recebe numero do modelo a apresentar

@@ -34,8 +34,7 @@ class conexao_bd {
         $con = mysqli_connect(
         $this->servidor, 
         $this->usuario, 
-        $this->senha) 
-                or die(mysqli_error());
+        $this->senha) or die(mysqli_error());
         mysqli_select_db($con, $this->db) or die(mysqli_error());
     }
     

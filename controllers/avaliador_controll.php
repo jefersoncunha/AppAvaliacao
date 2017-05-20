@@ -25,9 +25,14 @@ if (isset($_POST['op'])) {
     switch ($operacao) {
         case "cadastro_login":
 
-            //recebe dados form
+            //Deixando apenas letras e números na variável
+            $_POST['nome'] = preg_replace('/[^[:alnum:]_]/', '',$_POST['nome']);
+            $_POST['senha'] = preg_replace('/[^[:alnum:]_]/', '',$_POST['senha']);
+            $_POST['email'] = preg_replace('/[^[:alnum:]_]/', '',$_POST['email']);
+            $_POST['empresa'] = preg_replace('/[^[:alnum:]_]/', '',$_POST['empresa']);
+
+            //recebe dados form e gerando criptografia da senha
             $nome_Avaliador = $_POST['nome'];
-            //gerando criptografia da senha
             $senha_Avaliador = sha1(md5($_POST['senha']));
             $email_Avaliador = $_POST['email'];
             $organizacao_Avaliador = $_POST['empresa'];
@@ -40,7 +45,6 @@ if (isset($_POST['op'])) {
 
             //verifica login
             $result = $avaliador->busca_login($nome_Avaliador, $senha_Avaliador);
-
 
             if (mysqli_num_rows($result) > 0) {
 
@@ -62,8 +66,6 @@ if (isset($_POST['op'])) {
                 echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../views/singup.php?numero=2'>";
                 //echo "ok";
             }
-
-
             break;
 
         case "logar":
@@ -71,7 +73,6 @@ if (isset($_POST['op'])) {
             $nome_login = $_POST['nome_login'];
             //crpto senha
             $senha_login = sha1(md5($_POST['senha_login']));
-
 
             $nomeBanco = null;
             $senhaBanco = null;
@@ -92,7 +93,8 @@ if (isset($_POST['op'])) {
                     $_SESSION['senha_bd'] = $senhaBanco;
                     $_SESSION['email_bd'] = $emailBanco;
 
-                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../views/home.php'>";
+                    //echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../views/home.php'>";
+                    header('location:../views/home.php');
                 } else {
                     session_start();
                     $_SESSION['local'] = './index.php';
@@ -105,8 +107,8 @@ if (isset($_POST['op'])) {
 
                 echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../index.php?numero=3'>";
            
-	//Redireciona para a página de autenticação
-	//header('location:login.php');
+                //Redireciona para a página de autenticação
+                //header('location:login.php');
             }
 
             break;

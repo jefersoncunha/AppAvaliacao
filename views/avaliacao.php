@@ -13,6 +13,7 @@
     </head>
 
     <body>
+        <?php include '../controllers/sessao.php';?>
         <?php include 'menu.php'; ?>
         <div  class="container">
             <div class="row">
