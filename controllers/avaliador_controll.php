@@ -10,7 +10,7 @@
 if (isset($_POST['op'])) {
 
     //inclusões de classses
-    include './avaliador_dao.php';
+    include '../dao/avaliador_dao.php';
 
 
     //inicialização de obejtos
