@@ -27,11 +27,10 @@
     <li><a href="new_filial.php" class="menu-opcao"><i class="material-icons"> add</i>Nova</a></li>
     <li><a href="list_filial.php" class="menu-opcao"><i class="material-icons"> mode_edit</i>Editar</a></li>
     <li><div class="divider"></div></li>
-    <li></li>
-    
-    <li><a href="conta.php"><i class="material-icons"> settings</i>Configurações</a></li>
-    <div class="section"></div>
-    <li><a href="../index.php"><i class="material-icons">reply</i>Logout</a></li>
+    <li><a href="edit_conta.php"><i class="material-icons"> settings</i>Minha conta</a></li>
+    <li><div class="divider"></div></li>
+    <li><a href="logout.php"><i class="material-icons">reply</i>Logout</a></li>
+    <li><div class="divider"></div></li>
 
 </ul>
 <!--

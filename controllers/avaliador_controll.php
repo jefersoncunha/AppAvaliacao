@@ -6,15 +6,18 @@
  *
  * @author vagner
  */
-//verifica de se variavel foi setada
+//verifica se variavel foi setada
 if (isset($_POST['op'])) {
 
     //inclusões de classses
+    include './seguranca.php';
     include '../dao/avaliador_dao.php';
+    
 
 
     //inicialização de obejtos
     $avaliador = new avaliador_dao();
+    $sg = new seguranca();
 
 
 
@@ -25,21 +28,17 @@ if (isset($_POST['op'])) {
     switch ($operacao) {
         case "cadastro_login":
 
-            //Deixando apenas letras e números na variável
-            $_POST['nome'] = preg_replace('/[^[:alnum:]_]/', '',$_POST['nome']);
-            $_POST['senha'] = preg_replace('/[^[:alnum:]_]/', '',$_POST['senha']);
-            $_POST['email'] = preg_replace('/[^[:alnum:]_]/', '',$_POST['email']);
-            $_POST['empresa'] = preg_replace('/[^[:alnum:]_]/', '',$_POST['empresa']);
-
-            //recebe dados form e gerando criptografia da senha
-            $nome_Avaliador = $_POST['nome'];
-            $senha_Avaliador = sha1(md5($_POST['senha']));
-            $email_Avaliador = $_POST['email'];
-            $organizacao_Avaliador = $_POST['empresa'];
+            //recebe dados form e verificando  
+            //qualquer ataque sql injection
+            
+            $nome_Avaliador = $sg->anti_sql_injection($_POST['nome']);
+            $email_Avaliador = $sg->anti_sql_injection($_POST['email']);
+            $organizacao_Avaliador = $sg->anti_sql_injection($_POST['empresa']);
+            $senha_Avaliador = $sg->anti_sql_injection($_POST['senha']);
 
             //setar dados no obejto
             $avaliador->nome = $nome_Avaliador;
-            $avaliador->senha = $senha_Avaliador;
+            $avaliador->senha = $sg->cripto($senha_Avaliador);//cripto senha
             $avaliador->email = $email_Avaliador;
             $avaliador->organizacao = $organizacao_Avaliador;
 
@@ -69,29 +68,36 @@ if (isset($_POST['op'])) {
             break;
 
         case "logar":
-            //recebe dados form
-            $nome_login = $_POST['nome_login'];
+            //recebe dados form e verifica sqlinjection
+            $nome_login = $sg->anti_sql_injection($_POST['nome_login']);
             //crpto senha
-            $senha_login = sha1(md5($_POST['senha_login']));
+            $senha_login = sha1(md5($sg->anti_sql_injection($_POST['senha_login'])));
 
+            $idBanco = null;
             $nomeBanco = null;
             $senhaBanco = null;
             $emailBanco = null;
+            $empreBanco = null;
 
             $reslut_busca = $avaliador->busca_login($nome_login, $senha_login);
 
             while ($linha = mysqli_fetch_assoc($reslut_busca)) {
+                $idBanco = $linha['id'];
                 $nomeBanco = $linha['nome'];
                 $senhaBanco = $linha['senha'];
                 $emailBanco = $linha['email'];
+                $empreBanco = $linha['organizacao'];
                 
             } if ($nome_login == $nomeBanco) {
                 if ($senha_login == $senhaBanco) {
 
                     session_start();
+                    
                     $_SESSION['nome_bd'] = $nomeBanco;
+                    $_SESSION['id_bd'] = $idBanco;
                     $_SESSION['senha_bd'] = $senhaBanco;
                     $_SESSION['email_bd'] = $emailBanco;
+                    $_SESSION['empre_bd'] = $empreBanco;
 
                     //echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../views/home.php'>";
                     header('location:../views/home.php');
@@ -111,6 +117,28 @@ if (isset($_POST['op'])) {
                 //header('location:login.php');
             }
 
+            break;
+            
+        case 'editar_login':
+            
+            session_start();
+            
+            $id_Avaliador = $_SESSION['id_bd'];
+            $nome_Avaliador = $sg->anti_sql_injection($_POST['nome']);
+            $email_Avaliador = $sg->anti_sql_injection($_POST['email']);
+            $organizacao_Avaliador = $sg->anti_sql_injection($_POST['empresa']);
+            
+            //setar dados no obejto
+            $avaliador->id = $id_Avaliador;
+            $avaliador->nome = $nome_Avaliador;
+            $avaliador->email = $email_Avaliador;
+            $avaliador->organizacao = $organizacao_Avaliador;
+            
+            $avaliador->alterar();
+            
+             echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../index.php'>";
+
+            
             break;
         default:
             break;
