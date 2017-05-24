@@ -12,17 +12,22 @@
     </head>
 
     <body>
-                <?php include '../controllers/sessao.php';?>
-        <?php include 'menu.php'; ?>
+        <?php
+        include '../controllers/sessao.php';
+        include 'menu.php';
+        ?>
 
         <div  class="container">
             <div class="row">
                 <div class="account-wall" >
-
-                    <strong><h5>Nova Filial</h5></strong>
+                    <div class="row">
+                        <strong><h5><i>Nova Filial</i></h5></strong>
+                        <div class="divider col s8 m6 l6"></div>
+                    </div>
+                    <strong><h5></h5></strong>
                     <br>
                     <!-- TABLE -->
-                    <form class="cadastro-filial-form" method="post">
+                    <form  method="post" action="../controllers/filial_controll.php">
 
                         <div class='row'>
                             <div class='input-field col s12'>
@@ -38,7 +43,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="obs" class="materialize-textarea"></textarea>
+                                <textarea id="obs" class="materialize-textarea" name="obs"></textarea>
                                 <label for="obs">Observação</label>
                             </div>
                             <div class="right" style=" margin-right: 10px;">
@@ -64,7 +69,7 @@
 
                 </div>
             </div>
-            <?php include 'footer.php'; ?>
+<?php include 'footer.php'; ?>
 
         </div>
         <!--Import jQuery before materialize.js-->

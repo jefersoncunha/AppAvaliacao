@@ -13,7 +13,6 @@ class avaliador_dao {
      function inserir() {
       //chama classe do bD
       $bd = new conexao_bd();
-      $sg = new seguranca();
 
       $sql = "INSERT INTO login (nome, senha,email,organizacao) VALUES "
       . "('$this->nome',"
@@ -33,7 +32,6 @@ class avaliador_dao {
       $sg = new seguranca();
       $bd->conectar();
       
-      //anti_sql_injection função verficar sql injection
       $sql = 'SELECT * FROM login WHERE nome=\''.$no.'\' '
               . 'AND senha=\''.$se.'\'';
 
@@ -46,7 +44,8 @@ class avaliador_dao {
             $bd = new conexao_bd();
             $sql = "UPDATE login SET nome='$this->nome',"
                     . "email='$this->email' ,"
-                    . "organizacao='$this->organizacao'  WHERE id='$this->id';";
+                    . "organizacao='$this->organizacao'  "
+                    . "WHERE id='$this->id';";
             $bd->conectar();
             return $bd->query($sql);
             $bd->fechar();
