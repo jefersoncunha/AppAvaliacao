@@ -23,4 +23,29 @@ class filial_dao {
       $bd->fechar();
       }
       
+      function busca_login($no, $se) {         
+      $bd = new conexao_bd();
+      $sg = new seguranca();
+      $bd->conectar();
+      
+      $sql = 'SELECT * FROM filial WHERE nome=\''.$no.'\' '
+              . 'AND senha=\''.$se.'\'';
+
+      return $bd->query($sql);
+
+      $bd->fechar();
+      }
+      
+      function alterar() {
+            $bd = new conexao_bd();
+            $sql = "UPDATE login SET nome='$this->nome',"
+                    . "email='$this->email' ,"
+                    . "organizacao='$this->organizacao'  "
+                    . "WHERE id='$this->id';";
+            $bd->conectar();
+            return $bd->query($sql);
+            $bd->fechar();
+        }
+        
+      
 }

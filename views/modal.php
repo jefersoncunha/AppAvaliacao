@@ -1,8 +1,8 @@
 <?php
-if (isset($numero)) {
+    if (isset($_SESSION['numero_modal'])) {
     
-    if ($numero == 1) {
-        ?>
+        if ($_SESSION['numero_modal'] == 1) {
+            ?>
         <!-- Modal Structure -->
 
         <div id="modal" class="modal bottom-sheet  red lighten-1">
@@ -17,7 +17,8 @@ if (isset($numero)) {
 
 
         <?php
-    } else if ($numero == 2) {
+                
+    } else if ($_SESSION['numero_modal'] == 2) {
         ?>
         <!-- Modal Structure -->
 
@@ -32,7 +33,7 @@ if (isset($numero)) {
         </div>
 
         <?php
-    } else if ($numero == 3) {
+    } else if ($_SESSION['numero_modal'] == 3) {
         ?>
         <!-- Modal Structure -->
 
@@ -47,5 +48,7 @@ if (isset($numero)) {
         </div>
         <?php
     }
+    //limpa sessao
+    unset($_SESSION['numero_modal']);
 }
 ?>

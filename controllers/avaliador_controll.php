@@ -51,8 +51,9 @@ if (isset($_POST['op'])) {
                 session_start();
 
                 $_SESSION['local'] = './singup.php';
+                 $_SESSION['numero_modal'] = 1;
 
-                echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../views/singup.php?numero=1'>";
+                echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../views/singup.php'>";
             } else {
                 //criando sessão para msmgm modal
                 session_start();
@@ -61,8 +62,9 @@ if (isset($_POST['op'])) {
                 $avaliador->inserir();
 
                 $_SESSION['local'] = '../index.php';
+                 $_SESSION['numero_modal'] = 2;
                 //redirecionar para a pagina
-                echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../views/singup.php?numero=2'>";
+                echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../views/singup.php'>";
                 //echo "ok";
             }
             break;
@@ -104,14 +106,16 @@ if (isset($_POST['op'])) {
                 } else {
                     session_start();
                     $_SESSION['local'] = './index.php';
+                    $_SESSION['numero_modal'] = 3;
                     
-                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../index.php?numero=3'>";
+                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../index.php'>";
                 }
             } else {
                 session_start();
                 $_SESSION['local'] = './index.php';
+                $_SESSION['numero_modal'] = 3;
 
-                echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../index.php?numero=3'>";
+                echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../index.php'>";
            
                 //Redireciona para a página de autenticação
                 //header('location:login.php');

@@ -28,14 +28,7 @@
     </head>
 
     <body>
-        <?php
-        session_start();
-        //verifica se exites valor get
-        if(isset($_GET["numero"])){
-        //recebe numero do modelo a apresentar
-        $numero = $_GET["numero"];
-        }
-        ?>
+
         <div class="row">
 
             <center>
@@ -84,7 +77,13 @@
             </center>
 
         </div>
-            <?php include './views/modal.php'; ?>
+        <?php
+        session_start();
+        //verifica se exites valor sessao
+            //recebe numero do modelo a apresentar
+            include './views/modal.php';
+        ?>
+        
 
     </body>
 </html>
