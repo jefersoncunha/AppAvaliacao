@@ -36,10 +36,12 @@ if (isset($_POST['op'])) {
             
             $filial->inserir($id_avaliador);
             
-            $_SESSION["msgm"]="Cadastrado com Sucesso!";
-            
-            echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../views/index.php'>";
-            
+            $_SESSION['local'] = './home.php';
+            $_SESSION['fica'] = './new_filial.php';
+            $_SESSION['numero_modal'] = 4;
+
+            header('location:../views/new_filial.php');
+                        
             break;
     
             

@@ -1,3 +1,6 @@
+
+
+
 // Menu nav bar  
 $('.button-collapse').sideNav({
     menuWidth: 300, // Default is 240

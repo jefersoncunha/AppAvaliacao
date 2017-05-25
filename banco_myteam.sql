@@ -1,7 +1,5 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Aqui esta todo sql usado
  */
 /**
  * Author:  vagner
@@ -24,12 +22,38 @@ CREATE TABLE filial (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `nome` VARCHAR(50) NOT NULL , 
 `fone` VARCHAR(15) NOT NULL , 
-`id_avalaidor` INT NOT NULL ,
+`id_avaliador` INT NOT NULL ,
 `observacao` VARCHAR(100) NOT NULL ,
 CONSTRAINT `fk_aval`
-    FOREIGN KEY (id_avalaidor) REFERENCES login (id)
+    FOREIGN KEY (id_avaliador) REFERENCES login (id)
     ON DELETE CASCADE
     ON UPDATE RESTRICT
-  ) ENGINE = InnoDB
+  ) ENGINE = InnoDB;
 
+CREATE TABLE criterio (
+`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`nome` VARCHAR(50) NOT NULL , 
+`descricao` VARCHAR(80) NOT NULL , 
+`id_avaliador` INT NOT NULL ,
+CONSTRAINT `fk_crite`
+    FOREIGN KEY (id_avaliador) REFERENCES login (id)
+    ON DELETE CASCADE
+    ON UPDATE RESTRICT
+  ) ENGINE = InnoDB;
 
+CREATE TABLE funcionario (
+`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`nome` VARCHAR(50) NOT NULL , 
+`sobrenome` VARCHAR(50) NOT NULL , 
+`sexo` VARCHAR(8) NOT NULL , 
+`email` VARCHAR(40) NOT NULL , 
+`funcao` VARCHAR(40) NOT NULL , 
+`fone` VARCHAR(40) NOT NULL , 
+`id_avaliador` INT NOT NULL ,
+`id_filial` INT NOT NULL ,
+CONSTRAINT `fk_funcio`
+    FOREIGN KEY (id_avaliador) REFERENCES login (id),
+    FOREIGN KEY (id_filial) REFERENCES filial (id)
+    ON DELETE CASCADE
+    ON UPDATE RESTRICT
+  ) ENGINE = InnoDB;

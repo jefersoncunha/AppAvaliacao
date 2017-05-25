@@ -1,20 +1,16 @@
 <?php
-
 include '../controllers/conexao_bd.php';
 
-class filial_dao {
-    public $nome_fil;
-    public $fone_fil;
-    public $obs_fil;
+class criterio_dao {
+    
+    public $nome_cri;
+    public $descricao_cri;
         
     function inserir($id) {
       //chama classe do bD
       $bd = new conexao_bd();
-      $sql = "INSERT INTO filial (nome, fone, id_avaliador, observacao) VALUES "
-      . "('$this->nome_fil',"
-      . " '$this->fone_fil',"
-      . " '.$id.',"
-      . " '$this->obs_fil')";
+      $sql = "INSERT INTO criterio (nome, descricao, id_avaliador) VALUES "
+              . "('$this->nome_cri','$this->descricao_cri','".$id."');";
       //conecta
       $bd->conectar();
       //executa a query
@@ -23,5 +19,6 @@ class filial_dao {
       $bd->fechar();
       }
       
-      
 }
+
+?>

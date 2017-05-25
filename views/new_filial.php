@@ -2,7 +2,17 @@
 <html>
     <head>
         <?php include './_head.php'; ?>
+        <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+        <script type="text/javascript" src="../js/materialize.min.js"></script> 
+        <script type="text/javascript">
 
+            //abrir modal
+            $(document).ready(function () {
+                $('.modal').modal();
+                //now you can open modal from code
+                $('#modal').modal('open');
+            });
+        </script>
     </head>
 
     <body>
@@ -18,7 +28,6 @@
                         <strong><h5><i>Nova Filial</i></h5></strong>
                         <div class="divider col s8 m6 l6"></div>
                     </div>
-                    <strong><h5></h5></strong>
                     <br>
                     <!-- TABLE -->
                     <form  method="post" action="../controllers/filial_controll.php">
@@ -63,11 +72,16 @@
 
                 </div>
             </div>
-<?php include 'footer.php'; ?>
+            <?php include 'footer.php'; ?>
 
+            <?php
+            //verifica se exites valor sessao
+            include './modal.php';
+            ?>
         </div>
         <!--Import jQuery before materialize.js-->
-        <?php include './_javaScripts.php'; ?>       
+        <script type="text/javascript" src="../js/meu_estilo.js"></script> 
+
 
     </body>
 </html>

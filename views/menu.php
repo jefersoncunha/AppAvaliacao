@@ -5,8 +5,8 @@
                 <img src="../imgs/fundo.jpg">
             </div>
             <a href="#!user"><img class="circle" src="../imgs/avatar.png"></a>
-            <a href="#!name"><span class="white-text name"><?php echo $_SESSION['nome_bd'];?></span></a>
-            <a href="#!email"><span class="white-text email"><?php echo $_SESSION['email_bd'];?></span></a>
+            <a href="#!name"><span class="white-text name"><?php echo $_SESSION['nome_bd']; ?></span></a>
+            <a href="#!email"><span class="white-text email"><?php echo $_SESSION['email_bd']; ?></span></a>
         </div></li>
     <!--<li><a href="#!"><i class="material-icons">cloud</i>Avaliações</a></li>-->
     <li><a href="home.php"><i class="material-icons"> home</i>Inicio</a></li>
@@ -38,19 +38,19 @@
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="medium material-icons">menu</i></a>
 </div>-->
 <nav style="background-color: #2196f3;">
-  <div class="nav-wrapper z-depth-4">
-      <a href="home.php" class="brand-logo center">
-          <strong><i>MyTeam</i></strong>
-    </a>
-    <ul class="left">
-      <li>
-              <i class="waves-effect waves-circle material-icons button-collapse" data-activates="slide-out">
-                  menu
-              </i>
-      </li>
-    </ul>
-  </div>
+    <div class="nav-wrapper z-depth-4">
+        <a href="home.php" class="brand-logo center">
+            <strong><i>MyTeam</i></strong>
+        </a>
+        <ul class="left">
+            <li>
+                <i class="waves-effect waves-circle material-icons button-collapse" data-activates="slide-out">
+                    menu
+                </i>
+            </li>
+        </ul>
+    </div>
 </nav>
 
 <section class="divider"></section>
-                    <br>
+<br>
