@@ -14,17 +14,24 @@
     </head>
 
     <body>
-                 <?php include '../controllers/sessao.php';?>
-        <?php include 'menu.php'; ?>
+        <?php
+        include '../controllers/sessao.php';
+        include 'menu.php';
+        include '../dao/filial_dao.php';
+
+        $filial = new filial_dao();
+        ?>
 
         <div  class="container">
             <div class="row">
                 <div class="account-wall" >
-
-                    <strong><h5>Novo Funcionário</h5></strong>
+                    <div class="row">
+                        <strong><h5><i>Novo Funcionário</i></h5></strong>
+                        <div class="divider col s8 m6 l6"></div>
+                    </div>
                     <br>
                     <!-- TABLE -->
-                    <form class="cadastro-funcio-form" method="post">
+                    <form method="post" action="../controllers/funcionario_controll.php">
 
                         <div class='row'>
                             <div class='input-field col s12'>
@@ -58,17 +65,17 @@
                             <div class="section"></div>
 
                             <div class='input-field col s12 m4 l4'>
-                                <input class='validate' type="radio" name="sexo" id="feminino" />
+                                <input class='validate' type="radio" name="sexo" id="feminino" value="feminino" />
                                 <label for="feminino">Feminino</label>
                             </div>
 
                             <div class='input-field col s12 m4 l4'>
-                                <input class='validate' type="radio" name="sexo" id="masculino" />
+                                <input class='validate' type="radio" name="sexo" id="masculino"  value="masculino"/>
                                 <label for="masculino">Masculino</label>
                             </div>
                         </div>
 
-                            <div class="section"></div>
+                        <div class="section"></div>
 
                         <div class="row">
 
@@ -76,9 +83,16 @@
 
                                 <select>
                                     <option value="" disabled selected>Selecione loja filial pertencente</option>
-                                    <option value="1">Loja 1</option>
-                                    <option value="2">Loja 2</option>
-                                    <option value="3">Loja 3</option>
+                                    <?php
+                                    $result_filiais = $filial->busca_filial($_SESSION['id_bd']);
+
+                                    while ($row = mysqli_fetch_assoc($result_filiais)) {
+                                        
+                                        ?>
+                                        <option value="<?php $row['id']; ?>"><?php $row['nome']; ?></option>
+                                        <?php
+                                    }
+                                    ?>
                                 </select>               
                             </div>
                         </div>
@@ -90,11 +104,11 @@
                                 <label for="funcao">Função</label>
                             </div>
                         </div>
-                        <input type="hidden" name="op" value="cadastro_funcio"/>
-                        
+                        <input type="hidden" name="op" value="cadastro_funcionario"/>
+
                         <div class="right">
-                                <label><i>Obs: Todos os campos são obrigatórios</i></label>
-                            </div>
+                            <label><i>Obs: Todos os campos são obrigatórios</i></label>
+                        </div>
                         <div class="row">
                             <div class=" col s12 m12 l12 ">
 
@@ -114,7 +128,7 @@
             </div>
 
         </div>
-      <?php include 'footer.php'; ?>
+        <?php include 'footer.php'; ?>
 
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="../js/meu_estilo.js"></script>       

@@ -19,6 +19,7 @@ if (isset($_POST['op'])) {
     $avaliador = new avaliador_dao();
     $sg = new seguranca();
 
+     session_start();
 
 
     //recebe tipo de operação do form    
@@ -47,16 +48,12 @@ if (isset($_POST['op'])) {
 
             if (mysqli_num_rows($result) > 0) {
 
-                //criando sessão para msmgm modal
-                session_start();
 
                 $_SESSION['local'] = './singup.php';
                  $_SESSION['numero_modal'] = 1;
 
                 echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../views/singup.php'>";
             } else {
-                //criando sessão para msmgm modal
-                session_start();
 
                 //busca classe
                 $avaliador->inserir();
@@ -93,7 +90,6 @@ if (isset($_POST['op'])) {
             } if ($nome_login == $nomeBanco) {
                 if ($senha_login == $senhaBanco) {
 
-                    session_start();
                     
                     $_SESSION['nome_bd'] = $nomeBanco;
                     $_SESSION['id_bd'] = $idBanco;
@@ -101,17 +97,14 @@ if (isset($_POST['op'])) {
                     $_SESSION['email_bd'] = $emailBanco;
                     $_SESSION['empre_bd'] = $empreBanco;
 
-                    //echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../views/home.php'>";
                     header('location:../views/home.php');
                 } else {
-                    session_start();
                     $_SESSION['local'] = './index.php';
                     $_SESSION['numero_modal'] = 3;
                     
-                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../index.php'>";
+                    header('location:../index.php');
                 }
             } else {
-                session_start();
                 $_SESSION['local'] = './index.php';
                 $_SESSION['numero_modal'] = 3;
 
@@ -125,7 +118,7 @@ if (isset($_POST['op'])) {
             
         case 'editar_login':
             
-            session_start();
+           
             
             $id_Avaliador = $_SESSION['id_bd'];
             $nome_Avaliador = $sg->anti_sql_injection($_POST['nome']);
