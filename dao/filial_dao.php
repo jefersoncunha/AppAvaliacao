@@ -27,12 +27,11 @@ class filial_dao {
       $bd = new conexao_bd();
       $bd->conectar();
       
-      $sql = 'SELECT * FROM filial WHERE nome=\''.$this->nome_fil.'\' '
-              . 'AND id_avaliador=\''.$id_aval.'\'';
+      $sql = 'SELECT * FROM filial WHERE id_avaliador='.$id_aval.';';
 
       return $bd->query($sql);
 
-      $bd->fechar();
+      //$bd->fechar();
       }
       
       

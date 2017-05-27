@@ -74,10 +74,7 @@
             </div>
             <?php include 'footer.php'; ?>
 
-            <?php
-            //verifica se exites valor sessao
-            include './modal.php';
-            ?>
+            <?php include './modal.php'; ?>
         </div>
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="../js/meu_estilo.js"></script> 

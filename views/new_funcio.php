@@ -10,6 +10,13 @@
             $(document).ready(function () {
                 $('select').material_select();
             });
+
+            //abrir modal
+            $(document).ready(function () {
+                $('.modal').modal();
+                //now you can open modal from code
+                $('#modal').modal('open');
+            });
         </script>
     </head>
 
@@ -81,15 +88,14 @@
 
                             <div class='input-field col s12 m6 l6'>
 
-                                <select>
+                                <select name="id_loja">
                                     <option value="" disabled selected>Selecione loja filial pertencente</option>
                                     <?php
                                     $result_filiais = $filial->busca_filial($_SESSION['id_bd']);
 
                                     while ($row = mysqli_fetch_assoc($result_filiais)) {
-                                        
                                         ?>
-                                        <option value="<?php $row['id']; ?>"><?php $row['nome']; ?></option>
+                                        <option value="<?php echo $row['id']; ?>" > <?php echo $row['nome']; ?></option>
                                         <?php
                                     }
                                     ?>
@@ -129,6 +135,7 @@
 
         </div>
         <?php include 'footer.php'; ?>
+        <?php include './modal.php'; ?>
 
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="../js/meu_estilo.js"></script>       

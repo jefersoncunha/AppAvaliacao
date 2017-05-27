@@ -60,7 +60,7 @@ if (isset($_POST['op'])) {
 
                 $_SESSION['numero_modal'] = 1;
 
-                header('location:../views/new_funcionario.php');
+                header('location:../views/new_funcio.php');
 
             } else {
                 
@@ -69,10 +69,10 @@ if (isset($_POST['op'])) {
                 $fucionario->inserir_funcionario($id_avaliador, $id_loja);
 
                 $_SESSION['local'] = './home.php';
-                $_SESSION['fica'] = './new_funcionario.php';
+                $_SESSION['fica'] = './new_funcio.php';
                 $_SESSION['numero_modal'] = 4;
                 //redirecionar para a pagina
-                header('location:../views/new_funcionario.php');
+                header('location:../views/new_funcio.php');
 
                 //echo "ok";
             }
