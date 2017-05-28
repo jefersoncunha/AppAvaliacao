@@ -28,6 +28,8 @@ if (isset($_POST['op'])) {
 
     //busca operação
     switch ($operacao) {
+        
+        //cadastro funionario
         case "cadastro_funcionario":
 
             //recebe dados form e verificando  
@@ -76,6 +78,15 @@ if (isset($_POST['op'])) {
 
                 //echo "ok";
             }
+            break;
+            ///////////////////////////////////////////////////////////////////////////////////
+            //faz busca dos funcionarios refrentes a loja
+            case "listar_funcionarios_filial":
+            
+            $id_Filial = $sg->anti_sql_injection($_POST['id_filial']);
+            
+            $fucionario->busca_funcionario_filial($id_Filial);
+
             break;
     }
 }

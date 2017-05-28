@@ -91,7 +91,7 @@
                                 <select name="id_loja">
                                     <option value="" disabled selected>Selecione loja filial pertencente</option>
                                     <?php
-                                    $result_filiais = $filial->busca_filial($_SESSION['id_bd']);
+                                    $result_filiais = $filial->busca_filial_listar_todas($_SESSION['id_bd']);
 
                                     while ($row = mysqli_fetch_assoc($result_filiais)) {
                                         ?>
