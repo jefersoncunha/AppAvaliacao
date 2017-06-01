@@ -8,8 +8,12 @@
         <script type="text/javascript" src="../js/Chart.min.js"></script> 
         <script type="text/javascript">
             var randomnb = function () {
-                return Math.round(Math.random() * 300)
+                return Math.round(Math.random() * 300);
             };
+            $(document).ready(function () {
+                $('select').material_select();
+                
+            });            
         </script>  
 
 
@@ -25,6 +29,7 @@
                     <br>
                     <div class="divider"></div>
                     <br>
+                    
                     <div class="row">
 
                         <div class='input-field col s12 '>
@@ -40,7 +45,7 @@
                         <div class='input-field col s12'>
 
                             <select>
-                                <option value="" disabled selected>Selecione funcionario</option>
+                                <option value="" disabled selected>Selecione Funcionario</option>
                                 <option value="1">Todos</option>
                                 <option value="2">Funcionario 1</option>
                                 <option value="3">Funcionario 2</option>

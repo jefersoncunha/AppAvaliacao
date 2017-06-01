@@ -20,7 +20,7 @@ var data = {
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(151,187,205,1)",
             //informar dados
-            data: [2, 4, 5,3,3]
+            data: [2, 4, 5, 3, 3, 4, 1, 2, 2,4]
         }
       
     ]

@@ -28,11 +28,9 @@
         <?php
         session_start();
         //verifica se existe numero url
-        if(isset($_GET["numero"]))
-        {
-        //recebe numero do modelo a apresentar
-        $numero = $_GET["numero"];
-        
+        if (isset($_GET["numero"])) {
+            //recebe numero do modelo a apresentar
+            $numero = $_GET["numero"];
         }
         ?>
 
@@ -40,8 +38,10 @@
             <div class="row">
                 <div class="account-wall" >
 
-                    <center><strong><h5>Cadastre-se</h5></strong></center>
-                    <br>
+                    <div class="row">
+                        <strong><h5><i>Cadastre-se</i></h5></strong>
+                        <div class="divider col s8 m6 l6"></div>
+                    </div>                    <br>
                     <form class="cadastro-login-form" method="post" action="../controllers/avaliador_controll.php">
                         <!--<form class="cadastro-login-form" id="login-cadastro" >-->
 
@@ -55,14 +55,14 @@
 
                         <div class='row'>
                             <div class='input-field col s12'>
-                                <input class='validate' type="text" name="senha" id="senha"  required autofocus/>
+                                <input class='validate' type="password" name="senha" id="senha"  required autofocus/>
                                 <label for="senha">Senha</label>
                             </div>
                         </div>
 
                         <div class='row'>
                             <div class='input-field col s12'>
-                                <input class='validate' type="text" name="email" id="email" required autofocus/>
+                                <input class='validate' type="email" name="email" id="email" required autofocus/>
                                 <label for="email">E-mail</label>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                 </div>
             </div>
 
-            <?php include '../views/modal.php'; ?>
+<?php include '../views/modal.php'; ?>
 
         </div>
 

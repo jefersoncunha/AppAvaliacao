@@ -30,7 +30,9 @@
                     <form method="post" action="../controllers/funcionario_controll.php">
                     <div class="row">
                         <input type="hidden" name="op" value="listar_funcionarios_filial"/>
-                        <?php while ($row = mysqli_fetch_assoc($result_filiais)) { ?>
+                        <?php while ($row = mysqli_fetch_assoc($result_filiais)) { 
+                                                       
+                         ?>
                           <input type="hidden" name="id_filial" value="<?php echo $row['id']; ?>"/>
                             <div class="col s12 m6 l6">
                                 <div class="card blue darken-4 darken-1 z-depth-2">

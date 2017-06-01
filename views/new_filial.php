@@ -6,8 +6,10 @@
         <script type="text/javascript" src="../js/materialize.min.js"></script> 
         <script type="text/javascript">
 
-            //abrir modal
+            
             $(document).ready(function () {
+                //abrir modal
+                
                 $('.modal').modal();
                 //now you can open modal from code
                 $('#modal').modal('open');
@@ -78,7 +80,12 @@
         </div>
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="../js/meu_estilo.js"></script> 
-
-
+        <script type="text/javascript"src="../js/jquery-mask.js"></script>
+        <script>
+            //mascara 
+            $(document).ready(function () {
+                $('#fone').mask("(00) 00000-0000");
+            });
+        </script>
     </body>
 </html>

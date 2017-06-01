@@ -37,6 +37,7 @@
 <div class="container">
       <a href="#" data-activates="slide-out" class="button-collapse"><i class="medium material-icons">menu</i></a>
 </div>-->
+<div class="navbar-fixed">
 <nav style="background-color: #2196f3;">
     <div class="nav-wrapper z-depth-4">
         <a href="home.php" class="brand-logo center">
@@ -54,3 +55,4 @@
 
 <section class="divider"></section>
 <br>
+</div>

@@ -24,6 +24,8 @@
                 //now you can open modal from code
                 $('#modal').modal('open');
             });
+                    
+
         </script>
     </head>
 
@@ -35,11 +37,10 @@
              <!--<img class="responsive-img" style="width: 250px;" src="http://i.imgur.com/ax0NCsK.gif" /> -->
                 <div class="section"></div>
 
-                <h5 class="blue-text">Por Favor, entre com sua conta</h5>
-                <div class="section"></div>
-
-                <div class="container" >
-                    <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 70px 70px 0px 70px; border: 1px solid #EEE;">
+                <!--<h5 class="blue-text"><i>MyTeam</i></h5>-->
+                <a href="views/sobre.php"><img width="250" src="imgs/myteam.png"></a>
+                <div class="container "  >
+                    <div class="z-depth-3 grey lighten-4 row" style="display: inline-block; padding: 70px 70px 0px 70px; border: 1px solid #EEE;">
                         <img class="profile-img" src="imgs/avatar.png" alt="" style= "width: 145px; height: 135px; background-color: #c7cdcf">
                         <form class="col s12 " method="post" action="controllers/avaliador_controll.php">
                             <input type="hidden" name="op" value="logar">
@@ -80,10 +81,10 @@
         <?php
         session_start();
         //verifica se exites valor sessao
-            //recebe numero do modelo a apresentar
-            include './views/modal.php';
+        //recebe numero do modelo a apresentar
+        include './views/modal.php';
         ?>
-        
+
 
     </body>
 </html>

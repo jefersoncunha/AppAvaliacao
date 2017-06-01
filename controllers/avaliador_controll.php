@@ -12,14 +12,14 @@ if (isset($_POST['op'])) {
     //inclusões de classses
     include './seguranca.php';
     include '../dao/avaliador_dao.php';
-    
+
 
 
     //inicialização de obejtos
     $avaliador = new avaliador_dao();
     $sg = new seguranca();
 
-     session_start();
+    session_start();
 
 
     //recebe tipo de operação do form    
@@ -31,7 +31,6 @@ if (isset($_POST['op'])) {
 
             //recebe dados form e verificando  
             //qualquer ataque sql injection
-            
             $nome_Avaliador = $sg->anti_sql_injection($_POST['nome']);
             $email_Avaliador = $sg->anti_sql_injection($_POST['email']);
             $organizacao_Avaliador = $sg->anti_sql_injection($_POST['empresa']);
@@ -39,7 +38,7 @@ if (isset($_POST['op'])) {
 
             //setar dados no obejto
             $avaliador->nome = $nome_Avaliador;
-            $avaliador->senha = $sg->cripto($senha_Avaliador);//cripto senha
+            $avaliador->senha = $sg->cripto($senha_Avaliador); //cripto senha
             $avaliador->email = $email_Avaliador;
             $avaliador->organizacao = $organizacao_Avaliador;
 
@@ -50,19 +49,17 @@ if (isset($_POST['op'])) {
 
 
                 $_SESSION['local'] = './singup.php';
-                 $_SESSION['numero_modal'] = 1;
-
-                echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../views/singup.php'>";
+                $_SESSION['numero_modal'] = 1;
+                header('location:../views/singup.php');
             } else {
 
                 //busca classe
                 $avaliador->inserir();
 
                 $_SESSION['local'] = '../index.php';
-                 $_SESSION['numero_modal'] = 2;
+                $_SESSION['numero_modal'] = 2;
                 //redirecionar para a pagina
-                echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../views/singup.php'>";
-                //echo "ok";
+                header('location:../views/singup.php');
             }
             break;
 
@@ -86,11 +83,10 @@ if (isset($_POST['op'])) {
                 $senhaBanco = $linha['senha'];
                 $emailBanco = $linha['email'];
                 $empreBanco = $linha['organizacao'];
-                
             } if ($nome_login == $nomeBanco) {
                 if ($senha_login == $senhaBanco) {
 
-                    
+
                     $_SESSION['nome_bd'] = $nomeBanco;
                     $_SESSION['id_bd'] = $idBanco;
                     $_SESSION['senha_bd'] = $senhaBanco;
@@ -101,41 +97,33 @@ if (isset($_POST['op'])) {
                 } else {
                     $_SESSION['local'] = './index.php';
                     $_SESSION['numero_modal'] = 3;
-                    
+
                     header('location:../index.php');
                 }
             } else {
                 $_SESSION['local'] = './index.php';
                 $_SESSION['numero_modal'] = 3;
-
-                echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../index.php'>";
-           
-                //Redireciona para a página de autenticação
-                //header('location:login.php');
+                header('location:../index.php');
             }
 
             break;
-            
+
         case 'editar_login':
-            
-           
-            
+
             $id_Avaliador = $_SESSION['id_bd'];
             $nome_Avaliador = $sg->anti_sql_injection($_POST['nome']);
             $email_Avaliador = $sg->anti_sql_injection($_POST['email']);
             $organizacao_Avaliador = $sg->anti_sql_injection($_POST['empresa']);
-            
+
             //setar dados no obejto
             $avaliador->id = $id_Avaliador;
             $avaliador->nome = $nome_Avaliador;
             $avaliador->email = $email_Avaliador;
             $avaliador->organizacao = $organizacao_Avaliador;
-            
-            $avaliador->alterar();
-            
-             echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../index.php'>";
 
-            
+            $avaliador->alterar();
+            header('location:../index.php');
+
             break;
         default:
             break;
