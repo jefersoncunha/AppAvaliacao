@@ -5,7 +5,7 @@
  * Author:  vagner
  * Created: 18/05/2017
  */
-
+//////////mYSQL///////////////////
 CREATE DATABASE myteam_db;
 
 
@@ -57,3 +57,53 @@ CONSTRAINT `fk_funcio`
     ON DELETE CASCADE
     ON UPDATE RESTRICT
   ) ENGINE = InnoDB;
+
+//////////////////// POSTGRESS////////////////////////
+CREATE TABLE login (
+id SERIAL,
+nome VARCHAR(50) NOT NULL ,
+senha VARCHAR(50) NOT NULL ,
+email VARCHAR(50) NOT NULL ,
+organizacao VARCHAR(50) NOT NULL ,
+PRIMARY KEY (id));
+
+
+CREATE TABLE filial (
+id serial PRIMARY KEY ,
+nome VARCHAR(50) NOT NULL , 
+fone VARCHAR(15) NOT NULL , 
+id_avaliador INT NOT NULL ,
+observacao VARCHAR(100) NOT NULL ,
+CONSTRAINT fk_aval
+    FOREIGN KEY (id_avaliador) REFERENCES login (id)
+    ON DELETE CASCADE
+    ON UPDATE RESTRICT
+  );
+
+CREATE TABLE criterio (
+id  serial PRIMARY KEY ,
+nome VARCHAR(50) NOT NULL , 
+descricao VARCHAR(80) NOT NULL , 
+id_avaliador INT NOT NULL ,
+CONSTRAINT fk_crite
+    FOREIGN KEY (id_avaliador) REFERENCES login (id)
+    ON DELETE CASCADE
+    ON UPDATE RESTRICT
+  );
+
+CREATE TABLE funcionario (
+id serial PRIMARY KEY ,
+nome VARCHAR(50) NOT NULL , 
+sobrenome VARCHAR(50) NOT NULL , 
+sexo VARCHAR(8) NOT NULL , 
+email VARCHAR(40) NOT NULL , 
+funcao VARCHAR(40) NOT NULL , 
+fone VARCHAR(40) NOT NULL , 
+id_avaliador INT NOT NULL ,
+id_filial INT NOT NULL ,
+CONSTRAINT fk_funcio
+    FOREIGN KEY (id_avaliador) REFERENCES login (id),
+    FOREIGN KEY (id_filial) REFERENCES filial (id)
+    ON DELETE CASCADE
+    ON UPDATE RESTRICT
+  );

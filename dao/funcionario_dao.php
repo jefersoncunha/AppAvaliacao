@@ -1,6 +1,6 @@
 <?php
 
-include '../controllers/conexao_bd.php';
+include '../controllers/conexao_bd_1.php';
 
 class funcionario_dao {
 
