@@ -31,7 +31,12 @@ class conexao_bd {
 
         public function conectar(){
             global $con;
-            $con = new PDO( "pgsql:dbname=$this->db; user=$this->usuario; password=$this->senha; host=$this->servidor; port=$this->port" );
+            $con = new PDO( "pgsql:"
+                    . "dbname=$this->db; "
+                    . "user=$this->usuario; "
+                    . "password=$this->senha; "
+                    . "host=$this->servidor; "
+                    . "port=$this->port" );
 
         }
 

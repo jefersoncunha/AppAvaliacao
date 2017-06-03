@@ -1,39 +1,42 @@
 
 <?php
+//filtro contra INJECTION
+$filtro= filter_input_array(INPUT_POST,FILTER_DEFAULT);
 
 //verifica se variavel possui valor
-if (isset($_POST['op'])) {
+if (isset($filtro['op'])) {
     
     //inicia sessao
     session_start();
     
     //inclusões de classses
-    include './seguranca.php';
-    include '../dao/criterio_dao.php';
+    require './seguranca.php';
+    require '../dao/criterio_dao.php';
+    require '../model/Criterio.php';
+
 
     //objetos
-    $sg = new seguranca();
     $criterio = new criterio_dao();
+    $sg = new seguranca();
+    $ObjC = new Criterio();
 
     //recebe tipo de operação do form    
-    $operacao = $_POST['op'];
+    $operacao = $sg->anti_sql_injection($filtro['op']);
 
     switch ($operacao) {
 
         case "cadastro_criterio":
             
-            
             //recebe dados form e verificando  
             //qualquer ataque sql injection       
             $id_avaliador = $_SESSION["id_bd"];
-            $nome_criterio = $sg->anti_sql_injection($_POST['criterio']);
-            $descricao = $sg->anti_sql_injection($_POST['descricao']);
 
             //setar dados no obejto
-            $criterio->nome_cri=$nome_criterio;
-            $criterio->descricao_cri=$descricao;
-
-            $criterio->inserir($id_avaliador);
+            $ObjC->setNome($sg->anti_sql_injection($filtro['criterio']));
+            $ObjC->setDescricao($sg->anti_sql_injection($filtro['descricao']));
+            
+           
+            $criterio->inserir($id_avaliador, $ObjC);
 
             $_SESSION['local'] = './home.php';
             $_SESSION['fica'] = './new_criterio.php';

@@ -8,7 +8,6 @@
 //////////mYSQL///////////////////
 CREATE DATABASE myteam_db;
 
-
 CREATE TABLE `login` (
 `id` INT NOT NULL AUTO_INCREMENT ,
 `nome` VARCHAR(50) NOT NULL ,
@@ -45,7 +44,7 @@ CREATE TABLE funcionario (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `nome` VARCHAR(50) NOT NULL , 
 `sobrenome` VARCHAR(50) NOT NULL , 
-`sexo` VARCHAR(8) NOT NULL , 
+`sexo` VARCHAR(10) NOT NULL , 
 `email` VARCHAR(40) NOT NULL , 
 `funcao` VARCHAR(40) NOT NULL , 
 `fone` VARCHAR(40) NOT NULL , 
@@ -62,7 +61,7 @@ CONSTRAINT `fk_funcio`
 CREATE TABLE login (
 id SERIAL,
 nome VARCHAR(50) NOT NULL ,
-senha VARCHAR(50) NOT NULL ,
+senha VARCHAR(100) NOT NULL ,
 email VARCHAR(50) NOT NULL ,
 organizacao VARCHAR(50) NOT NULL ,
 PRIMARY KEY (id));
@@ -95,7 +94,7 @@ CREATE TABLE funcionario (
 id serial PRIMARY KEY ,
 nome VARCHAR(50) NOT NULL , 
 sobrenome VARCHAR(50) NOT NULL , 
-sexo VARCHAR(8) NOT NULL , 
+sexo VARCHAR(10) NOT NULL , 
 email VARCHAR(40) NOT NULL , 
 funcao VARCHAR(40) NOT NULL , 
 fone VARCHAR(40) NOT NULL , 

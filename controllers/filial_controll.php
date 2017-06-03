@@ -1,38 +1,41 @@
 <?php
+//filtro contra INJECTION
+$filtro= filter_input_array(INPUT_POST,FILTER_DEFAULT);
 
 //verifica se variavel foi setada
-if (isset($_POST['op'])) {
+if (isset($filtro['op'])) {
+    
     //inclusões de classses
-    include './seguranca.php';
-    include '../dao/filial_dao.php';
+    require './seguranca.php';
+    require '../dao/filial_dao.php';
+    require '../model/Filial.php';
 
+    //inicia sessao
     session_start();
 
     //objetos
     $sg = new seguranca();
     $filial = new filial_dao();
+    $filial_obj = new filial();
 
     //recebe tipo de operação do form    
-    $operacao = $_POST['op'];
+    $operacao = $sg->anti_sql_injection($filtro['op']);
 
     switch ($operacao) {
 
         case "cadastro_filial":
 
             //recebe dados form e verificando  
-            //qualquer ataque sql injection       
-            $id_avaliador = $_SESSION["id_bd"];
-            $nome_Filial = $sg->anti_sql_injection($_POST['nome']);
-            $fone_Filial = $sg->anti_sql_injection($_POST['fone']);
-            $obs_Filial = $sg->anti_sql_injection($_POST['obs']);
-
+            //qualquer ataque sql injection    
             //setar dados no obejto
-            $filial->nome_fil = $nome_Filial;
-            $filial->fone_fil = $fone_Filial;
-            $filial->obs_fil = $obs_Filial;
+            
+            $id_avaliador = $_SESSION["id_bd"];
+            $filial_obj->setNome($sg->anti_sql_injection($filtro['nome']));
+            $filial_obj->setFone($sg->anti_sql_injection($filtro['fone']));
+            $filial_obj->setObs($sg->anti_sql_injection($filtro['obs']));         
 
             //verifica filial
-            $result = $filial->busca_filial_nome($id_avaliador);
+            $result = $filial->busca_filial_nome($id_avaliador, $filial_obj);
 
             if (mysqli_num_rows($result) > 0) {
 
@@ -41,7 +44,7 @@ if (isset($_POST['op'])) {
                 header('location:../views/new_filial.php');
             } else {
                 //busca classe
-                $filial->inserir($id_avaliador);
+                $filial->inserir($id_avaliador,$filial_obj);
                 //dados para modal
                 $_SESSION['local'] = './home.php';
                 $_SESSION['fica'] = './new_filial.php';

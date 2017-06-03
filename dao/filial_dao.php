@@ -1,21 +1,18 @@
 <?php
 
-include '../controllers/conexao_bd_1.php';
+include '../controllers/conexao_bd.php';
 
 class filial_dao {
 
-    public $nome_fil;
-    public $fone_fil;
-    public $obs_fil;
 
-    function inserir($id) {
+    function inserir($id, filial $fil) {
         //chama classe do bD
         $bd = new conexao_bd();
         $sql = "INSERT INTO filial (nome, fone, id_avaliador, observacao) VALUES "
-                . "('$this->nome_fil',"
-                . " '$this->fone_fil',"
+                . "('".$fil->getNome()."',"
+                . " '".$fil->getFone()."',"
                 . " '.$id.',"
-                . " '$this->obs_fil')";
+                . " '".$fil->getObs()."')";
         //conecta
         $bd->conectar();
         //executa a query
@@ -33,10 +30,10 @@ class filial_dao {
     }
 
     //busca para verficar se exixte nome igual
-    function busca_filial_nome($id_aval) {         
+    function busca_filial_nome($id_aval, filial $fil) {         
       $bd = new conexao_bd();
       $bd->conectar();
-      $sql = 'SELECT * FROM filial WHERE nome=\''.$this->nome_fil.'\' '
+      $sql = 'SELECT * FROM filial WHERE nome=\''.$fil->getNome().'\' '
               . 'AND id_avaliador=\''.$id_aval.'\'';
       return $bd->query($sql);
       

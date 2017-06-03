@@ -1,58 +1,60 @@
 <?php
 
-include '../controllers/conexao_bd_1.php';
+include '../controllers/conexao_bd.php';
 
 class avaliador_dao {
 
-    public $id;
-    public $nome;
-    public $senha;
-    public $email;
-    public $organizacao;
+    function inserir(Avaliador $av) {
 
-     function inserir() {
-      //chama classe do bD
-      $bd = new conexao_bd();
+        //chama classe do bD
+        $bd = new conexao_bd();
 
-      $sql = "INSERT INTO login (nome, senha,email,organizacao) VALUES "
-      . "('$this->nome',"
-      . " '$this->senha',"
-      . " '$this->email',"
-      . " '$this->organizacao')";
-      //conecta
-      $bd->conectar();
-      //executa a query
-      $bd->query($sql);
-      //fecha conexao
-      $bd->fechar();
-      }
+        $sql = "INSERT INTO login (nome, senha,email,organizacao) "
+                . "VALUES ('" . $av->getNome() . " ','" . $av->getSenha() .
+                "','" . $av->getEmail() . "','" . $av->getOrganizacao() . "')";
+        //conecta
+        $bd->conectar();
+        //executa a query
+        $bd->query($sql);
+        //fecha conexao
+        $bd->fechar();
+    }
 
-      function busca_login($no, $se) {         
-      $bd = new conexao_bd();
-      $sg = new seguranca();
-      $bd->conectar();
-      
-      $sql = 'SELECT * FROM login WHERE nome=\''.$no.'\' '
-              . 'AND senha=\''.$se.'\'';
+    function busca_login($av) {
 
-      return $bd->query($sql);
+        $bd = new conexao_bd();
+        //chama classe do Avaliador
+        //$av = new Avaliador();
 
-      $bd->fechar();
-      }
-      
-      function alterar() {
-            $bd = new conexao_bd();
-            $sql = "UPDATE login SET nome='$this->nome',"
-                    . "email='$this->email' ,"
-                    . "organizacao='$this->organizacao'  "
-                    . "WHERE id='$this->id';";
-            $bd->conectar();
-            return $bd->query($sql);
-            $bd->fechar();
-        }
-      
+        $bd->conectar();
+
+        $sql = 'SELECT * FROM login WHERE nome=\'' . $av->getNome() . '\' '
+                . 'AND senha=\'' . $av->getSenha() . '\'';
+
+        $resultado = $bd->query($sql);
+
+        $bd->fechar();
+
+        return $resultado;
+    }
+
+    function alterar($av) {
+
+        $bd = new conexao_bd();
+        $sql = "UPDATE login SET nome='" . $av->getNome() . "',"
+                . "email='" . $av->getEmail() . "' ,"
+                . "organizacao='" . $av->getOrganizacao() . "'  "
+                . "WHERE id='" . $av->getId() . "';";
+        $bd->conectar();
+
+        $resultado = $bd->query($sql);
+
+        $bd->fechar();
+
+        return $resultado;
+    }
+
 }
-      
 ?>
 
 

@@ -1,28 +1,21 @@
 <?php
 
-include '../controllers/conexao_bd_1.php';
+include '../controllers/conexao_bd.php';
 
 class funcionario_dao {
 
-    public $nome;
-    public $sobrenome;
-    public $email;
-    public $fone;
-    public $sexo;
-    public $funcao;
-
-    function inserir_funcionario($id_avaliador, $id_filial) {
+    function inserir_funcionario($id_avaliador, $id_filial, Funcionario $func) {
 
         //chama classe do bD
         $bd = new conexao_bd();
         $sql = "INSERT INTO funcionario (nome, sobrenome, sexo, "
                 . "email, funcao, fone, id_avaliador, id_filial) VALUES "
-                . "('$this->nome',"
-                . " '$this->sobrenome',"
-                . " '$this->sexo',"
-                . " '$this->email',"
-                . " '$this->funcao',"
-                . " '$this->fone',"
+                . "('" . $func->getNome() . "',"
+                . " '" . $func->getSobrenome() . "',"
+                . " '" . $func->getSexo() . "',"
+                . " '" . $func->getEmail() . "',"
+                . " '" . $func->getFuncao() . "',"
+                . " '" . $func->getFone() . "',"
                 . " '.$id_avaliador.',"
                 . " '.$id_filial.');";
         //conecta
@@ -33,18 +26,20 @@ class funcionario_dao {
         $bd->fechar();
     }
 
-    function busca_funcionario($id_avaliador, $id_filial) {
+    function busca_funcionario($id_avaliador, $id_filial, Funcionario $func) {
         $bd = new conexao_bd();
         $bd->conectar();
 
-        $sql = 'SELECT * FROM funcionario WHERE nome=\'' . $this->nome . '\' '
-                . 'AND sobrenome=\'' . $this->sobrenome . '\''
+        $sql = 'SELECT * FROM funcionario WHERE nome=\'' . $func->getNome() . '\' '
+                . 'AND sobrenome=\'' . $func->getSobrenome() . '\''
                 . 'AND id_avaliador=\'' . $id_avaliador . '\''
                 . 'AND id_filial=\'' . $id_filial . '\'';
 
-        return $bd->query($sql);
+        $returno = $bd->query($sql);
 
         $bd->fechar();
+
+        return $returno;
     }
 
     //busca para verficar se exixte nome igual
@@ -52,7 +47,11 @@ class funcionario_dao {
         $bd = new conexao_bd();
         $bd->conectar();
         $sql = 'SELECT * FROM funcionario WHERE id_filial=\'' . $id_filial . '\'';
-        return $bd->query($sql);
+        $retorno = $bd->query($sql);
+
+        $bd->fechar();
+
+        return $retorno;
     }
 
 }
