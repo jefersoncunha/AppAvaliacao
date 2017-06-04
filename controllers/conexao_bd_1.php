@@ -22,10 +22,10 @@ class conexao_bd {
 
     //dados para a conexão
     public function __construct() {
-        $this->servidor = 'mysql873.umbler.com';
-        $this->usuario = 'vagner-ufsm';
-        $this->senha = 'f/R8?qc9#ZF';
-        $this->db = '41890';
+        $this->servidor = 'localhost';
+        $this->usuario = 'root';
+        $this->senha = '';
+        $this->db = 'myteam_db';
     }
 
     //conecta com o banco

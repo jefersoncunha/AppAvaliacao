@@ -66,7 +66,7 @@
                         <h5><i>Não avaliados</i></h5>
                         <div class="divider"></div>
 
-                        <ul class="collapsible light-blue lighten-5" data-collapsible="accordion">
+                        <ul class="collapsible popout light-blue lighten-5" data-collapsible="accordion">
                             <?php while ($row = mysqli_fetch_assoc($result_funcionario)) { ?>
                                 <li>
                                     <div class="collapsible-header  blue lighten-2">
@@ -88,7 +88,7 @@
                         <h5><i>Já avaliados</i></h5>
                         <div class="divider"></div>
                         <!-- LISTAR FUNCIONARIOS JÁ AVALIADOS--> 
-                        <ul class="collapsible green lighten-5" data-collapsible="accordion">
+                        <ul class="collapsible popout green lighten-5" data-collapsible="accordion">
                             <li>
                                 <div class="collapsible-header teal accent-3">
                                     <i class="material-icons">person</i>Funcionario 1</div>
