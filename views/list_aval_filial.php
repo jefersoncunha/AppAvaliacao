@@ -25,15 +25,14 @@
                     </div> 
                     <br>
 
-                    <!--INICIO DO LAÇO-->
+                    
 
-                    <form method="post" action="../controllers/funcionario_controll.php">
+                    <!--<form method="get" action="../controllers/funcionario_controll.php">-->
                     <div class="row">
-                        <input type="hidden" name="op" value="listar_funcionarios_filial"/>
-                        <?php while ($row = mysqli_fetch_assoc($result_filiais)) { 
-                                                       
-                         ?>
-                          <input type="hidden" name="id_filial" value="<?php echo $row['id']; ?>"/>
+                        <!--<input type="hidden" name="op" value="listar_funcionarios_filial"/>-->
+                        <!--INICIO DO LAÇO-->
+                        <?php while ($row = mysqli_fetch_assoc($result_filiais)) {?>
+                          <!--<input type="hidden" name="id_filial" value="<?php //echo $row['id']; ?>"/>-->
                             <div class="col s12 m6 l6">
                                 <div class="card blue darken-4 darken-1 z-depth-2">
                                     <div class="card-content white-text">
@@ -49,14 +48,14 @@
                                         </p>-->
                                     </div>
                                     <div class="card-action ">
-                                        <center><a  href="list_aval_funcio.php">Ver Funcionarios</a></center>
+                                        <center><a  href="list_aval_funcio.php?busca=<?php echo $row['id']; ?>">Ver Funcionarios</a></center>
                                     </div>
                                 </div>
                             </div>
                         <?php } ?><!--FIM DO LAÇO-->
                     </div>
                     
-                    </form>
+                    <!--</form>-->
                 </div>
             </div>
             <?php include 'footer.php'; ?>

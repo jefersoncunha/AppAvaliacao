@@ -35,7 +35,7 @@
                                 <label for="criterio">Critério/Questão</label>
                             </div>
                             <div class="right" style=" margin-right: 10px;">
-                                <label><i>Este critério será avaliado com conta de 1 à 5</i></label>
+                                <label><i>Este critério será avaliado com notas de 1 à 4</i></label>
                             </div>
                         </div>
                         <div class="row">

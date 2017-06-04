@@ -1,6 +1,6 @@
 <?php
 
-include '../controllers/conexao_bd.php';
+require_once('../controllers/conexao_bd.php');
 
 class funcionario_dao {
 
@@ -53,5 +53,17 @@ class funcionario_dao {
 
         return $retorno;
     }
+     //busca dados funcionario
+    function busca_funcionario_id($id) {
+        $bd = new conexao_bd();
+        $bd->conectar();
+        $sql = 'SELECT * FROM funcionario WHERE id=\'' . $id . '\'';
+        $retorno = $bd->query($sql);
+
+        $bd->fechar();
+
+        return $retorno;
+    }
+    
 
 }

@@ -1,11 +1,13 @@
 <?php
 
-include '../controllers/conexao_bd.php';
+require_once('../controllers/conexao_bd.php');
+
 
 class filial_dao {
 
 
     function inserir($id, filial $fil) {
+        
         //chama classe do bD
         $bd = new conexao_bd();
         $sql = "INSERT INTO filial (nome, fone, id_avaliador, observacao) VALUES "

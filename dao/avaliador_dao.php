@@ -1,6 +1,7 @@
 <?php
 
-include '../controllers/conexao_bd.php';
+require_once('../controllers/conexao_bd.php');
+
 
 class avaliador_dao {
 

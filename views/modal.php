@@ -61,6 +61,22 @@ if (isset($_SESSION['numero_modal'])) {
             </div>
         </div>
         <?php
+    }else if ($_SESSION['numero_modal'] == 5) {
+        ?>
+      
+        <!-- Modal Structure -->
+        <div id="modal" class="modal teal lighten-3">
+            <div class="modal-content">
+                <h4 class="center-align"><i>Desculpe!</i></h4>
+                <p class="center-align">Mas você não possui Funcionarios vinculados a esta Filial.<br>
+                    Deseja cadastrar um funcionario?</p>
+            </div>
+            <div class="modal-footer teal lighten-4">
+                <a href="<?php echo $_SESSION['home'];?>" class="modal-action modal-close waves-effect waves-green btn-flat">Não</a>
+                <a href="<?php echo $_SESSION['cadastro'];?>" class="modal-action modal-close waves-effect waves-green btn-flat ">Sim</a>
+            </div>
+        </div>
+        <?php
     }
 
 
