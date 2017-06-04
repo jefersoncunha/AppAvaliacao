@@ -36,12 +36,11 @@
             <center>
              <!--<img class="responsive-img" style="width: 250px;" src="http://i.imgur.com/ax0NCsK.gif" /> -->
                 <div class="section"></div>
-
-                <!--<h5 class="blue-text"><i>MyTeam</i></h5>-->
-                <a href="views/sobre.php"><img width="250" src="imgs/myteam.png"></a>
+                
                 <div class="container "  >
-                    <div class="z-depth-3 grey lighten-4 row" style="display: inline-block; padding: 70px 70px 0px 70px; border: 1px solid #EEE;">
-                        <img class="profile-img" src="imgs/avatar.png" alt="" style= "width: 145px; height: 135px; background-color: #c7cdcf">
+                    <div class="z-depth-3 grey lighten-4 row" style="width:300px;  border: 10px solid #EEE;">
+                        <!--<img class="profile-img" src="imgs/avatar.png" alt="" style= "width: 100px; height: 100px; background-color: #c7cdcf">-->
+                        <a href="views/sobre.php"><img  width="250" src="imgs/oie_transparent.png"></a>
                         <form class="col s12 " method="post" action="controllers/avaliador_controll.php">
                             <input type="hidden" name="op" value="logar">
                             <div class='row'>
@@ -50,8 +49,8 @@
                             </div>
                             <div class='row'>
                                 <div class='input-field col s12'>
-                                    <input class='validate' type="text" name="nome_login" id="nome" required autofocus/>
-                                    <label for="nome">Nome</label>
+                                    <input class='validate' type="email" name="email_login" id="email" required autofocus/>
+                                    <label for="nome">E-mail</label>
                                 </div>
                             </div>
                             <div class='row'>

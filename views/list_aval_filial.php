@@ -11,7 +11,7 @@
         <?php include 'menu.php'; ?>
 
         <?php
-        include '../dao/filial_dao.php';
+        require '../dao/filial_dao.php';
         $filial = new filial_dao();
         $result_filiais = $filial->busca_filial_listar_todas($_SESSION['id_bd']);
         ?>                                      

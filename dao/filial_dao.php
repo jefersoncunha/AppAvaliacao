@@ -11,7 +11,7 @@ class filial_dao {
         $sql = "INSERT INTO filial (nome, fone, id_avaliador, observacao) VALUES "
                 . "('".$fil->getNome()."',"
                 . " '".$fil->getFone()."',"
-                . " '.$id.',"
+                . " '".$id."',"
                 . " '".$fil->getObs()."')";
         //conecta
         $bd->conectar();
@@ -26,7 +26,13 @@ class filial_dao {
         $bd = new conexao_bd();
         $bd->conectar();
         $sql = 'SELECT * FROM filial WHERE id_avaliador=' . $id_aval . ';';
-        return $bd->query($sql);
+       
+        
+        $retorno = $bd->query($sql);
+         //fecha conexao
+        $bd->fechar();
+        
+        return $retorno;
     }
 
     //busca para verficar se exixte nome igual
@@ -35,9 +41,29 @@ class filial_dao {
       $bd->conectar();
       $sql = 'SELECT * FROM filial WHERE nome=\''.$fil->getNome().'\' '
               . 'AND id_avaliador=\''.$id_aval.'\'';
-      return $bd->query($sql);
+      
+        $retorno = $bd->query($sql);
+        
+        //fecha conexao
+        $bd->fechar();
+        return $retorno;
       
       }
-     
+      
+       //busca para verficar se exixte nome igual
+    function busca_filial_id($id_aval, $fil) {         
+      $bd = new conexao_bd();
+      $bd->conectar();
+      $sql = 'SELECT * FROM filial WHERE id=\''.$fil.'\' '
+              . 'AND id_avaliador=\''.$id_aval.'\'';
+      
+        $retorno = $bd->query($sql);
+        
+        //fecha conexao
+        $bd->fechar();
+        return $retorno;
+      
+      }
+ 
 
 }

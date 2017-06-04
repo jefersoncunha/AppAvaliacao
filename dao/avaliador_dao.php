@@ -20,15 +20,14 @@ class avaliador_dao {
         $bd->fechar();
     }
 
-    function busca_login($av) {
+    function busca_login(Avaliador $av) {
 
         $bd = new conexao_bd();
-        //chama classe do Avaliador
-        //$av = new Avaliador();
+
 
         $bd->conectar();
 
-        $sql = 'SELECT * FROM login WHERE nome=\'' . $av->getNome() . '\' '
+        $sql = 'SELECT * FROM login WHERE email=\'' . $av->getEmail() . '\' '
                 . 'AND senha=\'' . $av->getSenha() . '\'';
 
         $resultado = $bd->query($sql);

@@ -11,11 +11,20 @@
  *
  * @author vagner
  */
-class filial {
+class Filial {
     
+    private $id;
     private $nome;
     private $fone;
     private $obs;
+    function getId() {
+        return $this->id;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
     
     function getNome() {
         return $this->nome;

@@ -1,5 +1,5 @@
 
-<ul id="slide-out" class="side-nav" style="width: 225px">
+<ul id="slide-out" class="side-nav" style="width: 250px">
     <li><div class="userView">
             <div class="background" >
                 <img src="../imgs/fundo.jpg">
@@ -30,6 +30,8 @@
     <li><a href="edit_conta.php"><i class="material-icons"> settings</i>Minha conta</a></li>
     <li><div class="divider"></div></li>
     <li><a href="logout.php"><i class="material-icons">reply</i>Logout</a></li>
+    <li><div class="divider"></div></li>
+    <li><a href="#"><i class="material-icons">info_outline</i>Sobre</a></li>
     <li><div class="divider"></div></li>
 
 </ul>

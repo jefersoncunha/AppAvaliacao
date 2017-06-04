@@ -43,8 +43,9 @@ if (isset($filtro['op'])) {
             $aval_model->setEmail($email_Avaliador);
             $aval_model->setOrganizacao($organizacao_Avaliador);
             $aval_model->setSenha($sg->cripto($senha_Avaliador)); //cripto senha
+            
             //verifica login
-            $result = $avaliador_dao->busca_login($nome_Avaliador, $senha_Avaliador);
+            $result = $avaliador_dao->busca_login($aval_model);
 
             if (mysqli_num_rows($result) > 0) {
 
@@ -65,7 +66,7 @@ if (isset($filtro['op'])) {
 
         case "logar":
             //recebe dados form e verifica sqlinjection
-            $nome_login = $sg->anti_sql_injection($filtro['nome_login']);
+            $email_login = $sg->anti_sql_injection($filtro['email_login']);
             //crpto senha
             $senha_login = sha1(md5($sg->anti_sql_injection($filtro['senha_login'])));
 
@@ -77,7 +78,7 @@ if (isset($filtro['op'])) {
             $empreBanco = null;
 
             //seta obejto
-            $aval_model->setNome($nome_login);
+            $aval_model->setEmail($email_login);
             $aval_model->setSenha($senha_login);
 
             $reslut_busca = $avaliador_dao->busca_login($aval_model);
@@ -88,9 +89,8 @@ if (isset($filtro['op'])) {
                 $senhaBanco = $linha['senha'];
                 $emailBanco = $linha['email'];
                 $empreBanco = $linha['organizacao'];
-            } if ($nome_login == $nomeBanco) {
-                if ($senha_login == $senhaBanco) {
-
+            } if ($email_login == $emailBanco && $senha_login == $senhaBanco) {
+                
                     $_SESSION['nome_bd'] = $nomeBanco;
                     $_SESSION['id_bd'] = $idBanco;
                     $_SESSION['senha_bd'] = $senhaBanco;
@@ -98,13 +98,8 @@ if (isset($filtro['op'])) {
                     $_SESSION['empre_bd'] = $empreBanco;
 
                     header('location:../views/home.php');
-                } else {
-                    $_SESSION['local'] = './index.php';
-                    $_SESSION['numero_modal'] = 3;
-
-                    header('location:../index.php');
                 }
-            } else {
+             else {
                 $_SESSION['local'] = './index.php';
                 $_SESSION['numero_modal'] = 3;
                 header('location:../index.php');
