@@ -1,4 +1,5 @@
 
+
 $(document).ready(function () {
 
     // Menu nav bar  
@@ -8,7 +9,7 @@ $(document).ready(function () {
         closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     }
     );
-    
+
 
 });
 

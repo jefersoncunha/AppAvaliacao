@@ -129,6 +129,7 @@
 
                 $_SESSION['cadastro'] = './new_funcio.php';
                 $_SESSION['home'] = './home.php';
+                $_SESSION['mensagem'] = 'Você não possui Funcionarios vinculados a esta Filial';
                 $_SESSION['numero_modal'] = 5;
                 include './modal.php';
             }

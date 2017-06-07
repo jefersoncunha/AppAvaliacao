@@ -42,3 +42,33 @@ $(".login-cadastro").submit(function(event) {
       }
     });
 });*/
+
+$(function () {
+    
+ $(".avaliacao-form").submit(function(event) {
+            event.preventDefault();
+
+            console.log(event.target.id);
+
+            var status = $('#status');
+
+            $.post("avaliacao_controll.php",$(this).serialize(),
+              function(resposta){
+                status.slideDown();
+                status.removeClass('alert alert-danger');
+                status.addClass('alert alert-success');
+                status.html('<strong> Avaliado com sucesso </strong>');
+
+                setTimeout(function(){
+                  status.hide();
+                  location.reload();
+                },2000);
+              }
+            );
+
+
+        });
+   
+});
+
+

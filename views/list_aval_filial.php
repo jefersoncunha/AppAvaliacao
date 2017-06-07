@@ -18,7 +18,8 @@
         <div  class="container">
             <div class="row">
                 <div class="account-wall" >
-
+                    
+                    
                     <div class="row">
                         <strong><h5><i>Selecione uma Filial</i></h5></strong>
                         <div class="divider col s8 m6 l6"></div>
@@ -34,7 +35,7 @@
                         <?php while ($row = mysqli_fetch_assoc($result_filiais)) {?>
                           <!--<input type="hidden" name="id_filial" value="<?php //echo $row['id']; ?>"/>-->
                             <div class="col s12 m6 l6">
-                                <div class="card blue darken-4 darken-1 z-depth-2">
+                                <div class="card  light-blue lighten-4 z-depth-5">
                                     <div class="card-content white-text">
                                         <strong><span class="card-title"><?php echo $row['nome']; ?></span></strong>
                                         <p>

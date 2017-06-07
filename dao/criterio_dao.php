@@ -20,19 +20,34 @@ class criterio_dao {
         $bd->fechar();
     }
 
-    function busca_todos_criterios() {
+    function busca_todos_criterios($id) {
 
         $bd = new conexao_bd();
 
         $bd->conectar();
 
-        $sql = 'SELECT * FROM criterio';
+        $sql = 'SELECT * FROM criterio WHERE id_avaliador= '.$id.';';
 
         $resultado = $bd->query($sql);
 
         $bd->fechar();
 
         return $resultado;
+    }
+    
+    //busca para verficar se exixte nome igual
+    function busca_criterio_id($id_aval, Criterio $criterio) {
+        $bd = new conexao_bd();
+        $bd->conectar();
+        $sql = 'SELECT * FROM criterio WHERE id=\'' . $criterio->getId() . '\' '
+                . 'AND id_avaliador=\'' . $id_aval . '\'';
+
+        $retorno = $bd->query($sql);
+
+        //fecha conexao
+        $bd->fechar();
+
+        return $retorno;
     }
 
 }

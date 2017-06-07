@@ -6,10 +6,11 @@
     </head>
 
     <body>
-        <?php include '../controllers/sessao.php';?>
+
+        <?php include '../controllers/sessao.php'; ?>
 
         <?php include './menu.php'; ?>
-       
+
 
         <div  class="container">
 
@@ -17,79 +18,64 @@
                 <div class="account-wall" >
 
 
-                    <strong><h5>Suas avaliações </h5></strong>
+                    <div class="row">
+                        <strong><h5><i>Hanking das Lojas</i></h5></strong>
+                        <div class="divider col s8 m6 l6"></div>
+                    </div>
                     <br>
                     <!-- TABLE -->
-                    <table class="table table-action highlight centered">
+                    <ul class="collection">
+                        <li class="collection-item avatar ">
+                            <img src="../imgs/avatar.png" alt="" class="circle">
+                            <span class="title">Title</span>
+                            <p>First Line <br>
+                                Second Line
+                            </p>
+                            <a href="#!" class="secondary-content"><i class="material-icons">assessment</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                            <img src="../imgs/avatar.png" alt="" class="circle">
+                            <span class="title">Title</span>
+                            <p>First Line <br>
+                                Second Line
+                            </p>
+                            <a href="#!" class="secondary-content"><i class="material-icons">assessment</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                            <img src="../imgs/avatar.png" alt="" class="circle">
+                            <span class="title">Title</span>
+                            <p>First Line <br>
+                                Second Line
+                            </p>
+                            <a href="#!" class="secondary-content"><i class="material-icons">assessment</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                            <img src="../imgs/avatar.png" alt="" class="circle">
+                            <span class="title">Title</span>
+                            <p>First Line <br>
+                                Second Line
+                            </p>
+                            <a href="#!" class="secondary-content"><i class="material-icons">assessment</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                            <img src="../imgs/avatar.png" alt="" class="circle">
+                            <span class="title">Title</span>
+                            <p>First Line <br>
+                                Second Line
+                            </p>
+                            <a href="#!" class="secondary-content"><i class="material-icons">assessment</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                            <img src="../imgs/avatar.png" alt="" class="circle">
+                            <span class="title">Title</span>
+                            <p>First Line <br>
+                                Second Line
+                            </p>
+                            <a href="#!" class="secondary-content"><i class="material-icons">assessment</i></a>
+                        </li>
+                        
+                    </ul>
 
-                        <thead>
-                            <tr>
-                                <th class="t-small">Filial</th>
-                                <th class="t-medium">Avaliação</th>
-                                <th>Data Avaliação</th>
-                                <th class="t-medium">Ação</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Nome filial</td>
-                                <td>5 / 5 </td>
-                                <td>27/09/2017</td>
-                                <td class="t-status t-active"><a>Avaliar</a></td>
-                            </tr>
-                            <tr>
-                                <td>Nome filial</td>
-                                <td>5 / 5 </td>
-                                <td>27/09/2017</td>
-                                <td class="t-status t-active"><a>Avaliar</a></td>
-                            </tr>
-                            <tr>
-                                <td>Nome filial</td>
-                                <td>5 / 5 </td>
-                                <td>27/09/2017</td>
-                                <td class="t-status t-active"><a>Avaliar</a></td>
-                            </tr>
-                            <tr>
-                                <td>Nome filial</td>
-                                <td>5 / 5 </td>
-                                <td>27/09/2017</td>
-                                <td class="t-status t-active"><a>Avaliar</a></td>
-                            </tr>
-                            <tr>
-                                <td>Nome filial</td>
-                                <td>5 / 5 </td>
-                                <td>27/09/2017</td>
-                                <td class="t-status t-active"><a>Avaliar</a></td>
-                            </tr>
-                            <tr>
-                                <td>Nome filial</td>
-                                <td>5 / 5 </td>
-                                <td>27/09/2017</td>
-                                <td class="t-status t-active"><a>Avaliar</a></td>
-                            </tr>
-                            <tr>
-                                <td>Nome filial</td>
-                                <td>5 / 5 </td>
-                                <td>27/09/2017</td>
-                                <td class="t-status t-active"><a>Avaliar</a></td>
-                            </tr>
-                            <tr>
-                                <td>Nome filial</td>
-                                <td>5 / 5 </td>
-                                <td>27/09/2017</td>
-                                <td class="t-status t-active"><a>Avaliar</a></td>
-                            </tr>
-                            <tr>
-                                <td>Nome filial</td>
-                                <td>5 / 5 </td>
-                                <td>27/09/2017</td>
-                                <td class="t-status t-active"><a>Avaliar</a></td>
-                            </tr>
-
-
-                        </tbody>
-                    </table>
                     <!-- END TABLE -->
                 </div>
             </div>

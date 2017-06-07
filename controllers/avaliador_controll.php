@@ -58,6 +58,8 @@ if (isset($filtro['op'])) {
                 $avaliador_dao->inserir($aval_model);
 
                 $_SESSION['local'] = '../index.php';
+                $_SESSION['mensagem'] = "Salvo com sucesso!";
+
                 $_SESSION['numero_modal'] = 2;
                 //redirecionar para a pagina
                 header('location:../views/singup.php');

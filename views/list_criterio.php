@@ -3,62 +3,69 @@
     <head>
         <?php include './_head.php'; ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+        <?php include './_javaScripts.php'; ?>     
+        <script type="text/javascript" src="../js/modal.js"></script> 
     </head>
 
     <body>
-        <?php include '../controllers/sessao.php';?>
-        <?php include 'menu.php'; ?>
+        <?php
+        include '../controllers/sessao.php';
+        include 'menu.php';
+        require '../dao/criterio_dao.php';
 
-        <div  class="container">
-            <div class="row">
-                <div class="account-wall" >
-
-                    <strong><h5>Seus Critério</h5></strong>
-                    <br>
-                    
-                    <form class="list-criterio" method="post">
-                        
+        $criterio = new criterio_dao();
+        $result = $criterio->busca_todos_criterios($_SESSION['id_bd']);
+        if ($result->num_rows > 0) {//verifica se possui filiais 
+            ?>
+            <div  class="container">
+                <div class="row">
+                    <div class="account-wall" >
+                        <div class="row">
+                            <strong><h5><i>Seu(s) Critérios</i></h5></strong>
+                            <div class="divider col s8 m6 l6"></div>
+                        </div><br>
                         <!--INICIO DO LAÇO-->
+                        <form id="list-criterio" method="post" action="../controllers/criterio_controll.php"> 
+                            <?php while ($row = mysqli_fetch_assoc($result)) { ?>
 
-                        <div class="row">
-                            <div class="col s12 m12 l12">
-                                <div class="card indigo accent-1 darken-1 z-depth-2">
-                                    <div class="card-content white-text ">
-                                        <span class="card-title">Possui roupa adequada?</span>
-                                        <p>Este criterio tem como objetivo de analisar se o funcionario está vindo com roupas adequadas</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <a href="edit_criterio.php">Editar</a>
+                                <input type="hidden" name="id_criterio" value="<?php echo $linha['id']; ?>"/>                 
+
+                                <div class="row">
+                                    <div class="col s12 m12 l12">
+                                        <div class="card indigo accent-1 darken-1 z-depth-5">
+                                            <div class="card-content white-text ">
+                                                <span class="card-title"><?php echo $row['nome']; ?></span>
+                                                <p><?php echo $row['descricao']; ?></p>
+                                            </div>
+                                            <div class="card-action">
+                                                <a href="javascript:{}" onclick="document.getElementById('list-criterio').submit(); return false;">Editar</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s12 m12 l12">
-                                <div class="card indigo accent-1 darken-1 z-depth-2">
-                                    <div class="card-content white-text ">
-                                        <span class="card-title">Possui roupa adequada?</span>
-                                        <p>Este criterio tem como objetivo de analisar se o funcionario está vindo com roupas adequadas</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <a href="edit_criterio.php">Editar</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!--FIM DO LAÇO-->
+                            <?php } ?><!--FIM DO LAÇO-->
+                        </form>
 
-                    </form>
+
+                    </div>
 
                 </div>
-                <?php include 'footer.php'; ?>
+                <?php
+            } else {//nao possui filiais cadastradas
+                $_SESSION['cadastro'] = './new_criterio.php';
+                $_SESSION['mensagem'] = 'Você não possui Criterio cadastrado';
+                $_SESSION['home'] = './home.php';
+                $_SESSION['numero_modal'] = 5;
+            }
+            ?>
 
-            </div>
         </div>
+        <?php include 'footer.php'; ?>
+
         <!--Import jQuery before materialize.js-->
-        <?php include './_javaScripts.php'; ?>       
+        <?php
+        include './modal.php';
+        ?>
 
     </body>
 </html>

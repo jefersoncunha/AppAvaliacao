@@ -107,7 +107,7 @@
                 </div>
             </div>
 
-<?php include '../views/modal.php'; ?>
+        <?php include '../views/modal.php'; ?>
 
         </div>
 

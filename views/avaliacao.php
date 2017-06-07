@@ -60,11 +60,18 @@
                     <div class=" col s12 divider"></div>
 
                     <!--INICIO DO FOR-->
-                    <form class="avaliacao-form" method="post">
+                    <form action="../controllers/avaliacao_controll.php" method="post">
                         <br>
                         <?php
-                        $result_criterio = $criterio->busca_todos_criterios();
+                        $result_criterio = $criterio->busca_todos_criterios($_SESSION['id_bd']);
+                        $nota1=1;//id inputs radio
+                        $nota2=2;//id inputs radio
+                        $nota3=3;//id inputs radio
+                        $nota4=4;//id inputs radio
+                        $namenota=1;//nome das notas
+                        
                         while ($linhaC = mysqli_fetch_assoc($result_criterio)) {
+                            
                             ?>
                             <div class="row">
                                 <div class="col s12">
@@ -83,20 +90,20 @@
                                 </div>
                                 <div class="section"></div>
                                 <div class='input-field col s3 m3 l3'>
-                                    <input class='validate' type="radio" name="nota" id="1" />
-                                    <label for="1">1</label>
+                                    <input class='validate' type="radio" name="<?php echo $namenota; ?>" id="<?php echo $nota1; ?>" />
+                                    <label for="<?php echo $nota1; ?>">1</label>
                                 </div>
                                 <div class='input-field col s3 m3 l3'>
-                                    <input class='validate' type="radio" name="nota" id="2" />
-                                    <label for="2">2</label>
+                                    <input class='validate' type="radio" name="<?php echo $namenota; ?>" id="<?php echo $nota2; ?>" />
+                                    <label for="<?php echo $nota2; ?>">2</label>
                                 </div>
                                 <div class='input-field col s3 m3 l3'>
-                                    <input class='validate' type="radio" name="nota" id="3" />
-                                    <label for="3">3</label>
+                                    <input class='validate' type="radio" name="<?php echo $namenota; ?>" id="<?php echo $nota3; ?>" />
+                                    <label for="<?php echo $nota3; ?>">3</label>
                                 </div>
                                 <div class='input-field col s3 m3 l3'>
-                                    <input class='validate' type="radio" name="nota" id="4" />
-                                    <label for="4">4</label>
+                                    <input class='validate' type="radio" name="<?php echo $namenota; ?>" id="<?php echo $nota4; ?>" />
+                                    <label for="<?php echo $nota4; ?>">4</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -107,7 +114,19 @@
                             </div>
                             
 
-                                <?php } ?><!--FIM DO LAÇO FUNCIONARIO-->
+                                <?php 
+                                //incrmenta id das notas
+                                $nota1 =$nota1+4;
+                                $nota2 =$nota2+4;
+                                $nota3 =$nota3+4;
+                                $nota4 =$nota4+4;
+                                //incrementa nome das notas
+                                $namenota++;
+                                    
+                        } ?><!--FIM DO LAÇO FUNCIONARIO-->
+                          <input type="hidden" name="idFuncionario" value="<?= $id ?>"/>
+                          <input type="hidden" name="op" value="avaliar"/>
+                                                      
                             <div class="row">
                                 <div class=" input-field  col s12 m12 l12 ">
 

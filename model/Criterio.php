@@ -15,8 +15,17 @@ class Criterio {
     
    private $nome;
    private $descricao;
+   private $id;
    
-   function getNome() {
+   function getId() {
+       return $this->id;
+   }
+
+   function setId($id) {
+       $this->id = $id;
+   }
+
+      function getNome() {
        return $this->nome;
    }
 

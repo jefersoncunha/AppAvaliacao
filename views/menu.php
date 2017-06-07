@@ -1,5 +1,5 @@
 
-<ul id="slide-out" class="side-nav" style="width: 250px">
+<ul id="slide-out" class="side-nav " >
     <li><div class="userView">
             <div class="background" >
                 <img src="../imgs/fundo.jpg">
