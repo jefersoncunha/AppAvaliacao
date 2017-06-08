@@ -46,25 +46,45 @@ if (isset($filtro['op'])) {
             header('location:../views/new_criterio.php');
             break;
 
-        case "editarFilial":
+         case "excluir":
 
-            //recebe dados form e verificando  
-            //qualquer ataque sql injection       
             $id_avaliador = $_SESSION["id_bd"];
-
-            //setar dados no obejto
             $ObjC->setId($sg->anti_sql_injection($filtro['id_criterio']));
-           
-            $reslut_busca = $criterio->busca_criterio_id($id_avaliador, $ObjC);
-            
-            
-            ////////////////////////////////////q tendo que criar um array pra mostrar dados na view
-            $_SESSION['local'] = './home.php';
-            $_SESSION['fica'] = './new_criterio.php';
-            $_SESSION['numero_modal'] = 4;
 
-            header('location:../views/new_criterio.php');
+            $criterio->excluir_criterio($ObjC);
+
+            $_SESSION['fica'] = './';
+            $_SESSION['numero_modal'] = 2;
+            $_SESSION['mensagem'] = "Excluido com sucesso!";
+
+            //redirecionar para a pagina
+
+            header('location:../views/list_criterio.php');
+            break;
+
+        case "editar":
+
+            $ObjC->setId($sg->anti_sql_injection($filtro['id_criterio']));
+            $ObjC->setNome($sg->anti_sql_injection($filtro['criterio']));
+            $ObjC->setDescricao($sg->anti_sql_injection($filtro['descricao']));
+
+                    
+            //busca classe
+            $criterio->alterar_criterio($ObjC);
+            //dados para modal
+            $_SESSION['fica'] = './list_filial.php';
+            $_SESSION['numero_modal'] = 2;
+            $_SESSION['mensagem'] = "Alterado com sucesso!";
+
+            //redirecionar para a pagina
+             header('location:../views/list_criterio.php');
+            
             break;
     }
+               
+
 }
+
+
+
 ?>

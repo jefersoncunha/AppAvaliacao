@@ -25,10 +25,10 @@
                             <div class="divider col s8 m6 l6"></div>
                         </div><br>
                         <!--INICIO DO LAÇO-->
-                        <form id="list-criterio" method="post" action="../controllers/criterio_controll.php"> 
+                        <form id="list-criterio" method="post" action="../views/edit_criterio.php"> 
                             <?php while ($row = mysqli_fetch_assoc($result)) { ?>
 
-                                <input type="hidden" name="id_criterio" value="<?php echo $linha['id']; ?>"/>                 
+                                <input type="hidden" name="id_criterio" value="<?php echo $row['id']; ?>"/>                 
 
                                 <div class="row">
                                     <div class="col s12 m12 l12">
@@ -53,7 +53,7 @@
                 <?php
             } else {//nao possui filiais cadastradas
                 $_SESSION['cadastro'] = './new_criterio.php';
-                $_SESSION['mensagem'] = 'Você não possui Criterio cadastrado';
+                $_SESSION['mensagem'] = 'Você não possui criterio cadastrado';
                 $_SESSION['home'] = './home.php';
                 $_SESSION['numero_modal'] = 5;
             }

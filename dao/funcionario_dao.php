@@ -64,6 +64,17 @@ class funcionario_dao {
 
         return $retorno;
     }
+     //busca dados funcionario
+    function busca_todos_funcionarios($id) {
+        $bd = new conexao_bd();
+        $bd->conectar();
+        $sql = 'SELECT * FROM funcionario WHERE id_avaliador=\'' . $id . '\'';
+        $retorno = $bd->query($sql);
+
+        $bd->fechar();
+
+        return $retorno;
+    }
     
 
 }

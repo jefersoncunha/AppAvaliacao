@@ -15,7 +15,7 @@
 
 
         //filtro contra INJECTION
-        $filtro = filter_input_array(INPUT_GET, FILTER_DEFAULT);
+        $filtro = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         $sg = new seguranca();
         $filial_dao = new filial_dao();

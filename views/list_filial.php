@@ -25,9 +25,11 @@
                             <div class="divider col s8 m6 l6"></div>
                         </div>
                         <br>
-                        <form name="formFilial" method="post" action="../views/edit_filial.php">
+                        <form id="formFilial" method="post" action="../views/edit_filial.php">
                             <div class="row">
                                 <?php while ($row = mysqli_fetch_assoc($result_filiais)) { ?>
+                                    <input type="hidden" name="idFilial" value="<?php echo $row['id']; ?>"/>                 
+
                                     <div class="col s12 m6 l6">
                                         <div class="card blue darken-4 darken-1 z-depth-2">
                                             <div class="card-content white-text">
@@ -43,9 +45,8 @@
                                                     Avaliações: <strong><span class="new badge grey" data-badge-caption="" >10/10</span></strong>
                                                 </p>-->
                                             </div>
-                                            <input type="hidden" value="editarFilial" >
                                             <div class="card-action ">
-                                                <center><a href="edit_filial.php?idFilial=<?php echo $row['id']; ?>">Editar</a></center>
+                                                <a href="javascript:{}" onclick="document.getElementById('formFilial').submit(); return false;">Editar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -55,12 +56,11 @@
                     </div>
                 </div>
                 <?php
-            }  else {//nao possui filiais cadastradas
-            
-            $_SESSION['cadastro'] = './new_filial.php';
-            $_SESSION['mensagem'] = 'Você não possui Filial cadastrada';
-            $_SESSION['home'] = './home.php';
-            $_SESSION['numero_modal'] = 5;
+            } else {//nao possui filiais cadastradas
+                $_SESSION['cadastro'] = './new_filial.php';
+                $_SESSION['mensagem'] = 'Você não possui Filial cadastrada';
+                $_SESSION['home'] = './home.php';
+                $_SESSION['numero_modal'] = 5;
             }
             ?>
             <?php include 'footer.php'; ?>

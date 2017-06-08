@@ -49,6 +49,38 @@ class criterio_dao {
 
         return $retorno;
     }
+    //busca para verficar se exixte nome igual
+    function excluir_criterio(Criterio $c) {
+        $bd = new conexao_bd();
+        $bd->conectar();
+        $sql = 'DELETE FROM criterio WHERE id=' . $c->getId() . '';
+
+        $retorno = $bd->query($sql);
+
+        //fecha conexao
+        $bd->fechar();
+
+        return $retorno;
+    }
+
+    function alterar_criterio(Criterio $cri) {
+
+       
+        
+        $bd = new conexao_bd();
+        $sql = "UPDATE criterio SET "
+                . "nome ='".$cri->getNome().
+                  "',descricao ='".$cri->getDescricao().
+                    "' WHERE id=".$cri->getId().";";
+        
+        $bd->conectar();
+
+        $resultado = $bd->query($sql);
+
+        $bd->fechar();
+
+        return $resultado;
+    }
 
 }
 
