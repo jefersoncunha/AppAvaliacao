@@ -68,7 +68,7 @@ class funcionario_dao {
     function busca_todos_funcionarios($id) {
         $bd = new conexao_bd();
         $bd->conectar();
-        $sql = 'SELECT * FROM funcionario WHERE id_avaliador=\'' . $id . '\'';
+        $sql = 'SELECT * FROM funcionario WHERE id_filial=\'' . $id . '\'';
         $retorno = $bd->query($sql);
 
         $bd->fechar();

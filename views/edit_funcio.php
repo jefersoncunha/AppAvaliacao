@@ -9,19 +9,24 @@
         <script>
             $(document).ready(function () {
                 $('select').material_select();
+
+
+
+
+
             });
         </script>
     </head>
 
     <body>
-        <?php include '../controllers/sessao.php';?>
+        <?php include '../controllers/sessao.php'; ?>
         <?php include 'menu.php'; ?>
 
         <div  class="container">
             <div class="row">
                 <div class="account-wall" >
 
-                  <strong><h5>Editar Funcionário</h5></strong>
+                    <strong><h5>Editar Funcionário</h5></strong>
                     <br>
                     <!-- TABLE -->
                     <form class="edit-funcio-form" method="post">

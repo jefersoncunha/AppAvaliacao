@@ -35,7 +35,7 @@
                         <?php while ($row = mysqli_fetch_assoc($result_filiais)) {?>
                           <!--<input type="hidden" name="id_filial" value="<?php //echo $row['id']; ?>"/>-->
                             <div class="col s12 m6 l6">
-                                <div class="card  light-blue lighten-4 z-depth-5">
+                                <div class="card  blue darken-1 z-depth-5">
                                     <div class="card-content white-text">
                                         <strong><span class="card-title"><?php echo $row['nome']; ?></span></strong>
                                         <p>
@@ -48,8 +48,8 @@
                                             Avaliações: <strong><span class="new badge grey" data-badge-caption="" >10/10</span></strong>
                                         </p>-->
                                     </div>
-                                    <div class="card-action ">
-                                        <center><a  href="list_aval_funcio.php?busca=<?php echo $row['id']; ?>">Ver Funcionarios</a></center>
+                                    <div class="card-action  blue lighten-2">
+                                        <center><a class="white-text waves-circle" href="list_aval_funcio.php?busca=<?php echo $row['id']; ?>">Ver Funcionarios</a></center>
                                     </div>
                                 </div>
                             </div>

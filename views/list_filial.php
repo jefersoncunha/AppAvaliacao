@@ -31,7 +31,7 @@
                                     <input type="hidden" name="idFilial" value="<?php echo $row['id']; ?>"/>                 
 
                                     <div class="col s12 m6 l6">
-                                        <div class="card blue darken-4 darken-1 z-depth-2">
+                                        <div class="card blue darken-1 z-depth-5">
                                             <div class="card-content white-text">
                                                 <strong><span class="card-title"><?php echo $row['nome']; ?></span></strong>
                                                 <p>
@@ -45,7 +45,7 @@
                                                     Avaliações: <strong><span class="new badge grey" data-badge-caption="" >10/10</span></strong>
                                                 </p>-->
                                             </div>
-                                            <div class="card-action ">
+                                            <div class="card-action blue darken-3">
                                                 <a href="javascript:{}" onclick="document.getElementById('formFilial').submit(); return false;">Editar</a>
                                             </div>
                                         </div>

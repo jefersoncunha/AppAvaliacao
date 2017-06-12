@@ -83,14 +83,14 @@
                             <div class=" col s12 m12 l12 ">
 
                                 <div class="right">
-                                    <button class="btn waves-effect waves-rigth" type="submit" name="action">Salvar
+                                    <button class="btn waves-effect waves-rigth blue darken-1" type="submit" name="action">Salvar
                                         <i class="material-icons right">send</i>
                                     </button>
                                 </div>
                                 <input type="hidden" name="op" value="cadastro_login"/>
                                 <div class="left">
 
-                                    <a class="waves-effect waves-light btn" href="../index.php">Voltar</a>
+                                    <a class="waves-effect waves-light btn green darken-1" href="../index.php">Voltar</a>
 
                                     <!--
                                     <a href="../index.php" class="text-center new-account ">

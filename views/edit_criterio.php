@@ -90,7 +90,7 @@
                             <div class=" col s6 m6 l6 ">
 
                                 <div class="right">
-                                    <button class="btn waves-effect waves-rigth" type="submit" name="op" value="editar">Salvar
+                                    <button class="btn waves-effect waves-rigth blue darken-1" type="submit" name="op" value="editar">Salvar
                                         <i class="material-icons right">done</i>
                                     </button>
                                 </div>

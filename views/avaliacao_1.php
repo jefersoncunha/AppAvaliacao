@@ -62,22 +62,12 @@
                     <!--INICIO DO FOR-->
                     <form action="../controllers/avaliacao_controll.php" method="post">
                         <br>
-                        <?php
-                        $result_criterio = $criterio->busca_todos_criterios($_SESSION['id_bd']);
-                        $nota1=1;//id inputs radio
-                        $nota2=2;//id inputs radio
-                        $nota3=3;//id inputs radio
-                        $nota4=4;//id inputs radio
-                        $namenota=1;//nome das notas
-                        
-                        while ($linhaC = mysqli_fetch_assoc($result_criterio)) {
-                            
-                            ?>
+                       
                             <div class="row">
                                 <div class="col s12">
-                                    <strong><?php echo $linhaC['nome']; ?></strong>
-                                    <a class="tooltipped" data-position="bottom" data-delay="5" data-tooltip="<?php echo $linhaC['descricao']; ?>">
-                                        <i class="material-icons">
+                                    <strong>Criterio a ser avaliado</strong>
+                                    <a class="tooltipped" data-position="bottom" data-delay="5" data-tooltip="Decrição">
+                                        <i class="material-icons" >
                                             feedback
                                         </i>
                                     </a>
@@ -113,17 +103,6 @@
                                 </div>
                             </div>
                             
-
-                                <?php 
-                                //incrmenta id das notas
-                                $nota1 =$nota1+4;
-                                $nota2 =$nota2+4;
-                                $nota3 =$nota3+4;
-                                $nota4 =$nota4+4;
-                                //incrementa nome das notas
-                                $namenota++;
-                                    
-                        } ?><!--FIM DO LAÇO FUNCIONARIO-->
                           <input type="hidden" name="idFuncionario" value="<?= $id ?>"/>
                           <input type="hidden" name="op" value="avaliar"/>
                                                       
@@ -131,7 +110,7 @@
                                 <div class=" input-field  col s12 m12 l12 ">
 
                                     <div class="right">
-                                        <button class="btn waves-effect waves-rigth  blue lighten-1" type="submit" name="action">Salvar Avaliações
+                                        <button class="btn waves-effect waves-rigth" type="submit" name="action">Salvar Avaliações
                                             <i class="material-icons right">done</i>
                                         </button>
                                     </div>

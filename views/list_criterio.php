@@ -5,6 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <?php include './_javaScripts.php'; ?>     
         <script type="text/javascript" src="../js/modal.js"></script> 
+    
+        <script>
+        
+        $('.carousel').carousel();
+        
+        </script>
     </head>
 
     <body>
@@ -32,17 +38,19 @@
 
                                 <div class="row">
                                     <div class="col s12 m12 l12">
-                                        <div class="card indigo accent-1 darken-1 z-depth-5">
+                                        <div class="card indigo blue darken-1 z-depth-5">
                                             <div class="card-content white-text ">
                                                 <span class="card-title"><?php echo $row['nome']; ?></span>
                                                 <p><?php echo $row['descricao']; ?></p>
                                             </div>
-                                            <div class="card-action">
+                                            <div class="card-action blue darken-2">
                                                 <a href="javascript:{}" onclick="document.getElementById('list-criterio').submit(); return false;">Editar</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                
+                                
                             <?php } ?><!--FIM DO LAÇO-->
                         </form>
 

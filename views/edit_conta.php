@@ -61,7 +61,7 @@
                             <div class=" col s12 m12 l12 ">
 
                                 <div class="right">
-                                    <button class="btn waves-effect waves-rigth" type="submit" name="action" style="background-color: #1398d8;">Salvar
+                                    <button class="btn waves-effect waves-rigth blue darken-1" type="submit" name="action" style="background-color: #1398d8;">Salvar
                                         <i class="material-icons right">done</i>
                                     </button>
                                 </div>

@@ -21,7 +21,7 @@ if (isset($_SESSION['numero_modal'])) {
         ?>
         <!-- Modal Confirmação -->
 
-        <div id="modal" class="modal bottom-sheet  green lighten-1">
+        <div id="modal" class="modal bottom-sheet   blue">
             <div class="modal-content ">
                 <h4 class="center"><i>Ok!</i></h4>
                 <p class="center"><?php echo $_SESSION['mensagem']; ?></p>
@@ -50,7 +50,7 @@ if (isset($_SESSION['numero_modal'])) {
         ?>
 
         <!-- Modal sucesso cadastro, cadastro novamente -->
-        <div id="modal" class="modal teal lighten-3">
+        <div id="modal" class="modal teal  blue">
             <div class="modal-content">
                 <h4 class="center-align"><i>Cadastro com Sucesso!</i></h4>
                 <p class="center-align">Deseja cadastrar outro?</p>
@@ -65,7 +65,7 @@ if (isset($_SESSION['numero_modal'])) {
         ?>
 
         <!-- Modal Structure -->
-        <div id="modal" class="modal teal lighten-3">
+        <div id="modal" class="modal teal  blue">
             <div class="modal-content">
                 <h4 class="center-align"><i>Desculpe!</i></h4>
                 <p class="center-align"><?php echo $_SESSION['mensagem']; ?>

@@ -60,7 +60,7 @@
                             <div class=" col s12 m12 l12 ">
 
                                 <div class="right">
-                                    <button class="btn waves-effect waves-rigth" type="submit" name="op" value="cadastro_filial">Cadastrar
+                                    <button class="btn waves-effect waves-rigth blue darken-1" type="submit" name="op" value="cadastro_filial">Cadastrar
                                         <i class="material-icons right">done</i>
                                     </button>
                                 </div>
