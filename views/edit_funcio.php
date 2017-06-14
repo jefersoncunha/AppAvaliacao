@@ -10,10 +10,6 @@
             $(document).ready(function () {
                 $('select').material_select();
 
-
-
-
-
             });
         </script>
     </head>
@@ -21,101 +17,130 @@
     <body>
         <?php include '../controllers/sessao.php'; ?>
         <?php include 'menu.php'; ?>
+        <?php
+        require '../dao/funcionario_dao.php';
+        require '../controllers/seguranca.php';
+        require '../dao/filial_dao.php';
+
+        //filtro contra INJECTION
+        $filtro = filter_input_array(INPUT_GET, FILTER_DEFAULT);
+
+        $sg = new seguranca();
+        $f = new funcionario_dao();
+        $filial = new filial_dao();
+
+        $id_func = ($sg->anti_sql_injection($filtro['busca']));
+        $id_aval = $_SESSION['id_bd'];
+        $reslut_busca = $f->busca_funcionario_id($id_func);
+        ?>
 
         <div  class="container">
             <div class="row">
                 <div class="account-wall" >
 
-                    <strong><h5>Editar Funcionário</h5></strong>
+                    <div class="row">
+                        <strong><h5><i>Editar Funcionário</i></h5></strong>
+                        <div class="divider col s8 m6 l6"></div>
+                    </div>                    
                     <br>
                     <!-- TABLE -->
-                    <form class="edit-funcio-form" method="post">
+                    <form  method="post" action="../controllers/funcionario_controll.php">
+                        <?php
+                        while ($linha = mysqli_fetch_assoc($reslut_busca)) {
+                            ?>
+                            <input type="hidden" name="id_funcio" value="<?php echo $linha['id']; ?>"/>                 
 
-                        <div class='row'>
-                            <div class='input-field col s12'>
-                                <input class='validate' type="text" name="nome" id="nome" required autofocus/>
-                                <label for="nome">Nome</label>
+                            <div class='row'>
+                                <div class='input-field col s12'>
+                                    <input class='validate' type="text" name="nome" id="nome" value="<?php echo $linha['nome']; ?>"required autofocus/>
+                                    <label for="nome">Nome</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class='row'>
-                            <div class='input-field col s12'>
-                                <input class='validate' type="text" name="sobrenome" id="sobrenome" required autofocus/>
-                                <label for="sobrenome">Sobrenome</label>
+                            <div class='row'>
+                                <div class='input-field col s12'>
+                                    <input class='validate' type="text" name="sobrenome" id="sobrenome" value="<?php echo $linha['sobrenome']; ?>"required autofocus/>
+                                    <label for="sobrenome">Sobrenome</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class='row'>
-                            <div class='input-field col s12'>
-                                <input class='validate' type="email" name="email" id="email" required autofocus />
-                                <label for="email">E-mail</label>
+                            <div class='row'>
+                                <div class='input-field col s12'>
+                                    <input class='validate' type="email" name="email" id="email" value="<?php echo $linha['email']; ?>"required autofocus />
+                                    <label for="email">E-mail</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class='row'>
-                            <div class='input-field col s12'>
-                                <input class='validate' type="text" name="fone" id="fone" required autofocus/>
-                                <label for="fone">Telefone</label>
-                            </div>
-                        </div>
-
-                        <div class='row'>
-                            <div class='input-field col s12 m2 l2'>
-                                <label>Sexo</label>
-                            </div>
-                            <div class="section"></div>
-
-                            <div class='input-field col s12 m4 l4'>
-                                <input class='validate' type="radio" name="sexo" id="feminino" />
-                                <label for="feminino">Feminino</label>
+                            <div class='row'>
+                                <div class='input-field col s12'>
+                                    <input class='validate' type="text" name="fone" id="fone" value="<?php echo $linha['fone']; ?>" required autofocus/>
+                                    <label for="fone">Telefone</label>
+                                </div>
                             </div>
 
-                            <div class='input-field col s12 m4 l4'>
-                                <input class='validate' type="radio" name="sexo" id="masculino" />
-                                <label for="masculino">Masculino</label>
+                            <div class='row'>
+                                <div class='input-field col s12 m2 l2'>
+                                    <label>Sexo</label>
+                                </div>
+                                <div class="section"></div>
+
+                                <div class='input-field col s12 m4 l4'>
+                                    <input class='validate' type="radio" name="sexo" id="feminino" required autofocus/>
+                                    <label for="feminino">Feminino</label>
+                                </div>
+
+                                <div class='input-field col s12 m4 l4'>
+                                    <input class='validate' type="radio" name="sexo" id="masculino" />
+                                    <label for="masculino">Masculino</label>
+                                </div>
                             </div>
-                        </div>
 
 
 
-                        <div class="row">
-                            <div class='input-field col s12 m6 l6'>
+                            <div class="row">
+                                <div class='input-field col s12 m6 l6'>
 
-                                <label>Pertence à loja</label>
+                                    <label>Pertence à loja</label>
+                                </div>
+                                <div class="section"></div>
+
+                                <div class='input-field col s12 m6 l6'>
+
+                                    <select required autofocus name="id_loja">
+                                        <option value="" disabled selected>Selecione Loja</option>
+                                        <?php
+                                        $result_filiais = $filial->busca_filial_listar_todas($_SESSION['id_bd']);
+                                        while ($row = mysqli_fetch_assoc($result_filiais)) {
+                                            ?>
+                                            <option value="<?php echo $row['id']; ?>" > <?php echo $row['nome']; ?></option>
+                                            <?php
+                                        }
+                                        ?>
+                                    </select>               
+                                </div>
                             </div>
-                            <div class="section"></div>
 
-                            <div class='input-field col s12 m6 l6'>
 
-                                <select>
-                                    <option value="" disabled selected>Selecione Loja Filial</option>
-                                    <option value="1">Loja 1</option>
-                                    <option value="2">Loja 2</option>
-                                    <option value="3">Loja 3</option>
-                                </select>               
+                            <div class='row'>
+                                <div class='input-field col s12'>
+                                    <input class='validate' type="text" name="funcao" id="funcao" value="<?php echo $linha['funcao']; ?>"required autofocus/>
+                                    <label for="funcao">Função</label>
+                                </div>
                             </div>
-                        </div>
-
-
-                        <div class='row'>
-                            <div class='input-field col s12'>
-                                <input class='validate' type="text" name="funcao" id="funcao" required autofocus/>
-                                <label for="funcao">Função</label>
-                            </div>
-                        </div>
-                        <input type="hidden" name="op" value="edit_funcio"/>
+                        <?php } ?><!--FIM DO LAÇO-->                        
                         <div class="row">
 
                             <div class=" col s6 m6 l6 ">
 
                                 <div>
-                                    <button class="btn waves-effect waves-light red" type="submit" name="action">Excluir
+                                    <button class="btn waves-effect waves-light red" type="submit" name="op" value="excluir">Excluir
                                         <i class="material-icons right">delete</i>
                                     </button>
                                 </div>
 
                             </div>
+
                             <div class=" col s6 m6 l6 ">
 
                                 <div class="right">
-                                    <button class="btn waves-effect waves-rigth" type="submit" name="action">Salvar
+                                    <button class="btn waves-effect waves-rigth blue darken-1" type="submit" name="op" value="editar">Salvar
                                         <i class="material-icons right">done</i>
                                     </button>
                                 </div>

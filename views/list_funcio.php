@@ -21,12 +21,27 @@
 
             });
 
-            $(document).on('click', '.botaoFilial', function () {
-                func();
-                var id = $(this).data('filial');
 
-                window.location.href = "/list_funcio.php?idFilial=" + id;
-            });
+            function showUser(str) {
+                if (str == "") {
+                    document.getElementById("funcionario").innerHTML = "";
+                    return;
+                }
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else { // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("funcionario").innerHTML = this.responseText;
+                    }
+                }
+                xmlhttp.open("GET", "./funcionario.php?Buscafilial=" + str, true);
+                xmlhttp.send();
+            }
+
 
         </script>
     </head>
@@ -47,18 +62,15 @@
                     <div class="row">
                         <strong><h5><i>Listar Funcionário(s)</i></h5></strong>
                         <div class="divider col s8 m6 l6"></div>
-                    </div>                    <br>
-
-                    <form action="" method="post">
+                    </div>                    
+                    <br>
+                    <form action="">
                         <div class="row">
-
-                            <div class="col s6 m6 l6">
-
-                                <select name="id_loja" id="id_loja">
+                            <div class="col s12">
+                                <select onchange="showUser(this.value)">
                                     <option value="" disabled selected>Selecione uma loja para a busca</option>
                                     <?php
                                     $result_filiais = $filial->busca_filial_listar_todas($_SESSION['id_bd']);
-
                                     while ($row = mysqli_fetch_assoc($result_filiais)) {
                                         ?>
                                         <option value="<?php echo $row['id']; ?>" > <?php echo $row['nome']; ?></option>
@@ -67,80 +79,47 @@
                                     ?>
                                 </select>                 
                             </div>
-
-                            <div class=" col s6 m6 l6 ">
-
-                                <div class="right">
-                                    <button class="btn waves-effect waves-rigth" type="submit" data-filial="<?php echo $row['id']; ?>" class="botaoFilial">Buscar
-                                        <i class="material-icons right">done</i>
-                                    </button>
-                                </div>
-
-                            </div>
-                        </div>
+                          </div>
                     </form>
+                    <div class="row" id='funcionario' name='funcionario'>
+                    </div>
 
+
+
+                    <!--
+                    
                     <div class="section"></div>
+                    <div class="row">
+                        <strong><h5><i>Seus Funcionário(s)</i></h5></strong>
+                        <div class="divider col s8 m6 l6"></div>
+                    </div> 
 
-                    <?php
-                    require '../dao/funcionario_dao.php';
-                    //filtro contra injecton
-                    $filtro = filter_input_array(INPUT_GET, FILTER_DEFAULT);
+                    <div class="row">
+                        <div class="col s12" id='funcionario' name='funcionario'>
 
-                    $funcionario = new funcionario_dao();
-
-                    if (isset($filtro['idFilial'])) {
-
-
-
-
-                        $result_funcionario = $funcionario->busca_todos_funcionarios($filtro['idFilial']);
-
-                        if ($result_funcionario->num_rows > 0) {
-                            ?>
-                            <div class="row">
-                                <strong><h5><i>Seus Funcionário(s)</i></h5></strong>
-                                <div class="divider col s8 m6 l6"></div>
-                            </div> 
-
-                            <div class="section"></div>
-
-
-                            <?php
-                            while ($linha = mysqli_fetch_assoc($result_funcionario)) {
-                                ?>
-                                <div class="row" id="status">
-                                    <div class="col s12 m6 l6">
-                                        <div class="card   blue lighten-4 lighten-3 z-depth-2">
-                                            <div class="card-content black-text">
-                                                <span class="card-title  "><strong><?php echo $linha['nome']; ?></strong></span>
-                                                <p>
-                                                    Sobrenome: <?php echo $linha['sobrenome']; ?>
-                                                </p>
-                                                <p>
-                                                    Função: <?php echo $linha['funcao']; ?>
-                                                </p>
-                                            </div>
-                                            <div class="card-action ">
-                                                <a class="blue-text" href="edit_funcio.php">Editar</a>
-                                            </div>
-                                        </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section"></div>
+                        <div class="row" id="status">
+                            <div class="col s12 m6 l6">
+                                <div class="card   blue lighten-4 lighten-3 z-depth-2">
+                                    <div class="card-content black-text">
+                                        <span class="card-title  "><strong></strong></span>
+                                        <p>
+                                            Sobrenome: 
+                                        </p>
+                                        <p>
+                                            Função: 
+                                        </p>
                                     </div>
-
+                                    <div class="card-action ">
+                                        <a class="blue-text" href="edit_funcio.php">Editar</a>
+                                    </div>
                                 </div>
-                                <!--FIM DO FOR-->
-                                <?php
-                            }
-                        } else {//nao possui filiais cadastradas
-                            $_SESSION['cadastro'] = './new_funcio.php';
-                            $_SESSION['mensagem'] = 'Você não possui funcionario cadastrado';
-                            $_SESSION['home'] = './home.php';
-                            $_SESSION['numero_modal'] = 5;
-                        }
-                    }
-                    ?>
-
-
+                            </div>
+                        </div>-->
+                    <!--FIM DO FOR-->                         
                 </div>
             </div>
             <?php include 'footer.php'; ?>

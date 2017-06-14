@@ -28,6 +28,9 @@
         include '../dao/filial_dao.php';
 
         $filial = new filial_dao();
+        $result_filiais = $filial->busca_filial_listar_todas($_SESSION['id_bd']);
+        if ($result_filiais->num_rows > 0) {//verifica se possui filiais 
+
         ?>
 
         <div  class="container">
@@ -92,7 +95,6 @@
                                 <select name="id_loja">
                                     <option value="" disabled selected>Selecione loja filial pertencente</option>
                                     <?php
-                                    $result_filiais = $filial->busca_filial_listar_todas($_SESSION['id_bd']);
 
                                     while ($row = mysqli_fetch_assoc($result_filiais)) {
                                         ?>
@@ -133,6 +135,14 @@
 
                 </div>
             </div>
+              <?php
+            } else {//nao possui filiais cadastradas
+                $_SESSION['cadastro'] = './new_filial.php';
+                $_SESSION['mensagem'] = 'Você não possui uma filial para vincular o funcionario';
+                $_SESSION['home'] = './home.php';
+                $_SESSION['numero_modal'] = 5;
+            }
+            ?>
 
         </div>
         <?php include 'footer.php'; ?>

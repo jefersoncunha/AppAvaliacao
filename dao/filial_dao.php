@@ -80,11 +80,13 @@ class filial_dao {
     function alterar_filial(Filial $fil) {
 
         $bd = new conexao_bd();
+         $bd->conectar();
+         
         $sql = "UPDATE filial SET nome='" . $fil->getNome() . "',"
                 . "fone='" . $fil->getFone() . "' ,"
                 . "observacao='" . $fil->getObs() . "'  "
                 . "WHERE id='" . $fil->getId() . "';";
-        $bd->conectar();
+       
 
         $resultado = $bd->query($sql);
 

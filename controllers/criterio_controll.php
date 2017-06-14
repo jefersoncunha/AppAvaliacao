@@ -53,7 +53,7 @@ if (isset($filtro['op'])) {
 
             $criterio->excluir_criterio($ObjC);
 
-            $_SESSION['fica'] = './';
+            $_SESSION['local'] = './list_criterio.php';
             $_SESSION['numero_modal'] = 2;
             $_SESSION['mensagem'] = "Excluido com sucesso!";
 

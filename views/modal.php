@@ -26,7 +26,7 @@ if (isset($_SESSION['numero_modal'])) {
                 <h4 class="center"><i>Ok!</i></h4>
                 <p class="center"><?php echo $_SESSION['mensagem']; ?></p>
             </div>
-            <div class="modal-footer  green lighten-1">
+            <div class="modal-footer  blue ">
                 <a href="<?php echo $_SESSION['local']; ?>" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
             </div>
         </div>

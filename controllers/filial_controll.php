@@ -70,7 +70,7 @@ if (isset($filtro['op'])) {
 
             $reslut_busca = $filial->excluir_filial($filial_obj);
 
-            $_SESSION['fica'] = './';
+            $_SESSION['local'] = './list_filial.php';
             $_SESSION['numero_modal'] = 2;
             $_SESSION['mensagem'] = "Excluido com sucesso!";
 

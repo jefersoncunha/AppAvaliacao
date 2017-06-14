@@ -49,7 +49,7 @@ class criterio_dao {
 
         return $retorno;
     }
-    //busca para verficar se exixte nome igual
+   
     function excluir_criterio(Criterio $c) {
         $bd = new conexao_bd();
         $bd->conectar();

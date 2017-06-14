@@ -13,6 +13,7 @@
  */
 class Funcionario {
     
+    private $id;
     private $nome;
     private $sobrenome;
     private $email;
@@ -20,6 +21,15 @@ class Funcionario {
     private $sexo;
     private $funcao;
     
+    function getId() {
+        return $this->id;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+        
     function getNome() {
         return $this->nome;
     }

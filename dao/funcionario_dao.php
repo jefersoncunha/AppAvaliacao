@@ -53,7 +53,8 @@ class funcionario_dao {
 
         return $retorno;
     }
-     //busca dados funcionario
+
+    //busca dados funcionario
     function busca_funcionario_id($id) {
         $bd = new conexao_bd();
         $bd->conectar();
@@ -64,7 +65,8 @@ class funcionario_dao {
 
         return $retorno;
     }
-     //busca dados funcionario
+
+    //busca dados funcionario
     function busca_todos_funcionarios($id) {
         $bd = new conexao_bd();
         $bd->conectar();
@@ -75,6 +77,43 @@ class funcionario_dao {
 
         return $retorno;
     }
-    
+
+    function editar_funcionario($id_avaliador, $id_filial, Funcionario $func) {
+
+        $bd = new conexao_bd();
+        
+        $bd->conectar();
+
+        
+        $sql = "UPDATE funcionario SET "
+                . "nome='" . $func->getNome() . "',"
+                . "sobrenome='" . $func->getSobrenome() . "',"
+                . "sexo='" . $func->getSexo() . "',"
+                . "email='" . $func->getEmail() . "',"
+                . "funcao='" . $func->getFuncao() . "',"
+                . "fone='" . $func->getFone() . "',"
+                . "id_avaliador='" . $id_avaliador . "',"
+                . "id_avaliador='" . $id_filial . "'"
+                . "WHERE id='" . $func->getId() . "';";
+
+        $resultado = $bd->query($sql);
+
+        $bd->fechar();
+
+        return $resultado;
+    }
+    //busca para verficar se exixte nome igual
+    function excluir_funcionario(Funcionario $f) {
+        $bd = new conexao_bd();
+        $bd->conectar();
+        $sql = 'DELETE FROM funcionario WHERE id=' . $f->getId() . '';
+
+        $retorno = $bd->query($sql);
+
+        //fecha conexao
+        $bd->fechar();
+
+        return $retorno;
+    }
 
 }
