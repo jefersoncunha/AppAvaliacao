@@ -21,7 +21,7 @@
 
         $criterio = new criterio_dao();
         $result = $criterio->busca_todos_criterios($_SESSION['id_bd']);
-        if ($result->num_rows > 0) {//verifica se possui filiais 
+        if ($result->num_rows > 0) {//verifica se possui criterios 
             ?>
             <div  class="container">
                 <div class="row">
@@ -59,7 +59,7 @@
 
                 </div>
                 <?php
-            } else {//nao possui filiais cadastradas
+            } else {//nao possui criterios cadastradas
                 $_SESSION['cadastro'] = './new_criterio.php';
                 $_SESSION['mensagem'] = 'Você não possui criterio cadastrado';
                 $_SESSION['home'] = './home.php';
@@ -69,8 +69,6 @@
 
         </div>
         <?php include 'footer.php'; ?>
-
-        <!--Import jQuery before materialize.js-->
         <?php
         include './modal.php';
         ?>

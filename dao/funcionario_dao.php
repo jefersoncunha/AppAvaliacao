@@ -88,12 +88,12 @@ class funcionario_dao {
         $sql = "UPDATE funcionario SET "
                 . "nome='" . $func->getNome() . "',"
                 . "sobrenome='" . $func->getSobrenome() . "',"
-                . "sexo='" . $func->getSexo() . "',"
+                //. "sexo='" . $func->getSexo() . "',"
                 . "email='" . $func->getEmail() . "',"
                 . "funcao='" . $func->getFuncao() . "',"
                 . "fone='" . $func->getFone() . "',"
                 . "id_avaliador='" . $id_avaliador . "',"
-                . "id_avaliador='" . $id_filial . "'"
+                . "id_filial='" . $id_filial . "'"
                 . "WHERE id='" . $func->getId() . "';";
 
         $resultado = $bd->query($sql);

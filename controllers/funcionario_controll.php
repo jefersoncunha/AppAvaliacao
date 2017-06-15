@@ -78,65 +78,41 @@ if (isset($filtro['op'])) {
 
             //recebe dados form e verificando  
             //qualquer ataque sql injection
-            $id_loja = $sg->anti_sql_injection($filtro['id_loja']);
             $id_avaliador = $sg->anti_sql_injection($_SESSION['id_bd']);
-
             //setar dados no obejto
             $ob_func->setId($sg->anti_sql_injection($filtro['id_funcio']));
             $ob_func->setEmail($sg->anti_sql_injection($filtro['email']));
             $ob_func->setFone($sg->anti_sql_injection($filtro['fone']));
             $ob_func->setFuncao($sg->anti_sql_injection($filtro['funcao']));
             $ob_func->setNome($sg->anti_sql_injection($filtro['nome']));
-            $ob_func->setSexo($sg->anti_sql_injection($filtro['sexo']));
             $ob_func->setSobrenome($sg->anti_sql_injection($filtro['sobrenome']));
-
-
-            //verifica login
-            $result = $fucionario->busca_funcionario($id_avaliador, $id_loja, $ob_func);
-
-            if (mysqli_num_rows($result) > 0) {
-
-                $_SESSION['numero_modal'] = 1;
-
-                header('location:../views/list_funcio.php');
-            } else {
-
-
-                //busca classe
-                $fucionario->editar_funcionario($id_avaliador, $id_loja, $ob_func);
-
-                //dados para modal
-                $_SESSION['fica'] = './list_filial.php';
-                $_SESSION['numero_modal'] = 2;
-                $_SESSION['mensagem'] = "Alterado com sucesso!";
-                
-                //redirecionar para a pagina
-                header('location:../views/home.php');
-            }
-            break;
+            //$ob_func->setSexo($sg->anti_sql_injection($filtro['sexo']));
+            $id_loja = $sg->anti_sql_injection($filtro['id_loja']);
             
-            case "excluir":
+            //busca classe
+            $fucionario->editar_funcionario($id_avaliador, $id_loja, $ob_func);
+            //dados para modal
+            $_SESSION['local'] = './list_funcio.php';
+            $_SESSION['numero_modal'] = 2;
+            $_SESSION['mensagem'] = "Alterado com sucesso!";
+            //redirecionar para a pagina
+            header('location:../views/list_funcio.php');
+
+            break;
+
+        case "excluir":
 
             $ob_func->setId($sg->anti_sql_injection($filtro['id_funcio']));
 
             $fucionario->excluir_funcionario($ob_func);
 
-            $_SESSION['local'] = './list_filial.php';
+            $_SESSION['local'] = './list_funcio.php';
             $_SESSION['numero_modal'] = 2;
             $_SESSION['mensagem'] = "Excluido com sucesso!";
 
             //redirecionar para a pagina
 
-            header('location:../views/list_filial.php');
+            header('location:../views/list_funcio.php');
             break;
     }
 }
-
-//recebe requisção do java script list_funcio.php
-if (isset($filtro['Buscafilial'])) {
-
-    $id_Filial = $sg->anti_sql_injection($filtro['Buscafilial']);
-
-    $fucionario->busca_funcionario_filial($id_Filial);
-}
-?>
