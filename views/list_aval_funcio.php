@@ -24,26 +24,18 @@
         $funcionario = new funcionario_dao();
 
         //filtro contra injecton
-        $filtro = filter_input_array(INPUT_GET, FILTER_DEFAULT);
+        $filtro = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-        //recebe por GET 
-        $id_filial = $filtro['busca'];
-
-
-        $result_funcionario = $funcionario->busca_funcionario_filial($id_filial);
+        $result_func = $funcionario->busca_funcionario_filial($filtro['idfilial']);
         ?>
         <div  class="container">
-
             <div class="row">
-                <!--NAO TA FUNCIONANDO-->
-
                 <?php
-                if ($result_funcionario == TRUE) {//verifica se possui dados
+                if ($result_func->num_rows > 0) {//verifica se possui dados
                     ?>
                     <div class="account-wall" >
-
                         <div class="row">
-                            <strong><h5><i>Funcionarios da Loja </i></h5></strong>
+                            <strong><h5><i>Funcionario(s) da filial buscada </i></h5></strong>
                             <div class="divider col s8 m6 l6"></div>
                             <div class="col s12 m12 l12 "> 
                                 <strong><span class="new badge grey" data-badge-caption="<?php echo date('d/m/y'); ?>" >Data:</span></strong>
@@ -61,15 +53,13 @@
                         </nav>
                         <div class=" col s12 divider"></div>
                         <div class="section"></div>
-
                         <!-- LISTAR FUNCIONARIOS NÃO AVALIADOS--> 
-                        <h5><i>Não avaliados</i></h5>
-                        <div class="divider"></div>
-
-                        <ul class="collapsible popout light-blue lighten-5" data-collapsible="accordion">
-                            <?php while ($row = mysqli_fetch_assoc($result_funcionario)) { ?>
+                        <div class="row"><h5 class="chip yellow  white-text col s12"><i>Não avaliados</i></h5></div>
+                        
+                        <ul class="collapsible popout grey lighten-2" data-collapsible="accordion">
+                            <?php while ($row = mysqli_fetch_assoc($result_func)) { ?>
                                 <li>
-                                    <div class="collapsible-header  blue lighten-2">
+                                    <div class="collapsible-header  yellow lighten-2">
                                         <i class="material-icons">person</i><?php
                                         echo $row['nome'], ' ', $row['sobrenome'];
                                         ?></div>
@@ -83,14 +73,11 @@
                                 </li>
                             <?php } ?><!--FIM DO LAÇO-->
                         </ul>
-
-
-                        <h5><i>Já avaliados</i></h5>
-                        <div class="divider"></div>
+                        <div class="row"><h5 class="chip green white-text col s12"><i>Já avaliados</i></h5></div>
                         <!-- LISTAR FUNCIONARIOS JÁ AVALIADOS--> 
-                        <ul class="collapsible popout green lighten-5" data-collapsible="accordion">
+                        <ul class="collapsible popout grey lighten-2" data-collapsible="accordion">
                             <li>
-                                <div class="collapsible-header teal accent-3">
+                                <div class="collapsible-header green lighten-2">
                                     <i class="material-icons">person</i>Funcionario 1</div>
                                 <div class="collapsible-body">
                                     <p>Sobrenome: sobrenome <br>
@@ -107,16 +94,10 @@
                                         Fone: 9999-9999<br>
                                         Função: funcao<br>
                                         <span class="new badge grey" data-badge-caption="10/10/2017" >Data:</span>
-
-
                                     </p>
                                 </div>
                             </li>
-
                         </ul>
-
-
-
                     </div>
                 </div>
                 <?php include 'footer.php'; ?>

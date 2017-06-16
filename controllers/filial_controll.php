@@ -3,6 +3,13 @@
 //filtro contra INJECTION
 $filtro = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
+//limpa sessões
+require './_cleanSession.php';
+
+//inicia sessao
+session_start();
+
+
 //verifica se variavel foi setada
 if (isset($filtro['op'])) {
 
@@ -12,8 +19,7 @@ if (isset($filtro['op'])) {
     require '../model/Filial.php';
     require '../model/Avaliador.php';
 
-    //inicia sessao
-    session_start();
+
 
     //objetos
     $sg = new seguranca();
@@ -52,12 +58,11 @@ if (isset($filtro['op'])) {
                 //busca classe
                 $filial->inserir($id_avaliador, $filial_obj);
                 //dados para modal
-                $_SESSION['local'] = './home.php';
+                $_SESSION['home'] = './home.php';
                 $_SESSION['fica'] = './new_filial.php';
                 $_SESSION['numero_modal'] = 4;
 
                 //redirecionar para a pagina
-
                 header('location:../views/new_filial.php');
             }
             break;
@@ -84,7 +89,7 @@ if (isset($filtro['op'])) {
             //recebe dados form e verificando  
             //qualquer ataque sql injection    
             //setar dados no obejto
- 
+
             $filial_obj->setId($sg->anti_sql_injection($filtro['id_filial']));
             $filial_obj->setNome($sg->anti_sql_injection($filtro['nome']));
             $filial_obj->setFone($sg->anti_sql_injection($filtro['fone']));
@@ -93,15 +98,14 @@ if (isset($filtro['op'])) {
             //busca classe
             $filial->alterar_filial($filial_obj);
             //dados para modal
-            $_SESSION['fica'] = './list_filial.php';
+            $_SESSION['local'] = './list_filial.php';
             $_SESSION['numero_modal'] = 2;
             $_SESSION['mensagem'] = "Alterado com sucesso!";
 
             //redirecionar para a pagina
-             header('location:../views/list_filial.php');
-            
-            break;
+            header('location:../views/list_filial.php');
 
+            break;
     }
 }
 

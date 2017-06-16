@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <?php include './_javaScripts.php'; ?>     
         <script type="text/javascript" src="../js/modal.js"></script> 
-    
+
         <script>
-        
-        $('.carousel').carousel();
-        
+
+            $('.carousel').carousel();
+
         </script>
     </head>
 
@@ -31,8 +31,9 @@
                             <div class="divider col s8 m6 l6"></div>
                         </div><br>
                         <!--INICIO DO LAÇO-->
-                        <form id="list-criterio" method="post" action="../views/edit_criterio.php"> 
-                            <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+
+                        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                            <form id="list-criterio" method="post" action="../views/edit_criterio.php"> 
 
                                 <input type="hidden" name="id_criterio" value="<?php echo $row['id']; ?>"/>                 
 
@@ -43,20 +44,16 @@
                                                 <span class="card-title"><?php echo $row['nome']; ?></span>
                                                 <p><?php echo $row['descricao']; ?></p>
                                             </div>
-                                            <div class="card-action blue darken-2">
-                                                <a href="javascript:{}" onclick="document.getElementById('list-criterio').submit(); return false;">Editar</a>
-                                            </div>
+                                            <button class="btn waves-effect waves-light blue darken-3" type="submit">Editar
+                                                <i class="material-icons right">mode_edit</i>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                
-                            <?php } ?><!--FIM DO LAÇO-->
-                        </form>
 
-
+                            </form>
+                        <?php } ?><!--FIM DO LAÇO-->
                     </div>
-
                 </div>
                 <?php
             } else {//nao possui criterios cadastradas
@@ -66,7 +63,6 @@
                 $_SESSION['numero_modal'] = 5;
             }
             ?>
-
         </div>
         <?php include 'footer.php'; ?>
         <?php

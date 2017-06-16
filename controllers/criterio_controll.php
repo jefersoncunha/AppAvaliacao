@@ -4,11 +4,16 @@
 //filtro contra INJECTION
 $filtro = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
+//limpa sessões
+require './_cleanSession.php';
+
+//inicia sessao
+session_start();
+    
 //verifica se variavel possui valor
 if (isset($filtro['op'])) {
 
-    //inicia sessao
-    session_start();
+    
 
     //inclusões de classses
     require './seguranca.php';

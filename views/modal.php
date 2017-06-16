@@ -21,13 +21,13 @@ if (isset($_SESSION['numero_modal'])) {
         ?>
         <!-- Modal Confirmação -->
 
-        <div id="modal" class="modal bottom-sheet   blue">
+        <div id="modal" class="modal bottom-sheet   green">
             <div class="modal-content ">
                 <h4 class="center"><i>Ok!</i></h4>
                 <p class="center"><?php echo $_SESSION['mensagem']; ?></p>
             </div>
-            <div class="modal-footer  blue ">
-                <a href="<?php echo $_SESSION['local']; ?>" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+            <div class="modal-footer  green  ">
+                <a href="<?php echo $_SESSION['local']; ?>" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
             </div>
         </div>
 
@@ -50,13 +50,13 @@ if (isset($_SESSION['numero_modal'])) {
         ?>
 
         <!-- Modal sucesso cadastro, cadastro novamente -->
-        <div id="modal" class="modal teal  blue">
+        <div id="modal" class="modal green">
             <div class="modal-content">
                 <h4 class="center-align"><i>Cadastro com Sucesso!</i></h4>
                 <p class="center-align">Deseja cadastrar outro?</p>
             </div>
-            <div class="modal-footer teal lighten-4">
-                <a href="<?php echo $_SESSION['local']; ?>" class="modal-action modal-close waves-effect waves-green btn-flat">Não</a>
+            <div class="modal-footer green lighten-2">
+                <a href="<?php echo $_SESSION['home']; ?>" class="modal-action modal-close waves-effect waves-green btn-flat">Não</a>
                 <a href="<?php echo $_SESSION['fica']; ?>" class="modal-action modal-close waves-effect waves-green btn-flat ">Sim</a>
             </div>
         </div>
@@ -64,15 +64,15 @@ if (isset($_SESSION['numero_modal'])) {
     } else if ($_SESSION['numero_modal'] == 5) {
         ?>
 
-        <!-- Modal Structure -->
-        <div id="modal" class="modal teal  blue">
+        <!-- Modal alerta -->
+        <div id="modal" class="modal   yellow lighten-2">
             <div class="modal-content">
                 <h4 class="center-align"><i>Desculpe!</i></h4>
                 <p class="center-align"><?php echo $_SESSION['mensagem']; ?>
                     <br>
                     Deseja cadastrar?</p>
             </div>
-            <div class="modal-footer teal lighten-4">
+            <div class="modal-footer  yellow lighten-3">
                 <a href="<?php echo $_SESSION['home']; ?>" class="modal-action modal-close waves-effect waves-green btn-flat">Não</a>
                 <a href="<?php echo $_SESSION['cadastro']; ?>" class="modal-action modal-close waves-effect waves-green btn-flat ">Sim</a>
             </div>
@@ -84,5 +84,8 @@ if (isset($_SESSION['numero_modal'])) {
     //limpa sessao
     unset($_SESSION['numero_modal']);
     unset($_SESSION['mensagem']);
+    
+
+    
 }
 ?>

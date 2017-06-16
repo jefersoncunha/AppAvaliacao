@@ -12,12 +12,10 @@ $filtro = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 //criando sessão para msmgm modal
 session_start();
 
-
 //inclusões de classses
 require './seguranca.php';
 require '../dao/funcionario_dao.php';
 require '../model/Funcionario.php';
-
 
 //verifica se variavel possui valor
 if (isset($filtro['op'])) {
@@ -59,8 +57,6 @@ if (isset($filtro['op'])) {
 
                 header('location:../views/new_funcio.php');
             } else {
-
-
                 //busca classe
                 $fucionario->inserir_funcionario($id_avaliador, $id_loja, $ob_func);
 
@@ -69,8 +65,6 @@ if (isset($filtro['op'])) {
                 $_SESSION['numero_modal'] = 4;
                 //redirecionar para a pagina
                 header('location:../views/new_funcio.php');
-
-                //echo "ok";
             }
             break;
         //cadastro funionario
@@ -92,11 +86,11 @@ if (isset($filtro['op'])) {
             //busca classe
             $fucionario->editar_funcionario($id_avaliador, $id_loja, $ob_func);
             //dados para modal
-            $_SESSION['local'] = './list_funcio.php';
+            $_SESSION['local'] = './list_filial_funcio.php';
             $_SESSION['numero_modal'] = 2;
             $_SESSION['mensagem'] = "Alterado com sucesso!";
             //redirecionar para a pagina
-            header('location:../views/list_funcio.php');
+            header('location:../views/list_filial_funcio.php');
 
             break;
 
@@ -106,13 +100,13 @@ if (isset($filtro['op'])) {
 
             $fucionario->excluir_funcionario($ob_func);
 
-            $_SESSION['local'] = './list_funcio.php';
+            $_SESSION['local'] = './list_filial_funcio.php';
             $_SESSION['numero_modal'] = 2;
             $_SESSION['mensagem'] = "Excluido com sucesso!";
 
             //redirecionar para a pagina
 
-            header('location:../views/list_funcio.php');
+            header('location:../views/list_filial_funcio.php');
             break;
     }
 }

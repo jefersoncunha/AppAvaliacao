@@ -12,11 +12,15 @@
  * @author vagner
  */
 class Avaliacao {
-    private  $nota;
-    private  $idFuncionario;
-    private  $idAvalidor;
-    
-    
+
+    private $id;
+    private $nota;
+    private $idFuncionario;
+    private $idAvalidor;
+    private $idCriterio;
+    private $obs;
+    private $data;
+
     function getNota() {
         return $this->nota;
     }
@@ -41,5 +45,36 @@ class Avaliacao {
         $this->idAvalidor = $idAvalidor;
     }
 
+    function getId() {
+        return $this->id;
+    }
+
+    function getIdCriterio() {
+        return $this->idCriterio;
+    }
+
+    function getObs() {
+        return $this->obs;
+    }
+
+    function getData() {
+        return $this->data;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setIdCriterio($idCriterio) {
+        $this->idCriterio = $idCriterio;
+    }
+
+    function setObs($obs) {
+        $this->obs = $obs;
+    }
+
+    function setData($data) {
+        $this->data = $data;
+    }
 
 }

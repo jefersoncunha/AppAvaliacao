@@ -50,7 +50,7 @@
                             <div class='row'>
                                 <div class='input-field col s12'>
                                     <input class='validate' type="email" name="email_login" id="email" required autofocus/>
-                                    <label for="nome">E-mail</label>
+                                    <label for="email">E-mail</label>
                                 </div>
                             </div>
                             <div class='row'>
@@ -73,7 +73,7 @@
                         </form>
                     </div>
                 </div>
-                <a href="views/singup.php">Criar um conta</a>
+                <a href="views/singup.php">Criar uma conta</a>
             </center>
 
         </div>

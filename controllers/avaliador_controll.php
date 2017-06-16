@@ -8,6 +8,9 @@
 //filtro contra INJECTION
 $filtro = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
+//limpa sessões
+require './_cleanSession.php';
+
 //verifica se variavel foi setada
 if (isset($filtro['op'])) {
 

@@ -57,6 +57,22 @@ CONSTRAINT `fk_funcio`
     ON UPDATE RESTRICT
   ) ENGINE = InnoDB;
 
+CREATE TABLE avaliacao (
+`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`nota` INT NOT NULL , 
+`id_funcionario` INT NOT NULL , 
+`id_avaliador` INT NOT NULL , 
+`id_criterio` INT NOT NULL , 
+`obs`   VARCHAR(80) ,
+`data`   DATE NOT NULL,
+CONSTRAINT `fks_avalicao`
+    FOREIGN KEY (id_funcionario) REFERENCES funcionario (id),
+    FOREIGN KEY (id_avaliador) REFERENCES login (id),
+    FOREIGN KEY (id_criterio) REFERENCES criterio (id)
+    ON DELETE CASCADE
+    ON UPDATE RESTRICT
+  ) ENGINE = InnoDB;
+
 //////////////////// POSTGRESS////////////////////////
 CREATE TABLE login (
 id SERIAL,

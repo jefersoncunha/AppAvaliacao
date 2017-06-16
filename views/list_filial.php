@@ -25,11 +25,10 @@
                             <div class="divider col s8 m6 l6"></div>
                         </div>
                         <br>
-                        <form id="formFilial" method="post" action="../views/edit_filial.php">
-                            <div class="row">
-                                <?php while ($row = mysqli_fetch_assoc($result_filiais)) { ?>
+                        <div class="row">
+                            <?php while ($row = mysqli_fetch_assoc($result_filiais)) { ?>
+                                <form id="formFilial" method="post" action="../views/edit_filial.php">
                                     <input type="hidden" name="idFilial" value="<?php echo $row['id']; ?>"/>                 
-
                                     <div class="col s12 m6 l6">
                                         <div class="card blue darken-1 z-depth-5">
                                             <div class="card-content white-text">
@@ -45,14 +44,14 @@
                                                     Avaliações: <strong><span class="new badge grey" data-badge-caption="" >10/10</span></strong>
                                                 </p>-->
                                             </div>
-                                            <div class="card-action blue darken-3">
-                                                <a href="javascript:{}" onclick="document.getElementById('formFilial').submit(); return false;">Editar</a>
-                                            </div>
+                                            <button class=" center btn waves-effect waves-light blue darken-3" type="submit">Editar
+                                                <i class="material-icons right">mode_edit</i>
+                                            </button>
                                         </div>
                                     </div>
-                                <?php } ?><!--FIM DO LAÇO-->
-                            </div>
-                        </form>
+                                </form>
+                            <?php } ?><!--FIM DO LAÇO-->
+                        </div>
                     </div>
                 </div>
                 <?php

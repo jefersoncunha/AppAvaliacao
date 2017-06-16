@@ -17,7 +17,7 @@
     <li><div class="divider"></div></li>
     <li class="menu-opcao">Funcionário</li>
     <li><a href="new_funcio.php" class="menu-opcao"><i class="material-icons"> add</i>Novo</a></li>
-    <li><a href="list_funcio.php" class="menu-opcao"><i class="material-icons"> mode_edit</i>Editar</a></li>
+    <li><a href="list_filial_funcio.php" class="menu-opcao"><i class="material-icons"> mode_edit</i>Editar</a></li>
     <li><div class="divider"></div></li>
     <li class="menu-opcao">Critério</li>
     <li><a href="new_criterio.php" class="menu-opcao"><i class="material-icons"> add</i>Novo</a></li>
@@ -43,7 +43,7 @@
 <nav style="background-color: #2196f3;">
     <div class="nav-wrapper z-depth-4">
         <a href="home.php" class="brand-logo center">
-            <strong><i>MyTeam</i></strong>
+            <strong><i>myTeam</i></strong>
         </a>
         <ul class="left">
             <li>

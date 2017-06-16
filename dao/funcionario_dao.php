@@ -42,7 +42,7 @@ class funcionario_dao {
         return $returno;
     }
 
-    //busca para verficar se exixte nome igual
+    //busca para fucionario ela filial
     function busca_funcionario_filial($id_filial) {
         $bd = new conexao_bd();
         $bd->conectar();

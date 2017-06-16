@@ -2,77 +2,66 @@
 <html>
     <head>
         <?php include './_head.php'; ?>
-
     </head>
-
     <body>
         <?php require '../controllers/sessao.php'; ?>
         <?php include 'menu.php'; ?>
         <?php
         require '../dao/funcionario_dao.php';
         require '../dao/criterio_dao.php';
-
         //filtro contra injecton
         $filtro = filter_input_array(INPUT_GET, FILTER_DEFAULT);
-
         $funcionario = new funcionario_dao();
         $criterio = new criterio_dao();
         //recebe por GET 
         $id = $filtro['buscafuncionario'];
-
         $result_funcionario = $funcionario->busca_funcionario_id($id);
         ?>
-
-
-        <div  class="container">
-            <div class="row">
-                <div class="account-wall" >                    
-                    <div class="col s12 m1 l1"></div>
-
-                    <div class="col s12 m10 l10">
-                        <!--<h5 class="header">Funcionario 1</h5>-->
-                        <div class="card horizontal blue lighten-3  z-depth-3">
-                            <div class="card-content">
-                                <i class="medium material-icons">person</i>
-                              <!--   <img src="http://lorempixel.com/100/190/nature/6">-->
-                            </div>
-                            <?php while ($row = mysqli_fetch_assoc($result_funcionario)) { ?>
-
-                                <div class="card-stacked">
-                                    <div class="card-content">
-                                        <i style="font-size: 11px">
-                                            Nome: <?php echo $row['nome']; ?><br>
-                                            Sobrenome: <?php echo $row['sobrenome']; ?><br>
-                                            Função: <?php echo $row['funcao']; ?><br>
-                                            Pertencente: pertencente
-                                        </i>
-                                    </div>
-                                    <!--<div class="card-action">
-                                        <a href="#">This is a link</a>
-                                    </div>-->
+        <form action="../controllers/avaliacao_controll.php" method="post">
+            <div  class="container">
+                <div class="row">
+                    <div class="account-wall" >                    
+                        <div class="col s12 m1 l1"></div>
+                        <div class="col s12 m10 l10">
+                            <!--<h5 class="header">Funcionario 1</h5>-->
+                            <div class="card horizontal blue lighten-3  z-depth-3">
+                                <div class="card-content">
+                                    <i class="medium material-icons">person</i>
+                                  <!--   <img src="http://lorempixel.com/100/190/nature/6">-->
                                 </div>
-                            <?php } ?><!--FIM DO LAÇO FUNCIONARIO-->
-
+                                <?php while ($row = mysqli_fetch_assoc($result_funcionario)) { ?>
+                                    <div class="card-stacked">
+                                        <div class="card-content">
+                                            <i style="font-size: 11px">
+                                                Nome: <?php echo $row['nome']; ?><br>
+                                                Sobrenome: <?php echo $row['sobrenome']; ?><br>
+                                                Função: <?php echo $row['funcao']; ?><br>
+                                                Pertencente: pertencente
+                                            </i>
+                                        </div>
+                                        <!--<div class="card-action">
+                                            <a href="#">This is a link</a>
+                                        </div>-->
+                                    </div>
+                                    <input type="hidden" name="id_funcionario" value="<?php echo $row['id']; ?>"/>
+                                <?php } ?><!--FIM DO LAÇO FUNCIONARIO-->
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="col s12 m1 l1"></div>
-                    <div class=" col s12 divider"></div>
-
-                    <!--INICIO DO FOR-->
-                    <form action="../controllers/avaliacao_controll.php" method="post">
+                        <br>
+                        <div class="col s12 m1 l1"></div>
+                        <div class=" col s12 divider"></div>
                         <br>
                         <?php
                         $result_criterio = $criterio->busca_todos_criterios($_SESSION['id_bd']);
-                        $nota1=1;//id inputs radio
-                        $nota2=2;//id inputs radio
-                        $nota3=3;//id inputs radio
-                        $nota4=4;//id inputs radio
-                        $namenota=1;//nome das notas
-                        
+                        $nota1 = 1; //id inputs radio
+                        $nota2 = 2; //id inputs radio
+                        $nota3 = 3; //id inputs radio
+                        $nota4 = 4; //id inputs radio
+                        $namenota = 1; //nome das notas
                         while ($linhaC = mysqli_fetch_assoc($result_criterio)) {
-                            
-                            ?>
+                            ?><!--INICIO DO LAÇO CRITERIO-->
+                            <input type="hidden" name="id_criterio[]" value="<?php echo $linhaC['id']; ?>"/>
+
                             <div class="row">
                                 <div class="col s12">
                                     <strong><?php echo $linhaC['nome']; ?></strong>
@@ -82,7 +71,6 @@
                                         </i>
                                     </a>
                                 </div>
-                                
                             </div>
                             <div class='row center-align' >
                                 <div class='input-field col s12 m2 l2 '>
@@ -90,66 +78,53 @@
                                 </div>
                                 <div class="section"></div>
                                 <div class='input-field col s3 m3 l3'>
-                                    <input class='validate' type="radio" name="<?php echo $namenota; ?>" id="<?php echo $nota1; ?>" />
+                                    <input class='validate' type="radio" name="nota[<?php echo $namenota; ?>]" id="<?php echo $nota1; ?>" value="1"/>
                                     <label for="<?php echo $nota1; ?>">1</label>
                                 </div>
                                 <div class='input-field col s3 m3 l3'>
-                                    <input class='validate' type="radio" name="<?php echo $namenota; ?>" id="<?php echo $nota2; ?>" />
+                                    <input class='validate' type="radio" name="nota[<?php echo $namenota; ?>]" id="<?php echo $nota2; ?>" value="2"/>
                                     <label for="<?php echo $nota2; ?>">2</label>
                                 </div>
                                 <div class='input-field col s3 m3 l3'>
-                                    <input class='validate' type="radio" name="<?php echo $namenota; ?>" id="<?php echo $nota3; ?>" />
+                                    <input class='validate' type="radio" name="nota[<?php echo $namenota; ?>]" id="<?php echo $nota3; ?>" value="3"/>
                                     <label for="<?php echo $nota3; ?>">3</label>
                                 </div>
                                 <div class='input-field col s3 m3 l3'>
-                                    <input class='validate' type="radio" name="<?php echo $namenota; ?>" id="<?php echo $nota4; ?>" />
+                                    <input class='validate' type="radio" name="nota[<?php echo $namenota; ?>]" id="<?php echo $nota4; ?>" value="4"/>
                                     <label for="<?php echo $nota4; ?>">4</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <textarea id="obs" class="materialize-textarea"></textarea>
+                                    <textarea id="obs" class="materialize-textarea" name="obs"></textarea>
                                     <label for="obs">Observação</label>
                                 </div>
                             </div>
-                            
-
-                                <?php 
-                                //incrmenta id das notas
-                                $nota1 =$nota1+4;
-                                $nota2 =$nota2+4;
-                                $nota3 =$nota3+4;
-                                $nota4 =$nota4+4;
-                                //incrementa nome das notas
-                                $namenota++;
-                                    
-                        } ?><!--FIM DO LAÇO FUNCIONARIO-->
-                          <input type="hidden" name="idFuncionario" value="<?= $id ?>"/>
-                          <input type="hidden" name="op" value="avaliar"/>
-                                                      
-                            <div class="row">
-                                <div class=" input-field  col s12 m12 l12 ">
-
-                                    <div class="right">
-                                        <button class="btn waves-effect waves-rigth  blue lighten-1" type="submit" name="action">Salvar Avaliações
-                                            <i class="material-icons right">done</i>
-                                        </button>
-                                    </div>
-
+                            <?php
+                            //incrmenta id das notas
+                            $nota1 = $nota1 + 4;
+                            $nota2 = $nota2 + 4;
+                            $nota3 = $nota3 + 4;
+                            $nota4 = $nota4 + 4;
+                            //incrementa nome das notas
+                            $namenota++;
+                        }
+                        ?><!--FIM DO LAÇO CRITERIO-->
+                        <div class="row">
+                            <div class=" input-field  col s12 m12 l12 ">
+                                <div class="right">
+                                    <button class="btn waves-effect waves-rigth  blue lighten-1" type="submit" name="op" value="avaliar">Salvar Avaliações
+                                        <i class="material-icons right">done</i>
+                                    </button>
                                 </div>
-
                             </div>
-                        
-
-                    </form>
+                        </div>
+                    </div>
+                    <?php include 'footer.php'; ?>
                 </div>
-
-                <?php include 'footer.php'; ?>
-
             </div>
-            <!--Import jQuery before materialize.js-->
-            <?php include './_javaScripts.php'; ?>
-
-
+        </form>
+        <!--Import jQuery before materialize.js-->
+        <?php include './_javaScripts.php'; ?>
     </body>
 </html>
