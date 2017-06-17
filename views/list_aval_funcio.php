@@ -4,6 +4,8 @@
         <?php include './_head.php'; ?>
         <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
         <script type="text/javascript" src="../js/materialize.min.js"></script>
+        <script type="text/javascript" src="../js/funcs.js"></script>
+
         <script type="text/javascript">
             $(document).ready(function () {
                 //abrir modal
@@ -45,17 +47,23 @@
                             <div class="nav-wrapper">
                                 <form>
                                     <div class="input-field">
-                                        <input placeholder="Ex: João" id="search" type="search" required>
+                                        <input placeholder="Ex: João"  type="search" required id="busca" onkeyup="buscarNoticias(this.value)">
                                         <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                                     </div>
                                 </form>
                             </div>
                         </nav>
+
+
+                        <div id="resultado"></div>
+
+
+
                         <div class=" col s12 divider"></div>
                         <div class="section"></div>
                         <!-- LISTAR FUNCIONARIOS NÃO AVALIADOS--> 
                         <div class="row"><h5 class="chip yellow  white-text col s12"><i>Não avaliados</i></h5></div>
-                        
+
                         <ul class="collapsible popout grey lighten-2" data-collapsible="accordion">
                             <?php while ($row = mysqli_fetch_assoc($result_func)) { ?>
                                 <li>
