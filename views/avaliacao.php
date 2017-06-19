@@ -10,7 +10,7 @@
         require '../dao/funcionario_dao.php';
         require '../dao/criterio_dao.php';
         //filtro contra injecton
-        $filtro = filter_input_array(INPUT_GET, FILTER_DEFAULT);
+        $filtro = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         $funcionario = new funcionario_dao();
         $criterio = new criterio_dao();
         //recebe por GET 
@@ -57,6 +57,7 @@
                         $nota2 = 2; //id inputs radio
                         $nota3 = 3; //id inputs radio
                         $nota4 = 4; //id inputs radio
+                        $obs = 5; //id inputs radio
                         $namenota = 1; //nome das notas
                         while ($linhaC = mysqli_fetch_assoc($result_criterio)) {
                             ?><!--INICIO DO LAÇO CRITERIO-->
@@ -96,16 +97,17 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <textarea id="obs" class="materialize-textarea" name="obs"></textarea>
-                                    <label for="obs">Observação</label>
+                                    <textarea id="obs" class="materialize-textarea" name="obs[<?php echo $namenota; ?>]" id="<?php echo $obs; ?>"></textarea>
+                                    <label for=id="<?php echo $obs; ?>">Observação</label>
                                 </div>
                             </div>
                             <?php
                             //incrmenta id das notas
-                            $nota1 = $nota1 + 4;
-                            $nota2 = $nota2 + 4;
-                            $nota3 = $nota3 + 4;
-                            $nota4 = $nota4 + 4;
+                            $nota1 = $nota1 + 5;
+                            $nota2 = $nota2 + 5;
+                            $nota3 = $nota3 + 5;
+                            $nota4 = $nota4 + 5;
+                            $obs = $obs + 5;
                             //incrementa nome das notas
                             $namenota++;
                         }

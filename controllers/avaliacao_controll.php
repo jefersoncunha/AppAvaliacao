@@ -31,7 +31,7 @@ if (isset($filtro['op'])) {
     //busca operação
     switch ($operacao) {
         case "avaliar":
-            /* echo 'id_funcionario: ', $_POST["id_funcionario"];
+             echo 'id_funcionario: ', $_POST["id_funcionario"];
               echo '<br>';
               echo 'id_avalidor: ', $_SESSION['id_bd'];
               echo '<br>';
@@ -48,25 +48,48 @@ if (isset($filtro['op'])) {
               echo 'id_criterios: ';
               foreach ($_POST["id_criterio"]as $criterios) {
               echo $criterios;
-              } */
+              } 
+            
+            /*
             $total = sizeof($_POST["id_criterio"]);
             
             $av_Objeto->setData(date('d/m/y'));
             $av_Objeto->setIdAvalidor($_SESSION['id_bd']);
             $av_Objeto->setIdFuncionario($_POST["id_funcionario"]);
             
-            $lista_obs = array($_POST["obs"]);
-            $lista_crit = array($_POST["id_criterio"]);
-            $lista_not = array($_POST["nota"]);
+            $lista_obs = $_POST["obs"];
+            $lista_crit = $_POST["id_criterio"];
+            $lista_not = $_POST["nota"];
                     
             for ($i=0; $i < $total; $i++) {
-                
-            $av_Objeto->setObs($lista_obs[$i]);
-            $av_Objeto->setIdCriterio($lista_crit[$i]);
-            $av_Objeto->setNota($lista_not[$i]);
+                foreach ($_POST["nota"] as $notas) {
+                    $av_Objeto->setNota($notas[$i]);
+                }
+                foreach ($_POST["id_criterio"]as $criterios) {
+                    $av_Objeto->setIdCriterio($criterios[$i]);
+              }
+               foreach ($_POST["nota"] as $notas) {
+                    $av_Objeto->setObs($notas[$i]);
+
+              }
 
             $avaliacao_dao->inserirNotas($av_Objeto);
             } 
+            
+            
+            
+            foreach ($_POST["nota"] as $notas) {
+            foreach ($_POST["obs"] as $obs) {
+            foreach ($_POST["id_criterio"]as $criterios) {
+            $av_Objeto->setObs($obs);
+            $av_Objeto->setIdCriterio($criterios);
+            $av_Objeto->setNota($notas);
+            $avaliacao_dao->inserirNotas($av_Objeto);
+
+                        }
+                    }
+                }
+                */
             /*
               $id_funcionario = $sg->anti_sql_injection($filtro['idFuncionario']);
               $nota = $sg->anti_sql_injection($filtro['email']);
