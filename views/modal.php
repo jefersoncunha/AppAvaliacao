@@ -1,3 +1,15 @@
+
+ <script type="text/javascript">
+            $(document).ready(function () {
+                //abrir modal
+                $('.modal').modal({ 
+                  dismissible: false, // Modal can be dismissed by clicking outside of the modal
+                });
+                //now you can open modal from code
+                $('#modal').modal('open');
+                
+            });
+</script>
 <?php
 if (isset($_SESSION['numero_modal'])) {
 
@@ -65,7 +77,7 @@ if (isset($_SESSION['numero_modal'])) {
         ?>
 
         <!-- Modal alerta -->
-        <div id="modal" class="modal   yellow lighten-2">
+        <div id="modal" class="modal   yellow lighten-2" data-backdrop="static">
             <div class="modal-content">
                 <h4 class="center-align"><i>Desculpe!</i></h4>
                 <p class="center-align"><?php echo $_SESSION['mensagem']; ?>

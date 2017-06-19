@@ -5,15 +5,7 @@
         <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
         <script type="text/javascript" src="../js/materialize.min.js"></script>
         <script type="text/javascript" src="../js/funcs.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                //abrir modal
-
-                $('.modal').modal();
-                //now you can open modal from code
-                $('#modal').modal('open');
-            });
-        </script>
+       
     </head>
     <body>
         <?php include '../controllers/sessao.php'; ?>

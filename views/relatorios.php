@@ -21,7 +21,7 @@
 
             });
 
-            /*function showUser(str) {
+            function showUser(str) {
              if (str == "") {
              document.getElementById("funcionario").innerHTML = "";
              return;
@@ -39,9 +39,9 @@
              }
              xmlhttp.open("GET", "./funcionario.php?filial=" + str, true);
              xmlhttp.send();
-             }*/
+             }
 
-
+/*
             function showUser(str) {
                 $('#funcionario').empty(); //Limpando a tabela
                 $.ajax({
@@ -55,7 +55,7 @@
                         }
                     }
                 });
-            }
+            }*/
 
         </script>  
 
@@ -101,9 +101,9 @@
                     </div>
                     <div class="row">
                         <div class='input-field col s12'>
-                            <select id="funcionario" name="funcionario">
+                            <div id="funcionario" name="funcionario">
 
-                            </select>        
+                            </div>        
                         </div>
                     </div>
                     <div class="row">

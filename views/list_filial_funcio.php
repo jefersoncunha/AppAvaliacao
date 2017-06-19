@@ -8,10 +8,6 @@
         <script>
             $(document).ready(function () {
                 $('select').material_select();
-                //abrir modal
-                $('.modal').modal();
-                //now you can open modal from code
-                $('#modal').modal('open');
             });
             function showUser(str) {
                 if (str == "") {

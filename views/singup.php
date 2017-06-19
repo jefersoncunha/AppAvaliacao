@@ -11,17 +11,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!--Import jQuery before materialize.js-->
         <?php include './_javaScripts.php'; ?>  
-
-        <script type="text/javascript">
-
-            //abrir modal
-            $(document).ready(function () {
-                $('.modal').modal();
-                //now you can open modal from code
-                $('#modal').modal('open');
-            });
-        </script>
-
     </head>
 
     <body>
