@@ -31,65 +31,51 @@ if (isset($filtro['op'])) {
     //busca operação
     switch ($operacao) {
         case "avaliar":
-             echo 'id_funcionario: ', $_POST["id_funcionario"];
+             
+            /*echo 'id_funcionario: ', $_POST["id_funcionario"];
               echo '<br>';
               echo 'id_avalidor: ', $_SESSION['id_bd'];
               echo '<br>';
               echo 'Obs: ';
               foreach ($_POST["obs"] as $obs) {
-              echo $obs ;
+              print_r $obs ;
               }
               echo '<br>';
               echo 'Notas: ';
               foreach ($_POST["nota"] as $notas) {
-              echo $notas ;
+              print_r $notas ;
               }
               echo '<br>';
               echo 'id_criterios: ';
-              foreach ($_POST["id_criterio"]as $criterios) {
-              echo $criterios;
-              } 
+              print_r($_POST["id_criterio"]);
+                                  echo '<br>';*/
+
             
-            /*
-            $total = sizeof($_POST["id_criterio"]);
+            
+            //$total = sizeof($_POST["avaliacao"]);
             
             $av_Objeto->setData(date('d/m/y'));
             $av_Objeto->setIdAvalidor($_SESSION['id_bd']);
             $av_Objeto->setIdFuncionario($_POST["id_funcionario"]);
+            //$av_Objeto->setIdCriterio($_POST["id_criterio"]);
+            //$av_Objeto->setNota($_POST["nota"]);
+            //$av_Objeto->setObs($_POST["obs"]);
+
+            $avaliacao = array();
+            //array multdirecional
             
-            $lista_obs = $_POST["obs"];
-            $lista_crit = $_POST["id_criterio"];
-            $lista_not = $_POST["nota"];
-                    
-            for ($i=0; $i < $total; $i++) {
-                foreach ($_POST["nota"] as $notas) {
-                    $av_Objeto->setNota($notas[$i]);
-                }
-                foreach ($_POST["id_criterio"]as $criterios) {
-                    $av_Objeto->setIdCriterio($criterios[$i]);
-              }
-               foreach ($_POST["nota"] as $notas) {
-                    $av_Objeto->setObs($notas[$i]);
-
-              }
-
+            $avaliacao['criterio']=$_POST["id_criterio"];
+            $avaliacao['nota']=$_POST["nota"];
+            $avaliacao['obs']=$_POST["obs"];
+                        
+            $av_Objeto->setAvalicao($avaliacao);
+                  
             $avaliacao_dao->inserirNotas($av_Objeto);
-            } 
             
             
             
-            foreach ($_POST["nota"] as $notas) {
-            foreach ($_POST["obs"] as $obs) {
-            foreach ($_POST["id_criterio"]as $criterios) {
-            $av_Objeto->setObs($obs);
-            $av_Objeto->setIdCriterio($criterios);
-            $av_Objeto->setNota($notas);
-            $avaliacao_dao->inserirNotas($av_Objeto);
-
-                        }
-                    }
-                }
-                */
+            
+          //header('location:../views/home.php');
             /*
               $id_funcionario = $sg->anti_sql_injection($filtro['idFuncionario']);
               $nota = $sg->anti_sql_injection($filtro['email']);

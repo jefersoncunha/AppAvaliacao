@@ -16,18 +16,25 @@ class avaliacao_dao {
          //conecta
         $bd->conectar();
 
+        $avaliao_array=$av->getAvalicao();
+         //print_r($avaliacao['nota'][2]);
+        //inserir com array multdirecional
+                
+        for($i=0; $i< 5; $i++) {              
         $sql = "INSERT INTO avaliacao (nota, id_funcionario, id_avaliador, id_criterio, obs, data) "
                 . "VALUES ('" 
-                . $av->getNota() . "','"
+                . $avaliao_array['nota'][$i] . "','"
                 . $av->getIdFuncionario() ."','"
                 . $av->getIdAvalidor() . "','" 
-                . $av->getIdCriterio() . "','" 
-                . $av->getObs() . "','" 
+                . $avaliao_array['criterio'][$i]  .  "','" 
+                . $avaliao_array['obs'][$i] .  "','" 
                 . $av->getData() . 
-                "')";
-       
+                "');";       
+        
         //executa a query
         $bd->query($sql);
+        }
+        
         //fecha conexao
         $bd->fechar();
     }

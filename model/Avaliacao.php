@@ -20,8 +20,17 @@ class Avaliacao {
     private $idCriterio;
     private $obs;
     private $data;
+    private $avalicao;
+    
+    function getAvalicao() {
+        return $this->avalicao;
+    }
 
-    function getNota() {
+    function setAvalicao($avalicao) {
+        $this->avalicao = $avalicao;
+    }
+
+        function getNota() {
         return $this->nota;
     }
 

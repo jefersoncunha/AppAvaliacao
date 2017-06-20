@@ -58,10 +58,11 @@
                         $nota3 = 3; //id inputs radio
                         $nota4 = 4; //id inputs radio
                         $obs = 5; //id inputs radio
-                        $namenota = 1; //nome das notas
+                        $namenota = 0; //nome das notas
+                        $criterio = 0; //nome das notas
                         while ($linhaC = mysqli_fetch_assoc($result_criterio)) {
                             ?><!--INICIO DO LAÇO CRITERIO-->
-                            <input type="hidden" name="id_criterio[]" value="<?php echo $linhaC['id']; ?>"/>
+                            <input type="hidden" name="id_criterio[<?php echo $criterio; ?>]" value="<?php echo $linhaC['id']; ?>"/>
 
                             <div class="row">
                                 <div class="col s12">
@@ -110,6 +111,7 @@
                             $obs = $obs + 5;
                             //incrementa nome das notas
                             $namenota++;
+                            $criterio++;
                         }
                         ?><!--FIM DO LAÇO CRITERIO-->
                         <div class="row">
