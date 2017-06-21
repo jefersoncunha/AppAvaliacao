@@ -20,7 +20,7 @@ class avaliacao_dao {
          //print_r($avaliacao['nota'][2]);
         //inserir com array multdirecional
                 
-        for($i=0; $i< 5; $i++) {              
+        for($i=0; $i< sizeof($avaliao_array['criterio']); $i++) {              
         $sql = "INSERT INTO avaliacao (nota, id_funcionario, id_avaliador, id_criterio, obs, data) "
                 . "VALUES ('" 
                 . $avaliao_array['nota'][$i] . "','"
@@ -37,6 +37,22 @@ class avaliacao_dao {
         
         //fecha conexao
         $bd->fechar();
+    }
+    
+     function busca_data_avalicao($id) {
+
+        $bd = new conexao_bd();
+
+
+        $bd->conectar();
+
+        $sql = "SELECT * FROM avaliacao WHERE id_funcionario=" . $id . ";";
+
+        $resultado = $bd->query($sql);
+
+        $bd->fechar();
+
+        return $resultado;
     }
     
     

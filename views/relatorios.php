@@ -17,45 +17,43 @@
                 //$('#loja').change(function () {
                 //   $('#funcionario').load('fucionario.php?filial=' + $('#loja').val());
                 //});
-
-
             });
 
             function showUser(str) {
-             if (str == "") {
-             document.getElementById("funcionario").innerHTML = "";
-             return;
-             }
-             if (window.XMLHttpRequest) {
-             // code for IE7+, Firefox, Chrome, Opera, Safari
-             xmlhttp = new XMLHttpRequest();
-             } else { // code for IE6, IE5
-             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-             }
-             xmlhttp.onreadystatechange = function () {
-             if (this.readyState == 4 && this.status == 200) {
-             document.getElementById("funcionario").innerHTML = this.responseText;
-             }
-             }
-             xmlhttp.open("GET", "./funcionario.php?filial=" + str, true);
-             xmlhttp.send();
-             }
-
-/*
-            function showUser(str) {
-                $('#funcionario').empty(); //Limpando a tabela
-                $.ajax({
-                    type: 'get', //Definimos o método HTTP usado
-                    dataType: 'json', //Definimos o tipo de retorno
-                    url: './funcionario.php?filial='+str , //Definindo o arquivo onde serão buscados os dados
-                    success: function (dados) {
-                        for (var i = 0; dados.length > i; i++) {
-                            //Adicionando registros retornados na tabela
-                            $('#funcionario').append('<option value="'+dados[i].id+'">'+dados[i].nome+'</option>');
-                        }
+                if (str == "") {
+                    document.getElementById("funcionario").innerHTML = "";
+                    return;
+                }
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else { // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("funcionario").innerHTML = this.responseText;
                     }
-                });
-            }*/
+                }
+                xmlhttp.open("GET", "./list_funcionario_select.php?Buscafilial=" + str, true);
+                xmlhttp.send();
+            }
+
+            /*
+             function showUser(str) {
+             $('#funcionario').empty(); //Limpando a tabela
+             $.ajax({
+             type: 'get', //Definimos o método HTTP usado
+             dataType: 'json', //Definimos o tipo de retorno
+             url: './funcionario.php?filial='+str , //Definindo o arquivo onde serão buscados os dados
+             success: function (dados) {
+             for (var i = 0; dados.length > i; i++) {
+             //Adicionando registros retornados na tabela
+             $('#funcionario').append('<option value="'+dados[i].id+'">'+dados[i].nome+'</option>');
+             }
+             }
+             });
+             }*/
 
         </script>  
 
@@ -71,6 +69,7 @@
 
         $filial = new filial_dao();
         $funcio = new funcionario_dao();
+        $result_filiais = $filial->busca_filial_listar_todas($_SESSION['id_bd']);
         ?>
         <div  class="container">
             <div class="row">
@@ -82,28 +81,18 @@
                     <br>
                     <div class="row">
                         <div class="input-field col s12" >
-                            <select onchange="showUser(this.value)">
-                                <option value="" disabled selected>Selecione Loja Filial
-                                </option>
+                           <select onchange="showUser(this.value)">
+                                <option value="" disabled selected>Selecione uma filial para a busca</option>
                                 <?php
-                                $result_filiais = $filial->busca_filial_listar_todas($_SESSION['id_bd']);
-
                                 while ($row = mysqli_fetch_assoc($result_filiais)) {
                                     ?>
-                                    <option value="<?php echo $row['id']; ?>" > 
-                                        <?php echo $row['nome']; ?>
-                                    </option>
-                                    <?php
-                                }
-                                ?>
-                            </select>               
+                                    <option value="<?php echo $row['id']; ?>" > <?php echo $row['nome']; ?></option>
+                                <?php } ?>
+                            </select>
                         </div>
                     </div>
                     <div class="row">
-                        <div class='input-field col s12'>
-                            <div id="funcionario" name="funcionario">
-
-                            </div>        
+                        <div class='input-field col s12' id="funcionario" name="funcionario">
                         </div>
                     </div>
                     <div class="row">

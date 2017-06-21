@@ -56,6 +56,9 @@
             </div>
             <?php include 'footer.php'; ?>
         </div>
+        <?php
+        include './modal.php';
+        ?>
         <!--Import jQuery before materialize.js-->
         <?php include './_javaScripts.php'; ?>      
     </body>
