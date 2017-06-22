@@ -22,12 +22,19 @@ class conexao_bd {
 
     //dados para a conexão
     public function __construct() {
-        $this->servidor = 'mysql873.umbler.com';
+        $this->servidor = 'mysql873.umbler.com:41890';
         $this->usuario = 'vagner-ufsm';
         $this->senha = 'f/R8?qc9#ZF';
-        $this->db = '41890';
+        $this->db = 'vagner-my-team';
     }
-
+    /*
+     public function __construct() {
+        $this->servidor = 'robb0372.publiccloud.com.b';
+        $this->usuario = 'jefer_vagnerlab';
+        $this->senha = '7pRjv9&8';
+        $this->db = 'jefersoncunha_vagner-lab';
+    }
+*/
     //conecta com o banco
     public function conectar() {
         global $con;
