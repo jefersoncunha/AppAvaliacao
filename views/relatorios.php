@@ -18,26 +18,48 @@
                 //   $('#funcionario').load('fucionario.php?filial=' + $('#loja').val());
                 //});
             });
+            /*
+             function showUser(str) {
+             if (str == "") {
+             document.getElementById("funcionario").innerHTML = "";
+             return;
+             }
+             if (window.XMLHttpRequest) {
+             // code for IE7+, Firefox, Chrome, Opera, Safari
+             xmlhttp = new XMLHttpRequest();
+             } else { // code for IE6, IE5
+             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+             }
+             xmlhttp.onreadystatechange = function () {
+             if (this.readyState == 4 && this.status == 200) {
+             document.getElementById("funcionario").innerHTML = this.responseText;
+             }
+             }
+             xmlhttp.open("GET", "./list_funcionario_select.php?Buscafilial=" + str, true);
+             xmlhttp.send();
+             }*/
 
-            function showUser(str) {
-                if (str == "") {
-                    document.getElementById("funcionario").innerHTML = "";
-                    return;
-                }
-                if (window.XMLHttpRequest) {
-                    // code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                } else { // code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("funcionario").innerHTML = this.responseText;
+            $(function () {
+                $('#filial').change(function () {
+                    if ($(this).val()) {
+                        $('#funcionarios').hide();
+                        $('.carregando').show();
+                        $.getJSON('list_funcionario_select.php?search=', {
+                            filial: $(this).val(),
+                            ajax: 'true'},
+                                function (j) {
+                                    var options = '<option value=""></option>';
+                                    for (var i = 0; i < j.length; i++) {
+                                        options += '<option value="' + j[i].cod_funcionario + '">' + j[i].nome + '</option>';
+                                    }
+                                    $('#funcionarios').html(options).show();
+                                    $('.carregando').hide();
+                                });
+                    } else {
+                        $('#funcionarios').html('<option value="">-- Escolha um funcionario --</option>');
                     }
-                }
-                xmlhttp.open("GET", "./list_funcionario_select.php?Buscafilial=" + str, true);
-                xmlhttp.send();
-            }
+                });
+            });
 
             /*
              function showUser(str) {
@@ -80,9 +102,11 @@
                     </div>  
                     <br>
                     <div class="row">
+                        <label for="filial">Filial:</label>
+
                         <div class="input-field col s12" >
-                           <select onchange="showUser(this.value)">
-                                <option value="" disabled selected>Selecione uma filial para a busca</option>
+                            <select id="filial">
+                                <option value="" disabled selected>---> Escolha uma filial <---</option>
                                 <?php
                                 while ($row = mysqli_fetch_assoc($result_filiais)) {
                                     ?>
@@ -92,9 +116,20 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class='input-field col s12' id="funcionario" name="funcionario">
+                        <label for="funcionarios">Funcionario:</label>
+                        <div class='input-field col s12'>
+                            <select name="funcionarios" id="funcionarios">
+                                <option value="" disabled selected>---> Escolha um fucionario <---</option>
+                            </select>
                         </div>
                     </div>
+
+
+
+
+
+
+
                     <div class="row">
                         <div class="col s12 l4 m4">
                             <label>Periodo</label>
