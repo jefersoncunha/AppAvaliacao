@@ -1,6 +1,6 @@
 <?php
 // Incluir aquivo de conex�o
-include("../controllers/conexao_bd.php");
+include("../controllers/conexao_bd_cloud.php");
 
 // Recebe o valor enviado
 $valor = $_GET['valor'];
