@@ -31,27 +31,7 @@ if (isset($filtro['op'])) {
     //busca operação
     switch ($operacao) {
         case "avaliar":
-
-            /* echo 'id_funcionario: ', $_POST["id_funcionario"];
-              echo '<br>';
-              echo 'id_avalidor: ', $_SESSION['id_bd'];
-              echo '<br>';
-              echo 'Obs: ';
-              foreach ($_POST["obs"] as $obs) {
-              print_r $obs ;
-              }
-              echo '<br>';
-              echo 'Notas: ';
-              foreach ($_POST["nota"] as $notas) {
-              print_r $notas ;
-              }
-              echo '<br>';
-              echo 'id_criterios: ';
-              print_r($_POST["id_criterio"]);
-              echo '<br>'; */
-
-            //$total = sizeof($_POST["avaliacao"]);
-                date_default_timezone_set("America/Sao_Paulo");
+            date_default_timezone_set("America/Sao_Paulo");
 
             $av_Objeto->setData(date('Y-m-d'));
             $av_Objeto->setIdAvalidor($sg->anti_sql_injection($_SESSION['id_bd']));
@@ -75,10 +55,6 @@ if (isset($filtro['op'])) {
 
             //redirecionar para a pagina            
             header('location:../views/list_aval_filial.php');
-
-
-
-
 
             break;
 

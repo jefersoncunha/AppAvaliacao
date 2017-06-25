@@ -1,43 +1,50 @@
-<html lang="pt-br">
-    <head>
-        <title>Form de exemplo com radios</title>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <form action="form-action.php" method="post">
-            <p>
-                <input type="radio" name="band-rock" value="beatles"/>The Beatles
-                <input type="radio" name="band-rock" value="led-zeppelin"/> Led Zeppelin
-                <input type="radio" name="band-rock" value="pink-floyd"/>Pink Floy
-            </p>
-            <p>
-                <input type="button" id="btnSubmit" value="Submit me!" />
-                <input type="button" id="btnLoad" value="Load!" />
-            </p>
-        </form>
-        <script type="text/javascript" >
-
-            document.getElementById("btnSubmit").onclick = function () {
-                var radios = document.getElementsByName("band-rock");
-                for (var i = 0; i < radios.length; i++) {
-                    if (radios[i].checked) {
-                        console.log("Escolheu: " + radios[i].value);
-                    }
-                }
-            };
-
-            /**
-             * Botão Load
-             */
-            document.getElementById("btnLoad").onclick = function () {
-                var radios = document.getElementsByName("band-rock");
-
-                for (var i = 0; i < radios.length; i++) {
-                    if (radios[i].value === "led-zeppelin") {
-                        radios[i].checked = true;
-                    }
-                }
-            };
-        </script>
-    </body>
-</html>
+<?php
+//bonus630
+	function con()
+	{
+		try
+		{
+			return new PDO("mysql:dbname=estados;host=localhost","root","");
+		}
+		catch(PDOException $erro)
+		{
+			return $erro;
+		}
+	}
+	
+	function geraJsonEstados()
+	{
+		$query = con()->query("Select * from funcionario order by estado_nome",PDO::FETCH_ASSOC);
+		$estados = $query->fetchAll();
+		$stringJson = "{\"Estados\":[";
+		for($i=0;$i<count($estados);$i++)
+		{
+			$stringJson .= "{\"id\":\"".$estados[$i]["estado_id"]."\",\"nome\":\"".utf8_encode($estados[$i]["estado_nome"])."\"}";
+			if($i<count($estados)-1)
+				$stringJson .= ",";
+		}
+		$stringJson .= "]}";
+		return $stringJson;
+	}
+	function geraJsonCidades($estadosId)
+	{
+		$query = con()->query("Select * from funcionario where id_filial = $estadosId order by cidade_nome");
+		$cidades = $query->fetchAll();
+		$stringJson = "{\"Cidades\":[";
+		for($i=0;$i<count($cidades);$i++)
+		{
+			$stringJson .= "{\"id\":\"".$cidades[$i]["cidade_id"]."\",\"nome\":\"".utf8_encode($cidades[$i]["cidade_nome"])."\"}";
+			if($i<count($cidades)-1)
+				$stringJson .= ",";
+		}
+		$stringJson .= "]}";
+		return $stringJson;
+	}
+	
+	header('Content-Type: application/json');
+	
+	if(isset($_GET["id"]))
+		echo geraJsonCidades($_GET["id"]);
+	else
+		echo geraJsonEstados();
+?>

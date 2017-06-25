@@ -1,6 +1,6 @@
 
 <?php
-include '../controllers/conexao_bd.php';
+//include '../controllers/conexao_bd.php';
 require '../dao/funcionario_dao.php';
 $f_dao = new funcionario_dao();
 $resultBusca = $f_dao->busca_funcionario_filial(intval($_GET['Buscafilial']));

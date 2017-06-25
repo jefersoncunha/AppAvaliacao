@@ -86,10 +86,9 @@
                                 ?>
                             </ul>
                         </form>
-                        <div class="row"><h5 class="chip green white-text col s12 center"><i>Já avaliados dia <?php echo date('d/m/Y'); ?></i></h5></div>
-                        <!-- LISTAR FUNCIONARIOS JÁ AVALIADOS--> 
+                        <!--<div class="row"><h5 class="chip green white-text col s12 center"><i>Já avaliados dia <?php echo date('d/m/Y'); ?></i></h5></div>
                         <ul class="collapsible popout grey lighten-2" data-collapsible="accordion">
-                            <?php
+                            <?php /*
                             $result_funcio = $funcionario->busca_funcionario_filial($filtro['idfilial']); //busco todos funcionarios
 
                             while ($rowsF = mysqli_fetch_assoc($result_funcio)) {
@@ -111,7 +110,7 @@
                                         </li><?php
                                     }
                                 }
-                            }
+                            } */
                             ?><!--FIM DO LAÇO-->
                         </ul>
                         <!--
@@ -159,7 +158,7 @@
                 } else {
                     $_SESSION['cadastro'] = './new_funcio.php';
                     $_SESSION['home'] = './home.php';
-                    $_SESSION['mensagem'] = 'Você não possui funcionarios vinculados a esta filial';
+                    $_SESSION['mensagem'] = 'Você não possui funcionário vinculado a esta filial';
                     $_SESSION['numero_modal'] = 5;
                     //include './modal.php';
                 }

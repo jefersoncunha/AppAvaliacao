@@ -35,7 +35,7 @@ class conexao_bd {
         $this->servidor, 
         $this->usuario, 
         $this->senha) or die(mysqli_error());
-        mysqli_select_db($con, $this->db) or die(mysqli_error());
+        mysqli_select_db($con, $this->db) or die(mysqli_error("Configuracao de Banco de Dados Errada!"));
     }
     
     //fecha conexao
@@ -47,7 +47,7 @@ class conexao_bd {
     //executa query
     public function query($sql) {
         global $con;
-        $query = mysqli_query($con, $sql) or die(mysqli_error());
+        $query = mysqli_query($con, $sql) or die(mysqli_error("Problema executar query"));
         return $query;
     }
     

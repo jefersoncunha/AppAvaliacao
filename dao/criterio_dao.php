@@ -1,6 +1,6 @@
 <?php
 
-require_once('../controllers/conexao_bd_cloud.php');
+require_once('../controllers/_redirectBD.php');
 
 class criterio_dao {
 

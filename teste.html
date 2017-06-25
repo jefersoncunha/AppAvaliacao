@@ -1,38 +1,49 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<?php  
-/* esse bloco de código em php verifica se existe a sessão, pois o usuário pode simplesmente não fazer o login e digitar na barra de endereço do seu navegador o caminho para a página principal do site (sistema), burlando assim a obrigação de fazer um login, com isso se ele não estiver feito o login não será criado a session, então ao verificar que a session não existe a página redireciona o mesmo para a index.php.
-session_start();
-if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-{
-	unset($_SESSION['login']);
-	unset($_SESSION['senha']);
-	header('location:index.php');
-	}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-$logado = $_SESSION['login'];
-?>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>SISTEMA WEB</title>
-</head>
+<form>
+	<select name='fabricante'>
+		<option value='1'>Fabricante 1</option>
+		<option value='2'>Fabricante 2</option>
+		<option value='3'>Fabricante 3</option>
+	</select>
 
-<body>
-<table width="800" height="748" border="1">
-  <tr>
-    <td height="90" colspan="2" bgcolor="#CCCCCC">SISTEM WEB TESTE
-    <?php 
-	echo" Bem vindo $logado";
-	?>
-    </td>
-  </tr>
-  <tr>
-    <td width="103" height="410" bgcolor="#CCCCCC">MENU AQUI</td>
-    <td width="546">CONTEUDO E ICONES AQUI</td>
-  </tr>
-  <tr>
-    <td colspan="2" bgcolor="#000000"> </td>
-  </tr>
-</table>
-</body>
-</html>
+	<select name='produtos'>
+	</select>
+
+	<div class="hidden produtos-f1">
+		<option value='11'>Mouse</option>
+		<option value='31'>Teclado</option>
+		<option value='41'>Monitor</option>
+	</div>
+
+	<div class="hidden produtos-f2">
+		<option value='23'>Processador</option>
+		<option value='43'>HD</option>
+		<option value='12'>Memoria RAM</option>
+		<option value='51'>Bateria</option>
+	</div>
+
+	<div class="hidden produtos-f3">
+		<option value='1'>Notebook</option>
+	</div>
+</form>
+
+<script>
+$(function(){
+
+	$('.hidden').hide();
+  
+  $('select[name=produtos]').html($('div.produtos-f1').html());
+	
+
+	$('select[name=fabricante]').change(function(){ 
+		var id = $('select[name=fabricante]').val();
+
+		$('select[name=produtos]').empty();
+		
+		$('select[name=produtos]').html($('div.produtos-f' + id).html());
+
+	});
+	
+});
+</script>

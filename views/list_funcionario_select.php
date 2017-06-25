@@ -1,30 +1,18 @@
 <?php
 
-header('Cache-Control: no-cache');
-header('Content-type: application/xml; charset="utf-8"', true);
+require ('../controllers/_redirectBD.php');
 
-require_once('../controllers/conexao_bd.php');
-
-
+$id_municipio = $_POST['id_filial'];
 $bd = new conexao_bd();
 $bd->conectar();
 
-$cod_filial = mysql_real_escape_string($_GET['search']);
+$sql = "SELECT id,nome,sobrenome FROM funcionario WHERE id_filial = '$id_municipio' ORDER BY nome";
 
-$funcinarios = array();
+//$resultado=$mysqli->query($query);
+$resultado = $bd->query($sql);
 
-$sql = "SELECT * FROM funcionario WHERE id_filial=\'' . $cod_filial . '\''";
-
-$retorno = $bd->query($sql);
-
-while ($row = mysqli_fetch_assoc($retorno)) {
-    $funcinarios[] = array(
-        'cod_funcionario' => $row['id'],
-        'nome' => $row['nome'],
-    );
+while ($row = mysqli_fetch_assoc($resultado)) {
+    echo "<option value='" . $row['id'] . "'>" . $row['nome']." ".$row['sobrenome']. "</option>";
 }
-
+//echo $html;
 $bd->fechar();
-
-echo( json_encode($funcinarios) );
-
