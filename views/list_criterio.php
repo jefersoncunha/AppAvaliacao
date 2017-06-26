@@ -58,7 +58,7 @@
                 <?php
             } else {//nao possui criterios cadastradas
                 $_SESSION['cadastro'] = './new_criterio.php';
-                $_SESSION['mensagem'] = 'Você não possui criterio cadastrado';
+                $_SESSION['mensagem'] = 'Você não possui critério cadastrado';
                 $_SESSION['home'] = './home.php';
                 $_SESSION['numero_modal'] = 5;
             }

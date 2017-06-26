@@ -1,36 +1,46 @@
 
+
+
+
 function geraGrafico()
 {
     $('#GraficoLine').empty(); //Limpando grafico
 
-    //recebe valor 
+    /*recebe valor 
     var idFuncionario = formDados.cbx_funcionario.value;
     var DataInicio = formDados.de.value;
     var DataFim = formDados.de.value;
-    
+    */
+    var idFuncionario = $('#cbx_funcionario').val();	//Pega valor do campo cbx_funcionario
+    var DataInicio = $('#de').val();	//Pega valor do campo data
+    var DataFim = $('#ate').val();	//Pega valor do campo data
+
     $.ajax({
         type: 'post', //Definimos o método HTTP usado
         dataType: 'json', //Definimos o tipo de retorno
         data:{
-            idFuncionario:idFuncionario,
-            DataInicio:DataInicio,
-            DataFim:DataFim
-            },
+            idFuncionario: idFuncionario,
+            DataInicio: DataInicio,
+            DataFim: DataFim
+             },
         url: 'getDadosGrafico.php', //Definindo o arquivo onde serão buscados os dados
         success: //retorno
-        function (dados) {
+                function (dados) {
                     alert('aAcerto');
-            //carregaGrafico(data);
-            //for (var i = 0; dados.length > i; i++) {
-                //Adicionando registros retornados na tabela
-              //  $('#tabela').append('<tr><td>' + dados[i].id + '</td><td>' + dados[i].nome + '</td><td>' + dados[i].email + '</td></tr>');
-            //}
-        },
-        error : 
-        function(dados){
-            $('#errolog').show();
-            //alert('Erro:',dados);
-        }
+                    alert(dados);
+                    //carregaGrafico(data);
+                    //for (var i = 0; dados.length > i; i++) {
+                    //Adicionando registros retornados na tabela
+                    //  $('#tabela').append('<tr><td>' + dados[i].id + '</td><td>' + dados[i].nome + '</td><td>' + dados[i].email + '</td></tr>');
+                    //}
+                },
+        error:
+                function (dados) {
+                    //$('#errolog').show();
+                    alert('Erro:');
+                                        alert(dados);
+
+                }
     });
 
 }
@@ -48,17 +58,17 @@ function carregaGrafico(DadosDao) {
         //cabeçalhos
         labels: ["1", "2", "3", "4", "5", "6"],
         datasets: [
-                    {
-                        label: "Semana 1",
-                        fillColor: "rgba(187, 222, 251, 1)",
-                        strokeColor: "rgba(0, 0, 0, 1)",
-                        pointColor: "rgba(33, 150, 243, 1)",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(151,187,205,1)",
-                        data: [2, 4, 3, 2]
-                    }
-                ]
+            {
+                label: "Semana 1",
+                fillColor: "rgba(187, 222, 251, 1)",
+                strokeColor: "rgba(0, 0, 0, 1)",
+                pointColor: "rgba(33, 150, 243, 1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(151,187,205,1)",
+                data: [2, 4, 3, 2]
+            }
+        ]
     };
     //Script JavaScript que chama o gráfico
     window.onload = function () {

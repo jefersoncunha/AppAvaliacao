@@ -13,8 +13,11 @@
         $filtro = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         $funcionario = new funcionario_dao();
         $criterio = new criterio_dao();
-        //recebe por GET 
+        //recebe por POST
         $id = $filtro['buscafuncionario'];
+        if (isset($_GET['buscafuncionario'])) {
+            $id = $_GET['buscafuncionario'];
+        }
         $result_funcionario = $funcionario->busca_funcionario_id($id);
         ?>
         <form action="../controllers/avaliacao_controll.php" method="post">
@@ -59,10 +62,10 @@
                         $nota4 = 4; //id inputs radio
                         $obs = 5; //id inputs radio
                         $namenota = 0; //nome das notas
-                        $criterio = 0; //nome das notas
+                        $criterioN = 0; //nome das notas
                         while ($linhaC = mysqli_fetch_assoc($result_criterio)) {
                             ?><!--INICIO DO LAÇO CRITERIO-->
-                            <input type="hidden" name="id_criterio[<?php echo $criterio; ?>]" value="<?php echo $linhaC['id']; ?>"/>
+                            <input type="hidden" name="id_criterio[<?php echo $criterioN; ?>]" value="<?php echo $linhaC['id']; ?>"/>
 
                             <div class="row">
                                 <div class="col s12">
@@ -111,7 +114,7 @@
                             $obs = $obs + 5;
                             //incrementa nome das notas
                             $namenota++;
-                            $criterio++;
+                            $criterioN++;
                         }
                         ?><!--FIM DO LAÇO CRITERIO-->
                         <div class="row">

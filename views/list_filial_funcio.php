@@ -54,7 +54,7 @@
                             <div class="row">
                                 <div class="col s12">
                                     <select onchange="showUser(this.value)">
-                                        <option value="" disabled selected>Selecione uma filial para a busca</option>
+                                        <option value="" disabled selected>: Selecione uma filial :</option>
                                         <?php
                                         while ($row = mysqli_fetch_assoc($result_filiais)) {
                                             ?>

@@ -60,7 +60,7 @@ if (isset($filtro['op'])) {
 
             $_SESSION['local'] = './list_criterio.php';
             $_SESSION['numero_modal'] = 2;
-            $_SESSION['mensagem'] = "Excluido com sucesso!";
+            $_SESSION['mensagem'] = "Excluído com sucesso!";
 
             //redirecionar para a pagina
 
@@ -77,7 +77,7 @@ if (isset($filtro['op'])) {
             //busca classe
             $criterio->alterar_criterio($ObjC);
             //dados para modal
-            $_SESSION['fica'] = './list_filial.php';
+            $_SESSION['local'] = './list_criterio.php';
             $_SESSION['numero_modal'] = 2;
             $_SESSION['mensagem'] = "Alterado com sucesso!";
 

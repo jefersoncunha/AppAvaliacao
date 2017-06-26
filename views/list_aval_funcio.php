@@ -23,11 +23,13 @@
 
         date_default_timezone_set("America/Sao_Paulo");
         ?>
+        <input type="hidden" value="<?php echo $filtro['idfilial'] ?>" name="filial" id="filial">
         <div  class="container">
             <div class="row">
                 <?php
                 if ($result_func->num_rows > 0) {//verifica se possui dados
                     ?>
+                
                     <div class="account-wall" >
                         <div class="row">
                             <strong><h5><i>Funcionario(s) da filial </i></h5></strong>
@@ -46,11 +48,13 @@
                                 </form>
                             </div>
                         </nav>
-                        <div id="resultado"></div>
+                        
+                        <div class="row" id="resultado" name="resultado"></div>
+                        
                         <div class=" col s12 divider"></div>
                         <div class="section"></div>
                         <!-- LISTAR FUNCIONARIOS NÃO AVALIADOS--> 
-                        <div class="row"><h5 class="chip yellow  white-text col s12 center"><i>Não avaliados</i></h5></div>
+                        <!--<div class="row"><h5 class="chip yellow  white-text col s12 center"><i>Não avaliados</i></h5></div>-->
                         <form action="avaliacao.php" method="post">    
                             <ul class="collapsible popout grey lighten-2" data-collapsible="accordion">
                                 <?php
@@ -166,6 +170,7 @@
                 <?php
                 include './modal.php';
                 ?>
+            </div>
             </div>
             <script type="text/javascript" src="../js/meu_estilo.js"></script> 
     </body>

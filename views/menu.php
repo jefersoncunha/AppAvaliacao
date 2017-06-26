@@ -31,7 +31,7 @@
     <li><div class="divider"></div></li>
     <li><a href="logout.php"><i class="material-icons">reply</i>Logout</a></li>
     <li><div class="divider"></div></li>
-    <li><a href="#"><i class="material-icons">info_outline</i>Sobre</a></li>
+    <li><a href="sobre.php"><i class="material-icons">info_outline</i>Sobre</a></li>
     <li><div class="divider"></div></li>
 
 </ul>
