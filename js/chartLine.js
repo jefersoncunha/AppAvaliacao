@@ -12,7 +12,7 @@ var data;
 
 $.ajax({
     type: "POST",
-    url: "../views/getDadosGrafico.php",
+    url: "http://myteam-ufsm.herokuapp.com/views/getDadosGrafico.php",
     data: {
         data:
                 [
